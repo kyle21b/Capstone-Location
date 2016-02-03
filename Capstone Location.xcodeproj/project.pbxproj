@@ -1,0 +1,575 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		30C554E4B4DE33D2D5BF170D /* Pods_Capstone_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F54C726C3B121D56D41C079 /* Pods_Capstone_Location.framework */; };
+		A708A0FA1BF6C16900EE4E2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A708A0F91BF6C16900EE4E2F /* AppDelegate.swift */; };
+		A708A0FC1BF6C16900EE4E2F /* RFMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A708A0FB1BF6C16900EE4E2F /* RFMapViewController.swift */; };
+		A708A0FF1BF6C16900EE4E2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A708A0FD1BF6C16900EE4E2F /* Main.storyboard */; };
+		A708A1011BF6C16900EE4E2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A708A1001BF6C16900EE4E2F /* Assets.xcassets */; };
+		A708A1041BF6C16900EE4E2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A708A1021BF6C16900EE4E2F /* LaunchScreen.storyboard */; };
+		A708A10C1BF6C30900EE4E2F /* img-Y13162350-0001.png in Resources */ = {isa = PBXBuildFile; fileRef = A708A10B1BF6C30900EE4E2F /* img-Y13162350-0001.png */; };
+		A721F6321C60208100EA812E /* RFClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A721F6311C60208100EA812E /* RFClasses.swift */; };
+		A721F6341C61A19B00EA812E /* IntegratedLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A721F6331C61A19B00EA812E /* IntegratedLocationManager.swift */; };
+		A721F6361C61A84B00EA812E /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = A721F6351C61A84B00EA812E /* Coordinates.swift */; };
+		A73EFD3C1C3308DA00571232 /* RFDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73EFD3B1C3308DA00571232 /* RFDeviceViewController.swift */; };
+		A7759E6D1C25D4A000D80980 /* RFBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7759E6C1C25D4A000D80980 /* RFBrowserViewController.swift */; };
+		A7759E951C25FA3C00D80980 /* RFSampleDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7759E941C25FA3C00D80980 /* RFSampleDatabase.swift */; };
+		A775A1F01C26301200D80980 /* Flann.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775A1EF1C26301200D80980 /* Flann.swift */; };
+		A7B57D521C31D2D50054259F /* RFEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B57D511C31D2D50054259F /* RFEstimator.swift */; };
+		A7E745C01C30FDFE00CC3736 /* Capstone_LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E745BF1C30FDFE00CC3736 /* Capstone_LocationTests.swift */; };
+		A7E745C71C30FE2300CC3736 /* Flann.swift in Sources */ = {isa = PBXBuildFile; fileRef = A775A1EF1C26301200D80980 /* Flann.swift */; };
+		A7E745CD1C31C2BD00CC3736 /* Arithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E745CB1C31C2BD00CC3736 /* Arithmetic.swift */; };
+		A7E745CE1C31C2BD00CC3736 /* Arithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E745CB1C31C2BD00CC3736 /* Arithmetic.swift */; };
+		A7E745CF1C31C2BD00CC3736 /* Auxiliary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E745CC1C31C2BD00CC3736 /* Auxiliary.swift */; };
+		A7E745D01C31C2BD00CC3736 /* Auxiliary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E745CC1C31C2BD00CC3736 /* Auxiliary.swift */; };
+		A7E745D21C31C2F400CC3736 /* Power.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E745D11C31C2F400CC3736 /* Power.swift */; };
+		A7E745D31C31C2F400CC3736 /* Power.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E745D11C31C2F400CC3736 /* Power.swift */; };
+		A7F089A11C25A78800BD6C83 /* RFSensorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F089A01C25A78800BD6C83 /* RFSensorModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A7E745C21C30FDFE00CC3736 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A708A0EE1BF6C16900EE4E2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A708A0F51BF6C16900EE4E2F;
+			remoteInfo = "Capstone Location";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		393D35F272B9DAB392552FC8 /* Pods-Capstone Location.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone Location.release.xcconfig"; path = "Pods/Target Support Files/Pods-Capstone Location/Pods-Capstone Location.release.xcconfig"; sourceTree = "<group>"; };
+		3F54C726C3B121D56D41C079 /* Pods_Capstone_Location.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Capstone_Location.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		646CAD9D7CF8ADF63984BFA6 /* Pods-Capstone Location.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone Location.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Capstone Location/Pods-Capstone Location.debug.xcconfig"; sourceTree = "<group>"; };
+		A708A0F61BF6C16900EE4E2F /* Capstone Location.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Capstone Location.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A708A0F91BF6C16900EE4E2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A708A0FB1BF6C16900EE4E2F /* RFMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RFMapViewController.swift; sourceTree = "<group>"; };
+		A708A0FE1BF6C16900EE4E2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A708A1001BF6C16900EE4E2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A708A1031BF6C16900EE4E2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A708A1051BF6C16900EE4E2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A708A10B1BF6C30900EE4E2F /* img-Y13162350-0001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "img-Y13162350-0001.png"; path = "../../../img-Y13162350-0001.png"; sourceTree = "<group>"; };
+		A721F6311C60208100EA812E /* RFClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFClasses.swift; sourceTree = "<group>"; };
+		A721F6331C61A19B00EA812E /* IntegratedLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegratedLocationManager.swift; sourceTree = "<group>"; };
+		A721F6351C61A84B00EA812E /* Coordinates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		A73EFD3B1C3308DA00571232 /* RFDeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFDeviceViewController.swift; sourceTree = "<group>"; };
+		A7759E6C1C25D4A000D80980 /* RFBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFBrowserViewController.swift; sourceTree = "<group>"; };
+		A7759E941C25FA3C00D80980 /* RFSampleDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFSampleDatabase.swift; sourceTree = "<group>"; };
+		A775A1EF1C26301200D80980 /* Flann.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flann.swift; sourceTree = "<group>"; };
+		A7B57D511C31D2D50054259F /* RFEstimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFEstimator.swift; sourceTree = "<group>"; };
+		A7E745BD1C30FDFD00CC3736 /* Capstone LocationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Capstone LocationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7E745BF1C30FDFE00CC3736 /* Capstone_LocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capstone_LocationTests.swift; sourceTree = "<group>"; };
+		A7E745C11C30FDFE00CC3736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7E745CB1C31C2BD00CC3736 /* Arithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Arithmetic.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		A7E745CC1C31C2BD00CC3736 /* Auxiliary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Auxiliary.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		A7E745D11C31C2F400CC3736 /* Power.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Power.swift; sourceTree = "<group>"; };
+		A7F089A01C25A78800BD6C83 /* RFSensorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFSensorModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A708A0F31BF6C16900EE4E2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30C554E4B4DE33D2D5BF170D /* Pods_Capstone_Location.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7E745BA1C30FDFD00CC3736 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A23E48A2C95BC299407CB4F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F54C726C3B121D56D41C079 /* Pods_Capstone_Location.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A708A0ED1BF6C16900EE4E2F = {
+			isa = PBXGroup;
+			children = (
+				A708A0F81BF6C16900EE4E2F /* Capstone Location */,
+				A7E745BE1C30FDFE00CC3736 /* Capstone LocationTests */,
+				A708A0F71BF6C16900EE4E2F /* Products */,
+				BFA94EA2547964435914AC49 /* Pods */,
+				A23E48A2C95BC299407CB4F8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A708A0F71BF6C16900EE4E2F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A708A0F61BF6C16900EE4E2F /* Capstone Location.app */,
+				A7E745BD1C30FDFD00CC3736 /* Capstone LocationTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A708A0F81BF6C16900EE4E2F /* Capstone Location */ = {
+			isa = PBXGroup;
+			children = (
+				A7B57D541C31D2F80054259F /* Supporting Files */,
+				A7B57D531C31D2DD0054259F /* Accelerate */,
+				A708A0FB1BF6C16900EE4E2F /* RFMapViewController.swift */,
+				A7759E6C1C25D4A000D80980 /* RFBrowserViewController.swift */,
+				A721F6301C601C8F00EA812E /* Model */,
+				A73EFD3B1C3308DA00571232 /* RFDeviceViewController.swift */,
+				A775A1EF1C26301200D80980 /* Flann.swift */,
+				A708A0FD1BF6C16900EE4E2F /* Main.storyboard */,
+				A708A10B1BF6C30900EE4E2F /* img-Y13162350-0001.png */,
+				A708A1021BF6C16900EE4E2F /* LaunchScreen.storyboard */,
+			);
+			path = "Capstone Location";
+			sourceTree = "<group>";
+		};
+		A721F6301C601C8F00EA812E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A721F6331C61A19B00EA812E /* IntegratedLocationManager.swift */,
+				A7B57D511C31D2D50054259F /* RFEstimator.swift */,
+				A7F089A01C25A78800BD6C83 /* RFSensorModel.swift */,
+				A7759E941C25FA3C00D80980 /* RFSampleDatabase.swift */,
+				A721F6311C60208100EA812E /* RFClasses.swift */,
+				A721F6351C61A84B00EA812E /* Coordinates.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A7B57D531C31D2DD0054259F /* Accelerate */ = {
+			isa = PBXGroup;
+			children = (
+				A7E745D11C31C2F400CC3736 /* Power.swift */,
+				A7E745CB1C31C2BD00CC3736 /* Arithmetic.swift */,
+				A7E745CC1C31C2BD00CC3736 /* Auxiliary.swift */,
+			);
+			name = Accelerate;
+			sourceTree = "<group>";
+		};
+		A7B57D541C31D2F80054259F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A708A0F91BF6C16900EE4E2F /* AppDelegate.swift */,
+				A708A1001BF6C16900EE4E2F /* Assets.xcassets */,
+				A708A1051BF6C16900EE4E2F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A7E745BE1C30FDFE00CC3736 /* Capstone LocationTests */ = {
+			isa = PBXGroup;
+			children = (
+				A7E745BF1C30FDFE00CC3736 /* Capstone_LocationTests.swift */,
+				A7E745C11C30FDFE00CC3736 /* Info.plist */,
+			);
+			path = "Capstone LocationTests";
+			sourceTree = "<group>";
+		};
+		BFA94EA2547964435914AC49 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				646CAD9D7CF8ADF63984BFA6 /* Pods-Capstone Location.debug.xcconfig */,
+				393D35F272B9DAB392552FC8 /* Pods-Capstone Location.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A708A0F51BF6C16900EE4E2F /* Capstone Location */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A708A1081BF6C16900EE4E2F /* Build configuration list for PBXNativeTarget "Capstone Location" */;
+			buildPhases = (
+				1B4198096D04D9544226281B /* Check Pods Manifest.lock */,
+				A708A0F21BF6C16900EE4E2F /* Sources */,
+				A708A0F31BF6C16900EE4E2F /* Frameworks */,
+				A708A0F41BF6C16900EE4E2F /* Resources */,
+				977E1DEA79E3D25CAA7C9492 /* Embed Pods Frameworks */,
+				DCB5CD9566D34B8EC286AC9B /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Capstone Location";
+			productName = "Capstone Location";
+			productReference = A708A0F61BF6C16900EE4E2F /* Capstone Location.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A7E745BC1C30FDFD00CC3736 /* Capstone LocationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7E745C61C30FDFE00CC3736 /* Build configuration list for PBXNativeTarget "Capstone LocationTests" */;
+			buildPhases = (
+				A7E745B91C30FDFD00CC3736 /* Sources */,
+				A7E745BA1C30FDFD00CC3736 /* Frameworks */,
+				A7E745BB1C30FDFD00CC3736 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A7E745C31C30FDFE00CC3736 /* PBXTargetDependency */,
+			);
+			name = "Capstone LocationTests";
+			productName = "Capstone LocationTests";
+			productReference = A7E745BD1C30FDFD00CC3736 /* Capstone LocationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A708A0EE1BF6C16900EE4E2F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Kyle Bailey";
+				TargetAttributes = {
+					A708A0F51BF6C16900EE4E2F = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					A7E745BC1C30FDFD00CC3736 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = A708A0F51BF6C16900EE4E2F;
+					};
+				};
+			};
+			buildConfigurationList = A708A0F11BF6C16900EE4E2F /* Build configuration list for PBXProject "Capstone Location" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A708A0ED1BF6C16900EE4E2F;
+			productRefGroup = A708A0F71BF6C16900EE4E2F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A708A0F51BF6C16900EE4E2F /* Capstone Location */,
+				A7E745BC1C30FDFD00CC3736 /* Capstone LocationTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A708A0F41BF6C16900EE4E2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A708A1041BF6C16900EE4E2F /* LaunchScreen.storyboard in Resources */,
+				A708A1011BF6C16900EE4E2F /* Assets.xcassets in Resources */,
+				A708A0FF1BF6C16900EE4E2F /* Main.storyboard in Resources */,
+				A708A10C1BF6C30900EE4E2F /* img-Y13162350-0001.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7E745BB1C30FDFD00CC3736 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B4198096D04D9544226281B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		977E1DEA79E3D25CAA7C9492 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Capstone Location/Pods-Capstone Location-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCB5CD9566D34B8EC286AC9B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Capstone Location/Pods-Capstone Location-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A708A0F21BF6C16900EE4E2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A708A0FC1BF6C16900EE4E2F /* RFMapViewController.swift in Sources */,
+				A7759E951C25FA3C00D80980 /* RFSampleDatabase.swift in Sources */,
+				A7B57D521C31D2D50054259F /* RFEstimator.swift in Sources */,
+				A7E745CF1C31C2BD00CC3736 /* Auxiliary.swift in Sources */,
+				A7F089A11C25A78800BD6C83 /* RFSensorModel.swift in Sources */,
+				A721F6341C61A19B00EA812E /* IntegratedLocationManager.swift in Sources */,
+				A708A0FA1BF6C16900EE4E2F /* AppDelegate.swift in Sources */,
+				A7759E6D1C25D4A000D80980 /* RFBrowserViewController.swift in Sources */,
+				A7E745CD1C31C2BD00CC3736 /* Arithmetic.swift in Sources */,
+				A721F6361C61A84B00EA812E /* Coordinates.swift in Sources */,
+				A7E745D21C31C2F400CC3736 /* Power.swift in Sources */,
+				A721F6321C60208100EA812E /* RFClasses.swift in Sources */,
+				A73EFD3C1C3308DA00571232 /* RFDeviceViewController.swift in Sources */,
+				A775A1F01C26301200D80980 /* Flann.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7E745B91C30FDFD00CC3736 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7E745CE1C31C2BD00CC3736 /* Arithmetic.swift in Sources */,
+				A7E745C01C30FDFE00CC3736 /* Capstone_LocationTests.swift in Sources */,
+				A7E745D31C31C2F400CC3736 /* Power.swift in Sources */,
+				A7E745D01C31C2BD00CC3736 /* Auxiliary.swift in Sources */,
+				A7E745C71C30FE2300CC3736 /* Flann.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A7E745C31C30FDFE00CC3736 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A708A0F51BF6C16900EE4E2F /* Capstone Location */;
+			targetProxy = A7E745C21C30FDFE00CC3736 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A708A0FD1BF6C16900EE4E2F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A708A0FE1BF6C16900EE4E2F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A708A1021BF6C16900EE4E2F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A708A1031BF6C16900EE4E2F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A708A1061BF6C16900EE4E2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Flann\"";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A708A1071BF6C16900EE4E2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Flann\"";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A708A1091BF6C16900EE4E2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 646CAD9D7CF8ADF63984BFA6 /* Pods-Capstone Location.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Flann\"";
+				INFOPLIST_FILE = "Capstone Location/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "Kyle-Bailey.Capstone-Location";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A708A10A1BF6C16900EE4E2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 393D35F272B9DAB392552FC8 /* Pods-Capstone Location.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Flann\"";
+				INFOPLIST_FILE = "Capstone Location/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "Kyle-Bailey.Capstone-Location";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A7E745C41C30FDFE00CC3736 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				INFOPLIST_FILE = "Capstone LocationTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "Kyle-Bailey.Capstone-LocationTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Capstone Location.app/Capstone Location";
+			};
+			name = Debug;
+		};
+		A7E745C51C30FDFE00CC3736 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				INFOPLIST_FILE = "Capstone LocationTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Kyle-Bailey.Capstone-LocationTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Capstone Location.app/Capstone Location";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A708A0F11BF6C16900EE4E2F /* Build configuration list for PBXProject "Capstone Location" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A708A1061BF6C16900EE4E2F /* Debug */,
+				A708A1071BF6C16900EE4E2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A708A1081BF6C16900EE4E2F /* Build configuration list for PBXNativeTarget "Capstone Location" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A708A1091BF6C16900EE4E2F /* Debug */,
+				A708A10A1BF6C16900EE4E2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7E745C61C30FDFE00CC3736 /* Build configuration list for PBXNativeTarget "Capstone LocationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7E745C41C30FDFE00CC3736 /* Debug */,
+				A7E745C51C30FDFE00CC3736 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A708A0EE1BF6C16900EE4E2F /* Project object */;
+}

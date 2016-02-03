@@ -1,0 +1,6 @@
+framework module Pods_Capstone_Location {
+  umbrella header "Pods-Capstone Location-umbrella.h"
+
+  export *
+  module * { export * }
+}
