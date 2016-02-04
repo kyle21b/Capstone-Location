@@ -13,34 +13,6 @@ protocol RFSensorModelDelegate {
     func model(model: RFSensorModel, didUpdateDevice device: RFDevice)
 }
 
-typealias RSSIMeasurement = (RSSI: Double, timestamp: NSDate)
-
-struct RFDevice {
-    let identifier: String
-    
-    init(identifier: String) {
-        self.identifier = identifier
-    }
-    
-    var name: String?
-    var state: String?
-    
-    var advertisementData = [String: AnyObject]()
-    var measurements = [RSSIMeasurement]()
-    
-    var rssi: Double? {
-        return measurements.last?.RSSI
-    }
-    
-    mutating func recordRssi(rssi: Double) {
-        measurements.append((rssi, NSDate()))
-    }
-    
-    var displayName: String {
-        return name ?? identifier
-    }
-}
-
 extension CBPeripheral {
     public var RFIdentifier: String {
         return identifier.UUIDString

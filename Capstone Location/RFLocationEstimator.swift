@@ -39,16 +39,14 @@ class RFLocationEstimator: RFSensorModelDelegate {
     }
 
     func model(model: RFSensorModel, didUpdateDevice device: RFDevice) {
-        location = predictLocationForIntensity(model.sample(), nNeighbors: 5)
+        location = predictLocationForIntensity(model.sample())
     }
     
-    func predictLocationForIntensity(intensity: RFSample, nNeighbors: Int) -> Location {
+    func predictLocationForIntensity(intensity: RFSample, nNeighbors: Int = 5) -> Location {
         let intensityVector = database.baseStations.map { intensity[$0]! }
         
         let flannMatches = flannMatcher.findNearestNeighbors(intensityVector, nNeighbors: nNeighbors)
         let neighbors = flannMatches.map { (database.samples[$0], $1) }
-        
-        let totalWeight = neighbors.reduce(0) { $0 + weightForSignalStrengthDistance($1.1) }
         
         let floor = 1
         let matchingNeighbors = neighbors
@@ -56,7 +54,13 @@ class RFLocationEstimator: RFSensorModelDelegate {
             assert(sample.location.floor == floor)
         }
         
-        return neighbors.reduce(Location(x: 0, y: 0, floor: floor)) { $0 + $1.0.location * (weightForSignalStrengthDistance($1.1) / totalWeight) }
+        let totalWeight = neighbors.reduce(0) { $0 + weightForSignalStrengthDistance($1.1) }
+        
+        let centroid = neighbors.reduce(Point(x: 0, y: 0)) {
+            $0 + $1.0.location.point * (weightForSignalStrengthDistance($1.1) / totalWeight)
+        }
+        
+        return Location(point: centroid, floor: floor)
     }
     
     func startUpdatingLocation() {
@@ -69,5 +73,12 @@ class RFLocationEstimator: RFSensorModelDelegate {
     
     private func weightForSignalStrengthDistance(distance: Double) -> Double {
         return 100 / (1 + pow(distance, 1))
+    }
+}
+
+extension RFLocationEstimator {
+    func computeReprojectionError(trainingSample: RFTrainingSample) -> Double {
+        let estimatedLocation = predictLocationForIntensity(trainingSample.intensity)
+        return trainingSample.location.distanceToLocation(estimatedLocation)
     }
 }

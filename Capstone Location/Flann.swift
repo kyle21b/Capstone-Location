@@ -46,7 +46,7 @@ public class Flann {
         return Array(neighbors.prefix(nNeighbors))
     }
     
-    public func radiusSearch(testPoint: [Double], radius: Float, maxN: Int = Int.max) -> [Neighbor] {
+    public func radiusSearch(testPoint: [Double], radius: Double, maxN: Int = Int.max) -> [Neighbor] {
         assert(testPoint.count == columns)
 
         var neighbors = dataSet.enumerate().flatMap { (index: Int, element: [Double]) -> Neighbor? in

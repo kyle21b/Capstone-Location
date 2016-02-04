@@ -12,23 +12,12 @@ import MapKit
 let defaultRadius: CGFloat = 22.0
 
 class RFMapViewController: UIViewController { //, CLLocationManagerDelegate {
-    @IBOutlet weak var floorPlanView: UIImageView!
+    @IBOutlet weak var floorPlanView: FloorPlanView!
     
     let locationManager = CLLocationManager()
-    let userLocationView: UIView = {
-        let view = UIView()
-        view.bounds = CGRectMake(0, 0, defaultRadius*2, defaultRadius*2)
-        view.layer.cornerRadius = defaultRadius;
-        view.backgroundColor = UIColor.blueColor();
-        view.layer.masksToBounds = true
-        view.translatesAutoresizingMaskIntoConstraints = true
-        view.alpha = 0.7
-        return view
-    }()
     
     override func loadView() {
         super.loadView()
-        floorPlanView.addSubview(userLocationView)
     }
     
     override func viewDidLoad() {
@@ -45,39 +34,7 @@ class RFMapViewController: UIViewController { //, CLLocationManagerDelegate {
         }
         */
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        updateView()
-    }
-    
-    var location: CLLocation? {
-        didSet {
-            updateView()
-        }
-    }
-    
-    func updateView() {
-        guard let location = location else { return }
-        
-        let pixel = pixelCoordinateForWorldCoordinate(location.coordinate)
-        let point = pointCoordinateForPixelCoordinate(pixel)
-        
-        let size = sizeForAccuracy(location.horizontalAccuracy)
-        
-        self.userLocationView.center = point
-        self.setViewSize(size)
-    }
-    
-    func sizeForAccuracy(accuracy: CLLocationAccuracy) -> CGSize {
-        if (accuracy > 0) {
-            let scale = pixelsPerMeter * imagePerPixelScale
-            return CGSizeMake(CGFloat(accuracy) * scale * 2, CGFloat(accuracy) * scale * 2)
-        } else {
-            return CGSizeMake(defaultRadius*2, defaultRadius*2)
-        }
-    }
-
+  
     @IBAction func tap(sender: UITapGestureRecognizer) {
         moveToPoint(sender.locationInView(floorPlanView))
     }
@@ -87,18 +44,14 @@ class RFMapViewController: UIViewController { //, CLLocationManagerDelegate {
     }
     
     func moveToPoint(point: CGPoint) {
-        let pixel = pixelCoordinateForPointCoordinate(point)
-        let world = worldCoordinateForPixelCoordinate(pixel)
+        let floor = floorPlanView.convertFromScreenCoordinate(point)
         
-        location = CLLocation(location: world)
-    }
-    
-    func setViewSize(size: CGSize) {
-        userLocationView.transform = CGAffineTransformMakeScale(size.width / (defaultRadius*2), size.height / (defaultRadius*2))
+        floorPlanView.location = Location(x: floor.x, y: floor.y)
     }
 
+    /*
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        location = locations.last
-    }
+        floorPlanView.location = locations.last
+    }*/
 }
 
