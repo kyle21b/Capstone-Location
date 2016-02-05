@@ -31,7 +31,12 @@ let floorPlanConfig: AnchoredFloorPlanConfiguation = {
     
     let image = FloorPlanImage(named: "img-Y13162350-0001")!
 
-    return AnchoredFloorPlanConfiguation(image: image, beaconLocations: [:], a1: a1, a2: a2)
+    let config = AnchoredFloorPlanConfiguation(image: image, beaconLocations: [:], a1: a1, a2: a2)
+    
+    let xmlString = String(data: config.asJSON(), encoding: NSUTF8StringEncoding)!
+    print(xmlString)
+    
+    return config
 }()
 
 class FloorPlanConfiguration: DictionaryConvertible {
@@ -49,7 +54,10 @@ class FloorPlanConfiguration: DictionaryConvertible {
     }
     
     func asDictionary() -> AnyDictionary {
-        fatalError()
+        return [
+            "image": image.asDictionary(),
+            "beaconLocations": beaconLocations.asDictionary(),
+        ]
     }
 }
 
@@ -79,6 +87,9 @@ class AnchoredFloorPlanConfiguation: FloorPlanConfiguration {
     }
     
     override func asDictionary() -> AnyDictionary {
-        fatalError()
+        return super.asDictionary() + [
+            "a1" : a1.asDictionary(),
+            "a2" : a2.asDictionary()
+        ]
     }
 }

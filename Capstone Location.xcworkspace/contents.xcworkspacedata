@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:FloorPlanView.swift">
-   </FileRef>
-   <FileRef
       location = "group:Capstone Location.xcodeproj">
    </FileRef>
    <FileRef

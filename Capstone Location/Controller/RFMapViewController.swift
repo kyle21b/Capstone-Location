@@ -26,19 +26,27 @@ class RFMapViewController: UIViewController { //, CLLocationManagerDelegate {
     }
   
     @IBAction func tap(sender: UITapGestureRecognizer) {
-        moveToPoint(sender.locationInView(floorPlanScrollView))
+        moveToPoint(sender.locationInView(floorPlanScrollView), animated: true)
     }
     
     @IBAction func pan(sender: UIPanGestureRecognizer) {
         moveToPoint(sender.locationInView(floorPlanScrollView))
     }
     
-    func moveToPoint(point: CGPoint) {
+    func moveToPoint(point: CGPoint, animated: Bool = false) {
+        let floorPoint = floorPlanScrollView.convertFromScreen(point)
         
-        let floor = floorPlanScrollView.convertFromScreen(point)
-        floorPlanScrollView.location = Location(x: floor.x, y: floor.y)
-    }
+        let location = Location(point: floorPoint)
 
+        if animated {
+            UIView.animateWithDuration(0.22) {
+                self.floorPlanScrollView.location = location
+            }
+        } else {
+            floorPlanScrollView.location = location
+        }
+
+    }
     /*
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         floorPlanView.location = locations.last

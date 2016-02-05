@@ -11,14 +11,7 @@ import UIKit
 class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
     var floorPlanImage: FloorPlanImage? {
         didSet {
-            guard let floorPlanImage = floorPlanImage else { return }
-            
-            switch floorPlanImage.underlyingImage {
-            case .Image(let image): floorPlanView.image = image
-            default: break
-            }
-            
-            floorPlanView.sizeToFit()
+            floorPlanView.floorPlanImage = floorPlanImage
             zoomToRect(floorPlanView.bounds, animated: false)
         }
     }
@@ -35,7 +28,7 @@ class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
         return view
     }()
 
-    let floorPlanView: UIImageView
+    let floorPlanView: FloorPlanView
     
     required init?(coder aDecoder: NSCoder) {
         floorPlanView = FloorPlanView(coder: aDecoder)!
@@ -77,5 +70,16 @@ class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
 }
 
 class FloorPlanView: UIImageView {
-    
+    var floorPlanImage: FloorPlanImage? {
+        didSet {
+            guard let floorPlanImage = floorPlanImage else { return }
+            
+            switch floorPlanImage.underlyingImage {
+            case .Image(let image): self.image = image
+            default: break
+            }
+            
+            sizeToFit()
+        }
+    }
 }
