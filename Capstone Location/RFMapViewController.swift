@@ -9,10 +9,9 @@
 import UIKit
 import MapKit
 
-let defaultRadius: CGFloat = 22.0
-
 class RFMapViewController: UIViewController { //, CLLocationManagerDelegate {
-    @IBOutlet weak var floorPlanView: FloorPlanView!
+    
+    @IBOutlet weak var floorPlanScrollView: FloorPlanScrollView!
     
     let locationManager = CLLocationManager()
     
@@ -22,31 +21,22 @@ class RFMapViewController: UIViewController { //, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
-        // Do any additional setup after loading the view, typically from a nib.
-        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-        locationManager.delegate = self
         
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.startUpdatingLocation()
-        } else if CLLocationManager.authorizationStatus() == .NotDetermined {
-            locationManager.requestWhenInUseAuthorization()
-        }
-        */
+        floorPlanScrollView.floorPlanImage = floorPlanConfig.image
     }
   
     @IBAction func tap(sender: UITapGestureRecognizer) {
-        moveToPoint(sender.locationInView(floorPlanView))
+        moveToPoint(sender.locationInView(floorPlanScrollView))
     }
     
     @IBAction func pan(sender: UIPanGestureRecognizer) {
-        moveToPoint(sender.locationInView(floorPlanView))
+        moveToPoint(sender.locationInView(floorPlanScrollView))
     }
     
     func moveToPoint(point: CGPoint) {
-        let floor = floorPlanView.convertFromScreenCoordinate(point)
         
-        floorPlanView.location = Location(x: floor.x, y: floor.y)
+        let floor = floorPlanScrollView.convertFromScreen(point)
+        floorPlanScrollView.location = Location(x: floor.x, y: floor.y)
     }
 
     /*

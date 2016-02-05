@@ -29,17 +29,21 @@ class RFLocationEstimator: RFSensorModelDelegate {
         
         let intensities = dataBase.samples.map { sample in
             dataBase.baseStations.map { stationID in
-                sample.intensity[stationID]! ?? -140
+                sample.sample[stationID]! ?? -140
             }
         }
         
         flannMatcher = Flann(dataSet: intensities)
         
-        self.sensorModel.delegate = self
+        sensorModel.delegate = self
     }
 
     func model(model: RFSensorModel, didUpdateDevice device: RFDevice) {
         location = predictLocationForIntensity(model.sample())
+    }
+    
+    private func weightForSignalStrengthDistance(distance: Double) -> Double {
+        return 100 / (1 + pow(distance, 1))
     }
     
     func predictLocationForIntensity(intensity: RFSample, nNeighbors: Int = 5) -> Location {
@@ -70,15 +74,11 @@ class RFLocationEstimator: RFSensorModelDelegate {
     func stopUpdatingLocation() {
         sensorModel.stopScanning()
     }
-    
-    private func weightForSignalStrengthDistance(distance: Double) -> Double {
-        return 100 / (1 + pow(distance, 1))
-    }
 }
 
 extension RFLocationEstimator {
     func computeReprojectionError(trainingSample: RFTrainingSample) -> Double {
-        let estimatedLocation = predictLocationForIntensity(trainingSample.intensity)
+        let estimatedLocation = predictLocationForIntensity(trainingSample.sample)
         return trainingSample.location.distanceToLocation(estimatedLocation)
     }
 }

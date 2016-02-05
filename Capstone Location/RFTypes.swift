@@ -16,19 +16,20 @@ enum State {
 
 typealias RFIdentifier = String
 typealias RSSI = Double
-typealias RSSIMeasurement = (RSSI: Double, timestamp: NSDate)
 
 typealias RFSample = [RFIdentifier: RSSI]
 
 struct RFTrainingSample {
-    let intensity: RFSample
+    let sample: RFSample
     let location: Location
 }
 
 struct RFDevice {
-    let identifier: String
+    typealias Measurement = (RSSI: RSSI, timestamp: NSDate)
+
+    let identifier: RFIdentifier
     
-    init(identifier: String) {
+    init(identifier: RFIdentifier) {
         self.identifier = identifier
     }
     
@@ -36,7 +37,7 @@ struct RFDevice {
     var state: String?
     
     var advertisementData = [String: AnyObject]()
-    var measurements = [RSSIMeasurement]()
+    var measurements = [Measurement]()
     
     var rssi: Double? {
         return measurements.last?.RSSI

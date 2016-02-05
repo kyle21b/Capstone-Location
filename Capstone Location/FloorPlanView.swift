@@ -8,22 +8,52 @@
 
 import UIKit
 
-class FloorPlanView: UIImageView {
+class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
+    var floorPlanImage: FloorPlanImage? {
+        didSet {
+            guard let floorPlanImage = floorPlanImage else { return }
+            
+            switch floorPlanImage.underlyingImage {
+            case .Image(let image): floorPlanView.image = image
+            default: break
+            }
+            
+            floorPlanView.sizeToFit()
+            zoomToRect(floorPlanView.bounds, animated: false)
+        }
+    }
     
     let userLocationView: UIView = {
+        let size: CGFloat = 300
         let view = UIView()
-        view.bounds = CGRectMake(0, 0, defaultRadius*2, defaultRadius*2)
-        view.layer.cornerRadius = defaultRadius;
+        view.bounds = CGRectMake(0, 0, size, size)
+        view.layer.cornerRadius = size/2;
         view.backgroundColor = UIColor.blueColor();
         view.layer.masksToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = true
         view.alpha = 0.7
         return view
     }()
+
+    let floorPlanView: UIImageView
     
     required init?(coder aDecoder: NSCoder) {
+        floorPlanView = FloorPlanView(coder: aDecoder)!
+        floorPlanView.clipsToBounds = false
+        
         super.init(coder: aDecoder)
-        addSubview(userLocationView)
+        
+        addSubview(floorPlanView)
+        floorPlanView.addSubview(userLocationView)
+
+        let sides: [NSLayoutAttribute] = [.Left, .Right, .Top, .Bottom]
+        
+        let constraints = sides.map {
+            NSLayoutConstraint(item: self, attribute: $0, relatedBy: .Equal, toItem: floorPlanView, attribute: $0, multiplier: 1, constant: 0)
+        }
+        addConstraints(constraints)
+        
+        delegate = self
     }
     
     var location: Location? {
@@ -34,24 +64,18 @@ class FloorPlanView: UIImageView {
             switch (location.floor) {
             default: break
             }
-      
-            self.userLocationView.center = convertToScreenCoordinate(location.point)
+            
+            let screenCoord = convertToScreen(location.point)
+            let scrollViewTransform = Transform.scale(1/zoomScale)
+            userLocationView.center = screenCoord.applyTransform(scrollViewTransform)
         }
     }
     
-    /*
-    func sizeForAccuracy(accuracy: CLLocationAccuracy) -> CGSize {
-        if (accuracy > 0) {
-            let scale = CGFloat(floorPlanConfig.imagePointsPerMeter) * imagePerPixelScale
-            return CGSizeMake(CGFloat(accuracy) * scale * 2, CGFloat(accuracy) * scale * 2)
-        } else {
-            return CGSizeMake(defaultRadius*2, defaultRadius*2)
-        }
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        return floorPlanView
     }
+}
 
+class FloorPlanView: UIImageView {
     
-    func setViewSize(size: CGSize) {
-        userLocationView.transform = CGAffineTransformMakeScale(size.width / (defaultRadius*2), size.height / (defaultRadius*2))
-    }
-*/
 }

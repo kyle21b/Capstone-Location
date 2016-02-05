@@ -12,7 +12,7 @@ import CoreLocation
 //Trivial Implementation
 class RFSampleDatabase {
     let samples: [RFTrainingSample]
-    let baseStations: [String]
+    let baseStations: [RFIdentifier]
     
     init(samples: [RFTrainingSample], baseStations: [String]) {
         self.samples = samples
