@@ -15,7 +15,6 @@
 		A708A10C1BF6C30900EE4E2F /* img-Y13162350-0001.png in Resources */ = {isa = PBXBuildFile; fileRef = A708A10B1BF6C30900EE4E2F /* img-Y13162350-0001.png */; };
 		A70C9A641C655938005DB7A5 /* Arithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A601C655938005DB7A5 /* Arithmetic.swift */; };
 		A70C9A651C655938005DB7A5 /* Auxiliary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A611C655938005DB7A5 /* Auxiliary.swift */; };
-		A70C9A661C655938005DB7A5 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A621C655938005DB7A5 /* Geometry.swift */; };
 		A70C9A671C655938005DB7A5 /* Power.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A631C655938005DB7A5 /* Power.swift */; };
 		A70C9A6B1C655981005DB7A5 /* RFBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A681C655981005DB7A5 /* RFBrowserViewController.swift */; };
 		A70C9A6C1C655981005DB7A5 /* RFDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A691C655981005DB7A5 /* RFDeviceViewController.swift */; };
@@ -30,6 +29,7 @@
 		A70C9A7E1C6559C3005DB7A5 /* FloorPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A7C1C6559C3005DB7A5 /* FloorPlanView.swift */; };
 		A70C9A7F1C6559C3005DB7A5 /* ViewTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A7D1C6559C3005DB7A5 /* ViewTypes.swift */; };
 		A70C9A811C655A69005DB7A5 /* FloorPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A801C655A69005DB7A5 /* FloorPlan.swift */; };
+		A70C9A831C655D58005DB7A5 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A821C655D58005DB7A5 /* Geometry.swift */; };
 		A7E745C01C30FDFE00CC3736 /* Capstone_LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E745BF1C30FDFE00CC3736 /* Capstone_LocationTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +56,6 @@
 		A708A10B1BF6C30900EE4E2F /* img-Y13162350-0001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "img-Y13162350-0001.png"; path = "../../../img-Y13162350-0001.png"; sourceTree = "<group>"; };
 		A70C9A601C655938005DB7A5 /* Arithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Arithmetic.swift; path = Accelerate/Arithmetic.swift; sourceTree = "<group>"; };
 		A70C9A611C655938005DB7A5 /* Auxiliary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Auxiliary.swift; path = Accelerate/Auxiliary.swift; sourceTree = "<group>"; };
-		A70C9A621C655938005DB7A5 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = Accelerate/Geometry.swift; sourceTree = "<group>"; };
 		A70C9A631C655938005DB7A5 /* Power.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Power.swift; path = Accelerate/Power.swift; sourceTree = "<group>"; };
 		A70C9A681C655981005DB7A5 /* RFBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFBrowserViewController.swift; path = Controller/RFBrowserViewController.swift; sourceTree = "<group>"; };
 		A70C9A691C655981005DB7A5 /* RFDeviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFDeviceViewController.swift; path = Controller/RFDeviceViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		A70C9A7C1C6559C3005DB7A5 /* FloorPlanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloorPlanView.swift; path = View/FloorPlanView.swift; sourceTree = "<group>"; };
 		A70C9A7D1C6559C3005DB7A5 /* ViewTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewTypes.swift; path = View/ViewTypes.swift; sourceTree = "<group>"; };
 		A70C9A801C655A69005DB7A5 /* FloorPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloorPlan.swift; path = Model/FloorPlan.swift; sourceTree = "<group>"; };
+		A70C9A821C655D58005DB7A5 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = Model/Geometry.swift; sourceTree = "<group>"; };
 		A7E745BD1C30FDFD00CC3736 /* Capstone LocationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Capstone LocationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7E745BF1C30FDFE00CC3736 /* Capstone_LocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capstone_LocationTests.swift; sourceTree = "<group>"; };
 		A7E745C11C30FDFE00CC3736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -141,6 +141,7 @@
 		A721F6301C601C8F00EA812E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A70C9A821C655D58005DB7A5 /* Geometry.swift */,
 				A70C9A801C655A69005DB7A5 /* FloorPlan.swift */,
 				A70C9A6E1C6559B8005DB7A5 /* Flann.swift */,
 				A70C9A6F1C6559B8005DB7A5 /* IntegratedLocationManager.swift */,
@@ -177,7 +178,6 @@
 			children = (
 				A70C9A601C655938005DB7A5 /* Arithmetic.swift */,
 				A70C9A611C655938005DB7A5 /* Auxiliary.swift */,
-				A70C9A621C655938005DB7A5 /* Geometry.swift */,
 				A70C9A631C655938005DB7A5 /* Power.swift */,
 			);
 			name = Accelerate;
@@ -364,7 +364,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A70C9A661C655938005DB7A5 /* Geometry.swift in Sources */,
 				A70C9A6C1C655981005DB7A5 /* RFDeviceViewController.swift in Sources */,
 				A70C9A641C655938005DB7A5 /* Arithmetic.swift in Sources */,
 				A70C9A751C6559B8005DB7A5 /* Flann.swift in Sources */,
@@ -372,6 +371,7 @@
 				A70C9A7A1C6559B8005DB7A5 /* RFTypes.swift in Sources */,
 				A70C9A7E1C6559C3005DB7A5 /* FloorPlanView.swift in Sources */,
 				A70C9A771C6559B8005DB7A5 /* RFLocationEstimator.swift in Sources */,
+				A70C9A831C655D58005DB7A5 /* Geometry.swift in Sources */,
 				A70C9A761C6559B8005DB7A5 /* IntegratedLocationManager.swift in Sources */,
 				A70C9A6B1C655981005DB7A5 /* RFBrowserViewController.swift in Sources */,
 				A70C9A671C655938005DB7A5 /* Power.swift in Sources */,
