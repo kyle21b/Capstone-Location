@@ -84,8 +84,14 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-Capstone Location/Charts.framework"
+  install_framework "Pods-Capstone Location/Bolts.framework"
+  install_framework "Pods-Capstone Location/Parse.framework"
+  install_framework "Pods-Capstone Location/SVProgressHUD.framework"
+  install_framework "Pods-Capstone Location/SVPulsingAnnotationView.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-Capstone Location/Charts.framework"
+  install_framework "Pods-Capstone Location/Bolts.framework"
+  install_framework "Pods-Capstone Location/Parse.framework"
+  install_framework "Pods-Capstone Location/SVProgressHUD.framework"
+  install_framework "Pods-Capstone Location/SVPulsingAnnotationView.framework"
 fi

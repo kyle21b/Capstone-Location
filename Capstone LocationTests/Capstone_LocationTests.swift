@@ -20,6 +20,18 @@ class Capstone_LocationTests: XCTestCase {
         super.tearDown()
     }
     
+    func testXML() {
+        let xmlString = String(data: floorPlanConfig.asXML(), encoding: NSUTF8StringEncoding)!
+        print(xmlString)
+        sleep(1)
+    }
+    
+    func testJSON() {
+        let jsonString = String(data: floorPlanConfig.asJSON(), encoding: NSUTF8StringEncoding)!
+        print(jsonString)
+        sleep(1)
+    }
+    
     func testVectorLength() {
         assert(length([2,10,11]) == 15)
     }

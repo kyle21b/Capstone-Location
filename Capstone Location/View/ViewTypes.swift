@@ -11,7 +11,7 @@ import UIKit
 struct FloorPlanImage {
     enum UnderlyingType {
         case Image(UIImage)
-        case PDF(CGPDFPageRef)
+        case PDF(PDFPage)
     }
     
     let name: String
@@ -20,5 +20,26 @@ struct FloorPlanImage {
         guard let image = UIImage(named: name) else { return nil }
         self.name = name
         self.underlyingImage = .Image(image)
+    }
+}
+
+extension FloorPlanImage {
+    var size: CGSize {
+        switch underlyingImage {
+        case .Image(let image): return image.size
+        case .PDF(let pdf): return pdf.size
+        }
+    }
+    
+    var center: FloorPoint {
+        let size = self.size
+        return FloorPoint(x: Double(size.width)/2, y: Double(size.height)/2)
+    }
+}
+
+typealias PDFPage = CGPDFPageRef
+extension PDFPage {
+    var size: CGSize {
+        return CGPDFPageGetBoxRect(self, .MediaBox).size
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVPulsingAnnotationView
 
 class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
     var floorPlanImage: FloorPlanImage? {
@@ -17,6 +18,7 @@ class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
     }
     
     let userLocationView: UIView = {
+        /*
         let size: CGFloat = 300
         let view = UIView()
         view.bounds = CGRectMake(0, 0, size, size)
@@ -26,17 +28,21 @@ class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
         view.translatesAutoresizingMaskIntoConstraints = true
         view.alpha = 0.7
         return view
+        */
+        return SVPulsingAnnotationView()
     }()
 
     let floorPlanView: FloorPlanView
     
     required init?(coder aDecoder: NSCoder) {
         floorPlanView = FloorPlanView(coder: aDecoder)!
-        floorPlanView.clipsToBounds = false
         
         super.init(coder: aDecoder)
         
+        decelerationRate = UIScrollViewDecelerationRateFast
+        
         addSubview(floorPlanView)
+        floorPlanView.clipsToBounds = false
         floorPlanView.addSubview(userLocationView)
 
         let sides: [NSLayoutAttribute] = [.Left, .Right, .Top, .Bottom]
@@ -61,6 +67,16 @@ class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
             let screenCoord = convertToScreen(location.point)
             let scrollViewTransform = Transform.scale(1/zoomScale)
             userLocationView.center = screenCoord.applyTransform(scrollViewTransform)
+        }
+    }
+    
+    func setLocation(location: Location?, animated: Bool = false) {
+        if animated {
+            UIView.animateWithDuration(0.3) {
+                self.location = location
+            }
+        } else {
+            self.location = location
         }
     }
     

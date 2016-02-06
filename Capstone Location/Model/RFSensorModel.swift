@@ -9,8 +9,8 @@
 import Foundation
 import CoreBluetooth
 
-protocol RFSensorModelDelegate {
-    func model(model: RFSensorModel, didUpdateDevice device: RFDevice)
+protocol RFSensorManagerDelegate {
+    func model(model: RFSensorManager, didUpdateDevice device: RFDevice)
 }
 
 extension CBPeripheral {
@@ -19,8 +19,8 @@ extension CBPeripheral {
     }
 }
 
-protocol RFSensorModel {
-    var delegate: RFSensorModelDelegate? { get set }
+protocol RFSensorManager {
+    var delegate: RFSensorManagerDelegate? { get set }
     
     var state: State { get }
     func startScanning()
@@ -31,7 +31,7 @@ protocol RFSensorModel {
     func sample() -> RFSample
 }
 
-class BluetoothSensorModel: NSObject, CBCentralManagerDelegate, RFSensorModel {
+class BluetoothSensorManager: NSObject, CBCentralManagerDelegate, RFSensorManager {
     private let manager = CBCentralManager(delegate: nil, queue: nil)
 
     private var CBPeripherals = [CBPeripheral]()
@@ -39,10 +39,9 @@ class BluetoothSensorModel: NSObject, CBCentralManagerDelegate, RFSensorModel {
     
     var state: State = .NotReady
     
-    var delegate: RFSensorModelDelegate?
+    var delegate: RFSensorManagerDelegate?
 
-    required init(delegate: RFSensorModelDelegate) {
-        self.delegate = delegate
+    override init() {
         super.init()
         manager.delegate = self
     }

@@ -35,7 +35,13 @@
                             <outletCollection property="gestureRecognizers" destination="Idu-Z5-jFN" appends="YES" id="aC7-WY-yHs"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Map" id="DPc-n6-0fZ"/>
+                    <navigationItem key="navigationItem" title="Map" id="DPc-n6-0fZ">
+                        <barButtonItem key="rightBarButtonItem" title="Take Sample" id="c1n-hP-lzm">
+                            <connections>
+                                <segue destination="Wnq-R4-cWq" kind="presentation" identifier="sampleSegue" id="hYj-5O-LGh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="floorPlanScrollView" destination="p7s-pB-HkS" id="yRa-1e-Niz"/>
                     </connections>
@@ -53,6 +59,86 @@
                 </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="301" y="387"/>
+        </scene>
+        <!--Review Sample-->
+        <scene sceneID="HNk-ZU-Fho">
+            <objects>
+                <tableViewController id="Rtc-yd-elx" customClass="RFTrainingSampleViewController" customModule="Capstone_Location" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="k0g-ad-ayV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailCell" textLabel="KgU-bV-LNq" detailTextLabel="8NP-7T-hq3" style="IBUITableViewCellStyleValue1" id="5eU-8h-tsB">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5eU-8h-tsB" id="jQH-hV-SpK">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KgU-bV-LNq">
+                                            <rect key="frame" x="15" y="12" width="32" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8NP-7T-hq3">
+                                            <rect key="frame" x="543" y="12" width="42" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtitleCell" textLabel="t3W-4V-vzA" detailTextLabel="59K-tR-rAC" style="IBUITableViewCellStyleSubtitle" id="lVw-Lc-zR7">
+                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lVw-Lc-zR7" id="yZQ-AR-xKm">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t3W-4V-vzA">
+                                            <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="59K-tR-rAC">
+                                            <rect key="frame" x="15" y="25" width="31" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Rtc-yd-elx" id="uhT-jn-zbO"/>
+                            <outlet property="delegate" destination="Rtc-yd-elx" id="MAr-CT-zjJ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Review Sample" id="fWl-FX-e2g">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jPe-4z-lVa">
+                            <connections>
+                                <action selector="cancel:" destination="Rtc-yd-elx" id="IdD-vu-63V"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="YwE-le-2xu">
+                            <connections>
+                                <action selector="done:" destination="Rtc-yd-elx" id="7Bq-ja-k5Q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ee-5o-705" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1948" y="387"/>
         </scene>
         <!--Bluetooth Test-->
         <scene sceneID="3AC-aA-aFT">
@@ -185,6 +271,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMv-3c-fHX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-511" y="387"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MnB-uA-Ywt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wnq-R4-cWq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Ty-RO-mpr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Rtc-yd-elx" kind="relationship" relationship="rootViewController" id="O3A-BI-T7l"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gqo-60-idm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1136" y="387"/>
         </scene>
     </scenes>
 </document>

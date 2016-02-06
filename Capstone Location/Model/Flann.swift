@@ -21,7 +21,7 @@ public class Flann {
         self.dataSet = dataSet
 
         rows = dataSet.count
-        columns = dataSet.first!.count
+        columns = dataSet.first?.count ?? 0
         
         for data in dataSet {
             assert(data.count == columns)
@@ -46,16 +46,16 @@ public class Flann {
         return Array(neighbors.prefix(nNeighbors))
     }
     
-    public func radiusSearch(testPoint: [Double], radius: Double, maxN: Int = Int.max) -> [Neighbor] {
+    public func radiusSearch(testPoint: [Double], radius: Double) -> [Neighbor] {
         assert(testPoint.count == columns)
 
-        var neighbors = dataSet.enumerate().flatMap { (index: Int, element: [Double]) -> Neighbor? in
+        let neighbors = dataSet.enumerate().flatMap { (index: Int, element: [Double]) -> Neighbor? in
             let distance = findDistance(testPoint, point: element)
             guard distance <= Double(radius) else { return nil }
             return (index, distance)
         }
-        neighbors.sortInPlace { $0.1 < $1.1 }
-        return Array(neighbors.prefix(maxN))
+
+        return neighbors.sort { $0.1 < $1.1 }
     }
 }
 

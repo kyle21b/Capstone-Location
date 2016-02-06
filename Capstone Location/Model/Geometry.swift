@@ -22,6 +22,12 @@ struct Point: PointType {
     let x, y: Double
 }
 
+extension Point: CustomStringConvertible {
+    var description: String {
+        return "x: \(x), y: \(y)"
+    }
+}
+
 extension MKMapPoint: PointType {}
 
 extension PointType {
@@ -70,10 +76,6 @@ extension CGPoint {
     func applyTransform(transform: Transform) -> CGPoint {
         return CGPointApplyAffineTransform(self, transform)
     }
-}
-
-extension PointType {
-    
 }
 
 typealias Transform = CGAffineTransform
@@ -173,7 +175,6 @@ extension AnchoredFloorPlanConfiguation {
         return Point(x: imageFromAnchorPoint.x + a1.floor.x, y: imageFromAnchorPoint.y + a1.floor.y)
     }
 }
-
 
 extension FloorPlanScrollView {
     var imagePerPixelScale: CGFloat {

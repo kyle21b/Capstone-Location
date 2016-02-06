@@ -7,25 +7,38 @@
 //
 
 import Foundation
-
+import CoreMotion
 
 protocol IntegratedLocationManagerDelegate {
     func locationManager(manager: IntegratedLocationManager, didUpdateLocation location: Location)
 }
 
-class IntegratedLocationManager: RFLocationEstimatorDelegate {
-    let estimator: RFLocationEstimator
+let sampleDB = RFSampleDatabase(samples: [], baseStations: [])
+
+class IntegratedLocationManager: RFLocationManagerDelegate {
+   
+    let locationManager: RFLocationManager
+    let motionManager: CMMotionManager
     
-    var location: Location? { return estimator.location }
-    
+    var location: Location? { return locationManager.location }
     var delegate: IntegratedLocationManagerDelegate?
     
-    init(estimator: RFLocationEstimator) {
-        self.estimator = estimator
-        self.estimator.delegate = self
+    init() {
+        self.locationManager = RFLocationManager(model: BluetoothSensorManager(), dataBase: sampleDB)
+        self.motionManager = CMMotionManager()
+        self.locationManager.delegate = self
     }
     
-    func locationEstimator(estimator: RFLocationEstimator, didUpdateLocation location: Location) {
+    func startUpdatingLocation() {
+        locationManager.startUpdatingLocation()
+    }
+    
+    func stopUpdatingLocation() {
+        locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManager(manager: RFLocationManager, didUpdateLocation location: Location) {
         delegate?.locationManager(self, didUpdateLocation: location)
     }
+    
 }

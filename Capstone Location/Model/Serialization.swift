@@ -16,6 +16,18 @@ protocol DictionaryConvertible {
 }
 
 extension DictionaryConvertible {
+    init?(url: NSURL) {
+        guard let dict = NSDictionary(contentsOfURL: url) as? AnyDictionary else { return nil }
+        self.init(dictionary: dict)
+    }
+    
+    func saveToURL(url: NSURL){
+        let dict = asDictionary() as NSDictionary
+        dict.writeToURL(url, atomically: true)
+    }
+}
+
+extension DictionaryConvertible {
     init?(JSON: NSData) {
         let jsonObject = try? NSJSONSerialization.JSONObjectWithData(JSON, options: [])
         guard let dictionary = jsonObject as? AnyDictionary else { return nil }
@@ -34,18 +46,6 @@ extension DictionaryConvertible {
     
     func asXML() -> NSData {
         return try! NSPropertyListSerialization.dataWithPropertyList(asDictionary(), format: .XMLFormat_v1_0, options: 0)
-    }
-}
-
-extension DictionaryConvertible {
-    init?(url: NSURL) {
-        guard let dict = NSDictionary(contentsOfURL: url) as? AnyDictionary else { return nil }
-        self.init(dictionary: dict)
-    }
-    
-    func saveToURL(url: NSURL){
-        let dict = asDictionary() as NSDictionary
-        dict.writeToURL(url, atomically: true)
     }
 }
 

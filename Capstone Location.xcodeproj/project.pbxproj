@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30C554E4B4DE33D2D5BF170D /* Pods_Capstone_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F54C726C3B121D56D41C079 /* Pods_Capstone_Location.framework */; };
+		6A66D8C51B82462C46357F65 /* Pods_Capstone_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283077300F55079CEA34ED27 /* Pods_Capstone_Location.framework */; };
 		A708A0FA1BF6C16900EE4E2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A708A0F91BF6C16900EE4E2F /* AppDelegate.swift */; };
 		A708A0FF1BF6C16900EE4E2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A708A0FD1BF6C16900EE4E2F /* Main.storyboard */; };
 		A708A1011BF6C16900EE4E2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A708A1001BF6C16900EE4E2F /* Assets.xcassets */; };
@@ -21,7 +21,7 @@
 		A70C9A6D1C655981005DB7A5 /* RFMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A6A1C655981005DB7A5 /* RFMapViewController.swift */; };
 		A70C9A751C6559B8005DB7A5 /* Flann.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A6E1C6559B8005DB7A5 /* Flann.swift */; };
 		A70C9A761C6559B8005DB7A5 /* IntegratedLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A6F1C6559B8005DB7A5 /* IntegratedLocationManager.swift */; };
-		A70C9A771C6559B8005DB7A5 /* RFLocationEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A701C6559B8005DB7A5 /* RFLocationEstimator.swift */; };
+		A70C9A771C6559B8005DB7A5 /* RFLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A701C6559B8005DB7A5 /* RFLocationManager.swift */; };
 		A70C9A781C6559B8005DB7A5 /* RFSampleDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A711C6559B8005DB7A5 /* RFSampleDatabase.swift */; };
 		A70C9A791C6559B8005DB7A5 /* RFSensorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A721C6559B8005DB7A5 /* RFSensorModel.swift */; };
 		A70C9A7A1C6559B8005DB7A5 /* RFTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A731C6559B8005DB7A5 /* RFTypes.swift */; };
@@ -30,6 +30,17 @@
 		A70C9A7F1C6559C3005DB7A5 /* ViewTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A7D1C6559C3005DB7A5 /* ViewTypes.swift */; };
 		A70C9A811C655A69005DB7A5 /* FloorPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A801C655A69005DB7A5 /* FloorPlan.swift */; };
 		A70C9A831C655D58005DB7A5 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A821C655D58005DB7A5 /* Geometry.swift */; };
+		A7BED34E1C65655100DAFEDC /* FloorPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A801C655A69005DB7A5 /* FloorPlan.swift */; };
+		A7BED34F1C65655500DAFEDC /* Arithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A601C655938005DB7A5 /* Arithmetic.swift */; };
+		A7BED3501C65655500DAFEDC /* Auxiliary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A611C655938005DB7A5 /* Auxiliary.swift */; };
+		A7BED3511C65655500DAFEDC /* Power.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A631C655938005DB7A5 /* Power.swift */; };
+		A7BED3521C65657400DAFEDC /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A821C655D58005DB7A5 /* Geometry.swift */; };
+		A7BED3531C65658700DAFEDC /* Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A741C6559B8005DB7A5 /* Serialization.swift */; };
+		A7BED3541C6565AE00DAFEDC /* ViewTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A7D1C6559C3005DB7A5 /* ViewTypes.swift */; };
+		A7BED3551C6565B400DAFEDC /* Flann.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A6E1C6559B8005DB7A5 /* Flann.swift */; };
+		A7BED3561C6565C200DAFEDC /* RFTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A731C6559B8005DB7A5 /* RFTypes.swift */; };
+		A7BED3571C65660A00DAFEDC /* FloorPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A7C1C6559C3005DB7A5 /* FloorPlanView.swift */; };
+		A7BED35B1C6594C900DAFEDC /* RFTrainingSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BED35A1C6594C900DAFEDC /* RFTrainingSampleViewController.swift */; };
 		A7E745C01C30FDFE00CC3736 /* Capstone_LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E745BF1C30FDFE00CC3736 /* Capstone_LocationTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,9 +55,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		393D35F272B9DAB392552FC8 /* Pods-Capstone Location.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone Location.release.xcconfig"; path = "Pods/Target Support Files/Pods-Capstone Location/Pods-Capstone Location.release.xcconfig"; sourceTree = "<group>"; };
-		3F54C726C3B121D56D41C079 /* Pods_Capstone_Location.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Capstone_Location.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		646CAD9D7CF8ADF63984BFA6 /* Pods-Capstone Location.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone Location.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Capstone Location/Pods-Capstone Location.debug.xcconfig"; sourceTree = "<group>"; };
+		0DE9358CAC97EEB0DB504949 /* Pods-Capstone Location.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone Location.release.xcconfig"; path = "Pods/Target Support Files/Pods-Capstone Location/Pods-Capstone Location.release.xcconfig"; sourceTree = "<group>"; };
+		283077300F55079CEA34ED27 /* Pods_Capstone_Location.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Capstone_Location.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DB4723DBA3CAA174D5CAF84 /* Pods-Capstone Location.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone Location.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Capstone Location/Pods-Capstone Location.debug.xcconfig"; sourceTree = "<group>"; };
 		A708A0F61BF6C16900EE4E2F /* Capstone Location.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Capstone Location.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A708A0F91BF6C16900EE4E2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A708A0FE1BF6C16900EE4E2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,7 +73,7 @@
 		A70C9A6A1C655981005DB7A5 /* RFMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFMapViewController.swift; path = Controller/RFMapViewController.swift; sourceTree = "<group>"; };
 		A70C9A6E1C6559B8005DB7A5 /* Flann.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Flann.swift; path = Model/Flann.swift; sourceTree = "<group>"; };
 		A70C9A6F1C6559B8005DB7A5 /* IntegratedLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntegratedLocationManager.swift; path = Model/IntegratedLocationManager.swift; sourceTree = "<group>"; };
-		A70C9A701C6559B8005DB7A5 /* RFLocationEstimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFLocationEstimator.swift; path = Model/RFLocationEstimator.swift; sourceTree = "<group>"; };
+		A70C9A701C6559B8005DB7A5 /* RFLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFLocationManager.swift; path = Model/RFLocationManager.swift; sourceTree = "<group>"; };
 		A70C9A711C6559B8005DB7A5 /* RFSampleDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFSampleDatabase.swift; path = Model/RFSampleDatabase.swift; sourceTree = "<group>"; };
 		A70C9A721C6559B8005DB7A5 /* RFSensorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFSensorModel.swift; path = Model/RFSensorModel.swift; sourceTree = "<group>"; };
 		A70C9A731C6559B8005DB7A5 /* RFTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFTypes.swift; path = Model/RFTypes.swift; sourceTree = "<group>"; };
@@ -71,6 +82,7 @@
 		A70C9A7D1C6559C3005DB7A5 /* ViewTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewTypes.swift; path = View/ViewTypes.swift; sourceTree = "<group>"; };
 		A70C9A801C655A69005DB7A5 /* FloorPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloorPlan.swift; path = Model/FloorPlan.swift; sourceTree = "<group>"; };
 		A70C9A821C655D58005DB7A5 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = Model/Geometry.swift; sourceTree = "<group>"; };
+		A7BED35A1C6594C900DAFEDC /* RFTrainingSampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFTrainingSampleViewController.swift; path = Controller/RFTrainingSampleViewController.swift; sourceTree = "<group>"; };
 		A7E745BD1C30FDFD00CC3736 /* Capstone LocationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Capstone LocationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7E745BF1C30FDFE00CC3736 /* Capstone_LocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capstone_LocationTests.swift; sourceTree = "<group>"; };
 		A7E745C11C30FDFE00CC3736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,7 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30C554E4B4DE33D2D5BF170D /* Pods_Capstone_Location.framework in Frameworks */,
+				6A66D8C51B82462C46357F65 /* Pods_Capstone_Location.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +110,7 @@
 		A23E48A2C95BC299407CB4F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3F54C726C3B121D56D41C079 /* Pods_Capstone_Location.framework */,
+				283077300F55079CEA34ED27 /* Pods_Capstone_Location.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -109,8 +121,8 @@
 				A708A0F81BF6C16900EE4E2F /* Capstone Location */,
 				A7E745BE1C30FDFE00CC3736 /* Capstone LocationTests */,
 				A708A0F71BF6C16900EE4E2F /* Products */,
-				BFA94EA2547964435914AC49 /* Pods */,
 				A23E48A2C95BC299407CB4F8 /* Frameworks */,
+				EC32C5778A7502A00812B732 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,7 +157,7 @@
 				A70C9A801C655A69005DB7A5 /* FloorPlan.swift */,
 				A70C9A6E1C6559B8005DB7A5 /* Flann.swift */,
 				A70C9A6F1C6559B8005DB7A5 /* IntegratedLocationManager.swift */,
-				A70C9A701C6559B8005DB7A5 /* RFLocationEstimator.swift */,
+				A70C9A701C6559B8005DB7A5 /* RFLocationManager.swift */,
 				A70C9A711C6559B8005DB7A5 /* RFSampleDatabase.swift */,
 				A70C9A721C6559B8005DB7A5 /* RFSensorModel.swift */,
 				A70C9A731C6559B8005DB7A5 /* RFTypes.swift */,
@@ -166,9 +178,10 @@
 		A721F63A1C62FEA500EA812E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A70C9A6A1C655981005DB7A5 /* RFMapViewController.swift */,
+				A7BED35A1C6594C900DAFEDC /* RFTrainingSampleViewController.swift */,
 				A70C9A681C655981005DB7A5 /* RFBrowserViewController.swift */,
 				A70C9A691C655981005DB7A5 /* RFDeviceViewController.swift */,
-				A70C9A6A1C655981005DB7A5 /* RFMapViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -202,11 +215,11 @@
 			path = "Capstone LocationTests";
 			sourceTree = "<group>";
 		};
-		BFA94EA2547964435914AC49 /* Pods */ = {
+		EC32C5778A7502A00812B732 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				646CAD9D7CF8ADF63984BFA6 /* Pods-Capstone Location.debug.xcconfig */,
-				393D35F272B9DAB392552FC8 /* Pods-Capstone Location.release.xcconfig */,
+				2DB4723DBA3CAA174D5CAF84 /* Pods-Capstone Location.debug.xcconfig */,
+				0DE9358CAC97EEB0DB504949 /* Pods-Capstone Location.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -370,7 +383,7 @@
 				A70C9A651C655938005DB7A5 /* Auxiliary.swift in Sources */,
 				A70C9A7A1C6559B8005DB7A5 /* RFTypes.swift in Sources */,
 				A70C9A7E1C6559C3005DB7A5 /* FloorPlanView.swift in Sources */,
-				A70C9A771C6559B8005DB7A5 /* RFLocationEstimator.swift in Sources */,
+				A70C9A771C6559B8005DB7A5 /* RFLocationManager.swift in Sources */,
 				A70C9A831C655D58005DB7A5 /* Geometry.swift in Sources */,
 				A70C9A761C6559B8005DB7A5 /* IntegratedLocationManager.swift in Sources */,
 				A70C9A6B1C655981005DB7A5 /* RFBrowserViewController.swift in Sources */,
@@ -378,6 +391,7 @@
 				A708A0FA1BF6C16900EE4E2F /* AppDelegate.swift in Sources */,
 				A70C9A7F1C6559C3005DB7A5 /* ViewTypes.swift in Sources */,
 				A70C9A811C655A69005DB7A5 /* FloorPlan.swift in Sources */,
+				A7BED35B1C6594C900DAFEDC /* RFTrainingSampleViewController.swift in Sources */,
 				A70C9A6D1C655981005DB7A5 /* RFMapViewController.swift in Sources */,
 				A70C9A781C6559B8005DB7A5 /* RFSampleDatabase.swift in Sources */,
 				A70C9A791C6559B8005DB7A5 /* RFSensorModel.swift in Sources */,
@@ -389,7 +403,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7BED34F1C65655500DAFEDC /* Arithmetic.swift in Sources */,
+				A7BED3521C65657400DAFEDC /* Geometry.swift in Sources */,
+				A7BED3571C65660A00DAFEDC /* FloorPlanView.swift in Sources */,
+				A7BED3541C6565AE00DAFEDC /* ViewTypes.swift in Sources */,
+				A7BED3531C65658700DAFEDC /* Serialization.swift in Sources */,
 				A7E745C01C30FDFE00CC3736 /* Capstone_LocationTests.swift in Sources */,
+				A7BED3551C6565B400DAFEDC /* Flann.swift in Sources */,
+				A7BED3511C65655500DAFEDC /* Power.swift in Sources */,
+				A7BED3501C65655500DAFEDC /* Auxiliary.swift in Sources */,
+				A7BED34E1C65655100DAFEDC /* FloorPlan.swift in Sources */,
+				A7BED3561C6565C200DAFEDC /* RFTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,7 +528,7 @@
 		};
 		A708A1091BF6C16900EE4E2F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 646CAD9D7CF8ADF63984BFA6 /* Pods-Capstone Location.debug.xcconfig */;
+			baseConfigurationReference = 2DB4723DBA3CAA174D5CAF84 /* Pods-Capstone Location.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Flann\"";
@@ -518,7 +542,7 @@
 		};
 		A708A10A1BF6C16900EE4E2F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 393D35F272B9DAB392552FC8 /* Pods-Capstone Location.release.xcconfig */;
+			baseConfigurationReference = 0DE9358CAC97EEB0DB504949 /* Pods-Capstone Location.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Flann\"";

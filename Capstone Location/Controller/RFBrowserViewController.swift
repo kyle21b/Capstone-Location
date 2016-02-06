@@ -8,9 +8,9 @@
 
 import UIKit
 
-class RFBrowserViewController: UITableViewController, RFSensorModelDelegate {
+class RFBrowserViewController: UITableViewController, RFSensorManagerDelegate {
     
-    var manager: RFSensorModel! = nil
+    var model: RFSensorManager! = nil
     var devices = [RFDevice]() {
         didSet {
             tableView.reloadData()
@@ -19,12 +19,13 @@ class RFBrowserViewController: UITableViewController, RFSensorModelDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        manager = BluetoothSensorModel(delegate: self)
-        manager.startScanning()
+        model = BluetoothSensorManager()
+        model.delegate = self
+        model.startScanning()
     }
     
-    func model(model: RFSensorModel, didUpdateDevice device: RFDevice) {
-        devices = manager.devices
+    func model(model: RFSensorManager, didUpdateDevice device: RFDevice) {
+        devices = model.devices
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

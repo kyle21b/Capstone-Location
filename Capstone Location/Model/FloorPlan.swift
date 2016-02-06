@@ -31,12 +31,7 @@ let floorPlanConfig: AnchoredFloorPlanConfiguation = {
     
     let image = FloorPlanImage(named: "img-Y13162350-0001")!
 
-    let config = AnchoredFloorPlanConfiguation(image: image, beaconLocations: [:], a1: a1, a2: a2)
-    
-    let xmlString = String(data: config.asJSON(), encoding: NSUTF8StringEncoding)!
-    print(xmlString)
-    
-    return config
+    return AnchoredFloorPlanConfiguation(image: image, beaconLocations: [:], a1: a1, a2: a2)
 }()
 
 class FloorPlanConfiguration: DictionaryConvertible {

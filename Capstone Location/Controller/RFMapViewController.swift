@@ -9,11 +9,10 @@
 import UIKit
 import MapKit
 
-class RFMapViewController: UIViewController { //, CLLocationManagerDelegate {
-    
+class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate { //, CLLocationManagerDelegate {
     @IBOutlet weak var floorPlanScrollView: FloorPlanScrollView!
     
-    let locationManager = CLLocationManager()
+    let locationManager = IntegratedLocationManager()
     
     override func loadView() {
         super.loadView()
@@ -22,7 +21,12 @@ class RFMapViewController: UIViewController { //, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        floorPlanScrollView.floorPlanImage = floorPlanConfig.image
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+        
+        let image = floorPlanConfig.image
+        floorPlanScrollView.floorPlanImage = image
+        floorPlanScrollView.location = Location(point: image.center)
     }
   
     @IBAction func tap(sender: UITapGestureRecognizer) {
@@ -33,19 +37,24 @@ class RFMapViewController: UIViewController { //, CLLocationManagerDelegate {
         moveToPoint(sender.locationInView(floorPlanScrollView))
     }
     
+    func locationManager(manager: IntegratedLocationManager, didUpdateLocation location: Location) {
+        floorPlanScrollView.setLocation(location, animated: true)
+    }
+    
     func moveToPoint(point: CGPoint, animated: Bool = false) {
         let floorPoint = floorPlanScrollView.convertFromScreen(point)
         
         let location = Location(point: floorPoint)
-
-        if animated {
-            UIView.animateWithDuration(0.22) {
-                self.floorPlanScrollView.location = location
+        
+        floorPlanScrollView.setLocation(location, animated: animated)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "sampleSegue" {
+            if let nav = segue.destinationViewController as? UINavigationController, vc = nav.viewControllers.first as? RFTrainingSampleViewController {
+             //   vc.trainingSample = locationManager.locationManager.sample()
             }
-        } else {
-            floorPlanScrollView.location = location
         }
-
     }
     /*
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
