@@ -29,7 +29,10 @@ class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
         view.alpha = 0.7
         return view
         */
-        return SVPulsingAnnotationView()
+        
+        let view = SVPulsingAnnotationView(annotation: nil, reuseIdentifier: nil)
+        view.transform = Transform.scale(5.0)
+        return view
     }()
 
     let floorPlanView: FloorPlanView

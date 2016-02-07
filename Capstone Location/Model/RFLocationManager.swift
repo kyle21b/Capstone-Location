@@ -14,7 +14,7 @@ protocol RFLocationManagerDelegate {
 
 class RFLocationManager: RFSensorManagerDelegate {
     internal let database: RFSampleDatabase
-    internal let sensorModel: RFSensorManager
+    internal let sensorManager: RFSensorManager
    
     private let flannMatcher: Flann
     
@@ -24,7 +24,7 @@ class RFLocationManager: RFSensorManagerDelegate {
     
     init(model: RFSensorManager, dataBase: RFSampleDatabase) {
         self.database = dataBase
-        self.sensorModel = model
+        self.sensorManager = model
         
         let intensities = dataBase.samples.map { sample in
             dataBase.baseStations.map { stationID in
@@ -34,11 +34,13 @@ class RFLocationManager: RFSensorManagerDelegate {
         
         flannMatcher = Flann(dataSet: intensities)
         
-        sensorModel.delegate = self
+        sensorManager.delegate = self
     }
 
-    func model(model: RFSensorManager, didUpdateDevice device: RFDevice) {
-        location = predictLocationForIntensity(model.sample())
+    func manager(manager: RFSensorManager, didUpdateDevice device: RFDevice) {
+        let location = predictLocationForIntensity(manager.sample())
+        self.location = location
+        delegate?.locationManager(self, didUpdateLocation: location)
     }
     
     private func weightForSignalStrengthDistance(distance: Double) -> Double {
@@ -67,11 +69,11 @@ class RFLocationManager: RFSensorManagerDelegate {
     }
     
     func startUpdatingLocation() {
-        sensorModel.startScanning()
+        sensorManager.startScanning()
     }
     
     func stopUpdatingLocation() {
-        sensorModel.stopScanning()
+        sensorManager.stopScanning()
     }
 }
 

@@ -10,7 +10,7 @@ import Foundation
 import CoreBluetooth
 
 protocol RFSensorManagerDelegate {
-    func model(model: RFSensorManager, didUpdateDevice device: RFDevice)
+    func manager(manager: RFSensorManager, didUpdateDevice device: RFDevice)
 }
 
 extension CBPeripheral {
@@ -31,11 +31,28 @@ protocol RFSensorManager {
     func sample() -> RFSample
 }
 
+
+extension CBCentralManagerState: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .Unknown: return "Unknown"
+        case .Resetting: return "Resetting"
+        case .Unsupported: return "Unsupported"
+        case .Unauthorized: return "Unauthorized"
+        case .PoweredOff: return "PoweredOff"
+        case .PoweredOn: return "PoweredOn"
+        }
+    }
+}
+
 class BluetoothSensorManager: NSObject, CBCentralManagerDelegate, RFSensorManager {
-    private let manager = CBCentralManager(delegate: nil, queue: nil)
+    private var manager: CBCentralManager!
 
     private var CBPeripherals = [CBPeripheral]()
-    private var deviceModels = [NSString: RFDevice]()
+    private var devicesByIdentifier = [RFIdentifier: RFDevice]()
+    
+    private var shouldBeScanning = false
+    private var readyToScan = false
     
     var state: State = .NotReady
     
@@ -43,35 +60,46 @@ class BluetoothSensorManager: NSObject, CBCentralManagerDelegate, RFSensorManage
 
     override init() {
         super.init()
-        manager.delegate = self
+        manager = CBCentralManager(delegate: self, queue: nil)
     }
     
     var devices: [RFDevice] {
-        return Array(deviceModels.values)
+        return Array(devicesByIdentifier.values)
     }
     
     func sample() -> RFSample {
         var sample = RFSample()
-        for device in deviceModels.values {
+        for device in devicesByIdentifier.values {
             sample[device.identifier] = device.rssi
         }
         return sample
     }
     
     private func didUpdateDevice(device: RFDevice) {
-        delegate?.model(self, didUpdateDevice: device)
+        delegate?.manager(self, didUpdateDevice: device)
     }
     
     func startScanning() {
-        manager.scanForPeripheralsWithServices(nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey : true])
+        shouldBeScanning = true
+        if readyToScan {
+            let options = [CBCentralManagerScanOptionAllowDuplicatesKey : true]
+            manager.scanForPeripheralsWithServices(nil, options: options)
+        }
     }
     
     func stopScanning() {
+        shouldBeScanning = false
         manager.stopScan()
     }
     
     func centralManagerDidUpdateState(central: CBCentralManager) {
-        
+        switch central.state {
+        case .PoweredOn:
+            readyToScan = true
+            startScanning()
+        case .Resetting: print("resetting")
+        default: print(central.state.description)
+        }
     }
     
     func centralManager(central: CBCentralManager, willRestoreState dict: [String : AnyObject]) {
@@ -88,7 +116,7 @@ class BluetoothSensorManager: NSObject, CBCentralManagerDelegate, RFSensorManage
         }
         
         var device: RFDevice
-        if let existingDevice = deviceModels[peripheral.RFIdentifier] {
+        if let existingDevice = devicesByIdentifier[peripheral.RFIdentifier] {
             device = existingDevice
         } else {
             device = RFDevice(identifier: peripheral.RFIdentifier)
@@ -99,7 +127,7 @@ class BluetoothSensorManager: NSObject, CBCentralManagerDelegate, RFSensorManage
         device.advertisementData = advertisementData
         device.recordRssi(Double(RSSI))
         
-        deviceModels[peripheral.RFIdentifier] = device
+        devicesByIdentifier[peripheral.RFIdentifier] = device
         
         didUpdateDevice(device)
     }

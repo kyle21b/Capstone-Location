@@ -23,7 +23,7 @@
 		A70C9A761C6559B8005DB7A5 /* IntegratedLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A6F1C6559B8005DB7A5 /* IntegratedLocationManager.swift */; };
 		A70C9A771C6559B8005DB7A5 /* RFLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A701C6559B8005DB7A5 /* RFLocationManager.swift */; };
 		A70C9A781C6559B8005DB7A5 /* RFSampleDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A711C6559B8005DB7A5 /* RFSampleDatabase.swift */; };
-		A70C9A791C6559B8005DB7A5 /* RFSensorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A721C6559B8005DB7A5 /* RFSensorModel.swift */; };
+		A70C9A791C6559B8005DB7A5 /* RFSensorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A721C6559B8005DB7A5 /* RFSensorManager.swift */; };
 		A70C9A7A1C6559B8005DB7A5 /* RFTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A731C6559B8005DB7A5 /* RFTypes.swift */; };
 		A70C9A7B1C6559B8005DB7A5 /* Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A741C6559B8005DB7A5 /* Serialization.swift */; };
 		A70C9A7E1C6559C3005DB7A5 /* FloorPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A7C1C6559C3005DB7A5 /* FloorPlanView.swift */; };
@@ -75,7 +75,7 @@
 		A70C9A6F1C6559B8005DB7A5 /* IntegratedLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntegratedLocationManager.swift; path = Model/IntegratedLocationManager.swift; sourceTree = "<group>"; };
 		A70C9A701C6559B8005DB7A5 /* RFLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFLocationManager.swift; path = Model/RFLocationManager.swift; sourceTree = "<group>"; };
 		A70C9A711C6559B8005DB7A5 /* RFSampleDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFSampleDatabase.swift; path = Model/RFSampleDatabase.swift; sourceTree = "<group>"; };
-		A70C9A721C6559B8005DB7A5 /* RFSensorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFSensorModel.swift; path = Model/RFSensorModel.swift; sourceTree = "<group>"; };
+		A70C9A721C6559B8005DB7A5 /* RFSensorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFSensorManager.swift; path = Model/RFSensorManager.swift; sourceTree = "<group>"; };
 		A70C9A731C6559B8005DB7A5 /* RFTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFTypes.swift; path = Model/RFTypes.swift; sourceTree = "<group>"; };
 		A70C9A741C6559B8005DB7A5 /* Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Serialization.swift; path = Model/Serialization.swift; sourceTree = "<group>"; };
 		A70C9A7C1C6559C3005DB7A5 /* FloorPlanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloorPlanView.swift; path = View/FloorPlanView.swift; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 				A70C9A6F1C6559B8005DB7A5 /* IntegratedLocationManager.swift */,
 				A70C9A701C6559B8005DB7A5 /* RFLocationManager.swift */,
 				A70C9A711C6559B8005DB7A5 /* RFSampleDatabase.swift */,
-				A70C9A721C6559B8005DB7A5 /* RFSensorModel.swift */,
+				A70C9A721C6559B8005DB7A5 /* RFSensorManager.swift */,
 				A70C9A731C6559B8005DB7A5 /* RFTypes.swift */,
 				A70C9A741C6559B8005DB7A5 /* Serialization.swift */,
 			);
@@ -394,7 +394,7 @@
 				A7BED35B1C6594C900DAFEDC /* RFTrainingSampleViewController.swift in Sources */,
 				A70C9A6D1C655981005DB7A5 /* RFMapViewController.swift in Sources */,
 				A70C9A781C6559B8005DB7A5 /* RFSampleDatabase.swift in Sources */,
-				A70C9A791C6559B8005DB7A5 /* RFSensorModel.swift in Sources */,
+				A70C9A791C6559B8005DB7A5 /* RFSensorManager.swift in Sources */,
 				A70C9A7B1C6559B8005DB7A5 /* Serialization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

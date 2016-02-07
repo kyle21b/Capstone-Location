@@ -12,7 +12,7 @@ import MapKit
 class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate { //, CLLocationManagerDelegate {
     @IBOutlet weak var floorPlanScrollView: FloorPlanScrollView!
     
-    let locationManager = IntegratedLocationManager()
+    var locationManager: IntegratedLocationManager!
     
     override func loadView() {
         super.loadView()
@@ -21,7 +21,8 @@ class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager.delegate = self
+        locationManager = IntegratedLocationManager()
+        //locationManager.delegate = self
         locationManager.startUpdatingLocation()
         
         let image = floorPlanConfig.image
@@ -43,16 +44,17 @@ class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
     
     func moveToPoint(point: CGPoint, animated: Bool = false) {
         let floorPoint = floorPlanScrollView.convertFromScreen(point)
-        
         let location = Location(point: floorPoint)
-        
         floorPlanScrollView.setLocation(location, animated: animated)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "sampleSegue" {
             if let nav = segue.destinationViewController as? UINavigationController, vc = nav.viewControllers.first as? RFTrainingSampleViewController {
-             //   vc.trainingSample = locationManager.locationManager.sample()
+                let sample = locationManager.locationManager.sensorManager.sample()
+                if let location = floorPlanScrollView.location {
+                    vc.trainingSample = RFTrainingSample(sample: sample, location: location)
+                }
             }
         }
     }
