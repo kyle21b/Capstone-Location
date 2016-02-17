@@ -14,14 +14,18 @@ enum State {
     case Ready
 }
 
+protocol StateMachine {
+    var state: State { get }
+}
+
 typealias RFIdentifier = String
 typealias RSSI = Double
 
 typealias RFSample = [RFIdentifier: RSSI]
 
 struct RFTrainingSample {
-    let sample: RFSample
     let location: Location
+    let sample: RFSample
 }
 
 struct RFDevice {
@@ -39,15 +43,41 @@ struct RFDevice {
     var advertisementData = [String: AnyObject]()
     var measurements = [Measurement]()
     
-    var rssi: Double? {
+    var rssi: RSSI? {
         return measurements.last?.RSSI
     }
     
-    mutating func recordRssi(rssi: Double) {
-        measurements.append((rssi, NSDate()))
+    mutating func recordRssi(rssi: RSSI) {
+        let measurement = (rssi, NSDate())
+        measurements.append(measurement)
     }
     
     var displayName: String {
         return name ?? identifier
     }
 }
+
+protocol RFSensorManagerDelegate {
+    func manager(manager: RFSensorManager, didUpdateDevice device: RFDevice)
+}
+
+protocol RFSensorManager {
+    var delegate: RFSensorManagerDelegate? { get set }
+    
+    var state: State { get }
+    func startScanning()
+    func stopScanning()
+    
+    var devices: [RFDevice] { get }
+    
+    func sample() -> RFSample
+}
+
+protocol RFSampleDatabase {
+    init(baseStations: [RFIdentifier])
+    var baseStations: [RFIdentifier] { get }
+    
+    var samples: [RFTrainingSample] { get }
+    func addSample(trainingSample: RFTrainingSample)
+}
+

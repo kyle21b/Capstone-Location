@@ -22,14 +22,15 @@
 		A70C9A751C6559B8005DB7A5 /* Flann.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A6E1C6559B8005DB7A5 /* Flann.swift */; };
 		A70C9A761C6559B8005DB7A5 /* IntegratedLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A6F1C6559B8005DB7A5 /* IntegratedLocationManager.swift */; };
 		A70C9A771C6559B8005DB7A5 /* RFLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A701C6559B8005DB7A5 /* RFLocationManager.swift */; };
-		A70C9A781C6559B8005DB7A5 /* RFSampleDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A711C6559B8005DB7A5 /* RFSampleDatabase.swift */; };
-		A70C9A791C6559B8005DB7A5 /* RFSensorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A721C6559B8005DB7A5 /* RFSensorManager.swift */; };
+		A70C9A781C6559B8005DB7A5 /* ParseSampleDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A711C6559B8005DB7A5 /* ParseSampleDatabase.swift */; };
+		A70C9A791C6559B8005DB7A5 /* BluetoothSensorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A721C6559B8005DB7A5 /* BluetoothSensorManager.swift */; };
 		A70C9A7A1C6559B8005DB7A5 /* RFTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A731C6559B8005DB7A5 /* RFTypes.swift */; };
 		A70C9A7B1C6559B8005DB7A5 /* Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A741C6559B8005DB7A5 /* Serialization.swift */; };
 		A70C9A7E1C6559C3005DB7A5 /* FloorPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A7C1C6559C3005DB7A5 /* FloorPlanView.swift */; };
 		A70C9A7F1C6559C3005DB7A5 /* ViewTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A7D1C6559C3005DB7A5 /* ViewTypes.swift */; };
 		A70C9A811C655A69005DB7A5 /* FloorPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A801C655A69005DB7A5 /* FloorPlan.swift */; };
 		A70C9A831C655D58005DB7A5 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A821C655D58005DB7A5 /* Geometry.swift */; };
+		A717EA491C66E83900262579 /* ParseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A717EA481C66E83900262579 /* ParseSerialization.swift */; };
 		A7BED34E1C65655100DAFEDC /* FloorPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A801C655A69005DB7A5 /* FloorPlan.swift */; };
 		A7BED34F1C65655500DAFEDC /* Arithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A601C655938005DB7A5 /* Arithmetic.swift */; };
 		A7BED3501C65655500DAFEDC /* Auxiliary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A611C655938005DB7A5 /* Auxiliary.swift */; };
@@ -74,14 +75,15 @@
 		A70C9A6E1C6559B8005DB7A5 /* Flann.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Flann.swift; path = Model/Flann.swift; sourceTree = "<group>"; };
 		A70C9A6F1C6559B8005DB7A5 /* IntegratedLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntegratedLocationManager.swift; path = Model/IntegratedLocationManager.swift; sourceTree = "<group>"; };
 		A70C9A701C6559B8005DB7A5 /* RFLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFLocationManager.swift; path = Model/RFLocationManager.swift; sourceTree = "<group>"; };
-		A70C9A711C6559B8005DB7A5 /* RFSampleDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFSampleDatabase.swift; path = Model/RFSampleDatabase.swift; sourceTree = "<group>"; };
-		A70C9A721C6559B8005DB7A5 /* RFSensorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFSensorManager.swift; path = Model/RFSensorManager.swift; sourceTree = "<group>"; };
+		A70C9A711C6559B8005DB7A5 /* ParseSampleDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseSampleDatabase.swift; path = Model/ParseSampleDatabase.swift; sourceTree = "<group>"; };
+		A70C9A721C6559B8005DB7A5 /* BluetoothSensorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BluetoothSensorManager.swift; path = Model/BluetoothSensorManager.swift; sourceTree = "<group>"; };
 		A70C9A731C6559B8005DB7A5 /* RFTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFTypes.swift; path = Model/RFTypes.swift; sourceTree = "<group>"; };
 		A70C9A741C6559B8005DB7A5 /* Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Serialization.swift; path = Model/Serialization.swift; sourceTree = "<group>"; };
 		A70C9A7C1C6559C3005DB7A5 /* FloorPlanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloorPlanView.swift; path = View/FloorPlanView.swift; sourceTree = "<group>"; };
 		A70C9A7D1C6559C3005DB7A5 /* ViewTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewTypes.swift; path = View/ViewTypes.swift; sourceTree = "<group>"; };
 		A70C9A801C655A69005DB7A5 /* FloorPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloorPlan.swift; path = Model/FloorPlan.swift; sourceTree = "<group>"; };
 		A70C9A821C655D58005DB7A5 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = Model/Geometry.swift; sourceTree = "<group>"; };
+		A717EA481C66E83900262579 /* ParseSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseSerialization.swift; sourceTree = "<group>"; };
 		A7BED35A1C6594C900DAFEDC /* RFTrainingSampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFTrainingSampleViewController.swift; path = Controller/RFTrainingSampleViewController.swift; sourceTree = "<group>"; };
 		A7E745BD1C30FDFD00CC3736 /* Capstone LocationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Capstone LocationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7E745BF1C30FDFE00CC3736 /* Capstone_LocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capstone_LocationTests.swift; sourceTree = "<group>"; };
@@ -150,6 +152,15 @@
 			path = "Capstone Location";
 			sourceTree = "<group>";
 		};
+		A717EA4C1C66FCA300262579 /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				A70C9A711C6559B8005DB7A5 /* ParseSampleDatabase.swift */,
+				A717EA481C66E83900262579 /* ParseSerialization.swift */,
+			);
+			name = Parse;
+			sourceTree = "<group>";
+		};
 		A721F6301C601C8F00EA812E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,10 +169,10 @@
 				A70C9A6E1C6559B8005DB7A5 /* Flann.swift */,
 				A70C9A6F1C6559B8005DB7A5 /* IntegratedLocationManager.swift */,
 				A70C9A701C6559B8005DB7A5 /* RFLocationManager.swift */,
-				A70C9A711C6559B8005DB7A5 /* RFSampleDatabase.swift */,
-				A70C9A721C6559B8005DB7A5 /* RFSensorManager.swift */,
 				A70C9A731C6559B8005DB7A5 /* RFTypes.swift */,
+				A70C9A721C6559B8005DB7A5 /* BluetoothSensorManager.swift */,
 				A70C9A741C6559B8005DB7A5 /* Serialization.swift */,
+				A717EA4C1C66FCA300262579 /* Parse */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -393,8 +404,9 @@
 				A70C9A811C655A69005DB7A5 /* FloorPlan.swift in Sources */,
 				A7BED35B1C6594C900DAFEDC /* RFTrainingSampleViewController.swift in Sources */,
 				A70C9A6D1C655981005DB7A5 /* RFMapViewController.swift in Sources */,
-				A70C9A781C6559B8005DB7A5 /* RFSampleDatabase.swift in Sources */,
-				A70C9A791C6559B8005DB7A5 /* RFSensorManager.swift in Sources */,
+				A717EA491C66E83900262579 /* ParseSerialization.swift in Sources */,
+				A70C9A781C6559B8005DB7A5 /* ParseSampleDatabase.swift in Sources */,
+				A70C9A791C6559B8005DB7A5 /* BluetoothSensorManager.swift in Sources */,
 				A70C9A7B1C6559B8005DB7A5 /* Serialization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

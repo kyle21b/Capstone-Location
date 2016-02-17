@@ -200,11 +200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone LocationTests/Capstone_LocationTests.swift"
-            timestampString = "476407998.481292"
+            timestampString = "476507492.12684"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "Capstone_LocationTests"
             landmarkType = "3">
          </BreakpointContent>

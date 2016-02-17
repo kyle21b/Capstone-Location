@@ -17,6 +17,7 @@ class RFTrainingSampleViewController: UITableViewController {
     }
     
     @IBAction func done(sender: UIBarButtonItem) {
+        ParseSampleDatabase(baseStations: []).addSample(trainingSample)
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     

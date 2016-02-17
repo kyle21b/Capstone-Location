@@ -53,7 +53,7 @@ class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
             if let nav = segue.destinationViewController as? UINavigationController, vc = nav.viewControllers.first as? RFTrainingSampleViewController {
                 let sample = locationManager.locationManager.sensorManager.sample()
                 if let location = floorPlanScrollView.location {
-                    vc.trainingSample = RFTrainingSample(sample: sample, location: location)
+                    vc.trainingSample = RFTrainingSample(location: location, sample: sample)
                 }
             }
         }

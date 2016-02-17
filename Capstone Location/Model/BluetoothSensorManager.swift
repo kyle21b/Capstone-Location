@@ -9,9 +9,6 @@
 import Foundation
 import CoreBluetooth
 
-protocol RFSensorManagerDelegate {
-    func manager(manager: RFSensorManager, didUpdateDevice device: RFDevice)
-}
 
 extension CBPeripheral {
     public var RFIdentifier: String {
@@ -19,18 +16,25 @@ extension CBPeripheral {
     }
 }
 
-protocol RFSensorManager {
-    var delegate: RFSensorManagerDelegate? { get set }
+extension Array where Element: NSObjectProtocol {
+    func indexOf(element: Element) -> Int? {
+        return indexOf { element.isEqual($0) }
+    }
     
-    var state: State { get }
-    func startScanning()
-    func stopScanning()
-    
-    var devices: [RFDevice] { get }
-    
-    func sample() -> RFSample
+    mutating func remove(element: Element) {
+        if let index = self.indexOf(element) {
+            self.removeAtIndex(index)
+        }
+    }
 }
 
+extension Array where Element: Equatable {
+    mutating func remove(element: Element) {
+        if let index = self.indexOf(element) {
+            self.removeAtIndex(index)
+        }
+    }
+}
 
 extension CBCentralManagerState: CustomStringConvertible {
     public var description: String {
@@ -44,6 +48,60 @@ extension CBCentralManagerState: CustomStringConvertible {
         }
     }
 }
+
+/*
+@objc protocol CBCentralManagerWrapperDelegate : NSObjectProtocol {
+    func centralManagerDidUpdateState(central: CBCentralManagerWrapper)
+    
+    optional func centralManager(central: CBCentralManagerWrapper, willRestoreState dict: [String : AnyObject])
+
+    optional func centralManager(central: CBCentralManagerWrapper, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber)
+
+    optional func centralManager(central: CBCentralManagerWrapper, didConnectPeripheral peripheral: CBPeripheral)
+    
+    optional func centralManager(central: CBCentralManagerWrapper, didFailToConnectPeripheral peripheral: CBPeripheral, error: NSError?)
+    
+    optional func centralManager(central: CBCentralManagerWrapper, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?)
+}
+
+class CBCentralManagerWrapper: NSObject, CBCentralManagerDelegate {
+    private var delegates = [CBCentralManagerWrapperDelegate]()
+    
+    func addDelegate(delegate: CBCentralManagerWrapperDelegate) {
+        delegates.append(delegate)
+    }
+    
+    func removeDelegate(delegate: CBCentralManagerWrapperDelegate) {
+        delegates.remove(delegate)
+    }
+    
+    func centralManagerDidUpdateState(central: CBCentralManager) {
+        
+        for delegate in delegates {
+            delegate.centralManagerDidUpdateState(self)
+        }
+    }
+
+    func centralManager(central: CBCentralManager, willRestoreState dict: [String : AnyObject]) {
+        
+    }
+
+    func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
+        
+    }
+
+    func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {
+        
+    }
+
+    func centralManager(central: CBCentralManager, didFailToConnectPeripheral peripheral: CBPeripheral, error: NSError?) {
+        
+    }
+    
+    func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
+        
+    }
+}*/
 
 class BluetoothSensorManager: NSObject, CBCentralManagerDelegate, RFSensorManager {
     private var manager: CBCentralManager!
@@ -96,7 +154,9 @@ class BluetoothSensorManager: NSObject, CBCentralManagerDelegate, RFSensorManage
         switch central.state {
         case .PoweredOn:
             readyToScan = true
-            startScanning()
+            if shouldBeScanning {
+                startScanning()
+            }
         case .Resetting: print("resetting")
         default: print(central.state.description)
         }
@@ -123,7 +183,7 @@ class BluetoothSensorManager: NSObject, CBCentralManagerDelegate, RFSensorManage
         }
         
         device.name = peripheral.name
-        device.state = "\(peripheral.state)"
+        device.state = String(peripheral.state)
         device.advertisementData = advertisementData
         device.recordRssi(Double(RSSI))
         

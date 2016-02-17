@@ -10,6 +10,7 @@ import UIKit
 import SVPulsingAnnotationView
 
 class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
+    
     var floorPlanImage: FloorPlanImage? {
         didSet {
             floorPlanView.floorPlanImage = floorPlanImage
@@ -56,6 +57,16 @@ class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
         addConstraints(constraints)
         
         delegate = self
+    }
+    
+    override func layoutSubviews() {
+        if let imageSize = floorPlanImage?.size {
+            let size = bounds.size
+            let visibleSize = CGSize(width: size.width - contentInset.left - contentInset.right, height: size.height - contentInset.top - contentInset.bottom)
+            let (xScale, yScale) = (visibleSize.width / imageSize.width, visibleSize.height / imageSize.height)
+            minimumZoomScale = min(xScale, yScale)
+        }
+        super.layoutSubviews()
     }
     
     var location: Location? {

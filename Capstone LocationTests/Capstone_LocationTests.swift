@@ -32,6 +32,13 @@ class Capstone_LocationTests: XCTestCase {
         sleep(1)
     }
     
+    func testSaving() {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, false)
+        if let urlString = paths.first, url = NSURL(string: urlString) {
+            floorPlanConfig.wr
+        }
+    }
+    
     func testVectorLength() {
         assert(length([2,10,11]) == 15)
     }

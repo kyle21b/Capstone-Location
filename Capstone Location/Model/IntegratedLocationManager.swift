@@ -13,7 +13,7 @@ protocol IntegratedLocationManagerDelegate {
     func locationManager(manager: IntegratedLocationManager, didUpdateLocation location: Location)
 }
 
-let sampleDB = RFSampleDatabase(samples: [], baseStations: [])
+let sampleDB = ParseSampleDatabase(baseStations: [])
 
 class IntegratedLocationManager: RFLocationManagerDelegate {
    

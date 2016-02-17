@@ -8,15 +8,18 @@
 
 import Foundation
 import CoreLocation
+import Parse
 
-//Trivial Implementation
-class RFSampleDatabase {
-    let samples: [RFTrainingSample]
+class ParseSampleDatabase: RFSampleDatabase {
+    var samples: [RFTrainingSample] = []
     let baseStations: [RFIdentifier]
     
-    init(samples: [RFTrainingSample], baseStations: [String]) {
-        self.samples = samples
+    required init(baseStations: [RFIdentifier]) {
         self.baseStations = baseStations
+    }
+    
+    func addSample(trainingSample: RFTrainingSample) {
+        trainingSample.save()
     }
 }
 

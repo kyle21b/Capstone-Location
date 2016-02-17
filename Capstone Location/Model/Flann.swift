@@ -8,10 +8,9 @@
 
 import Foundation
 
-public typealias Neighbor = (index: Int, distance: Double)
-
 public class Flann {
-    
+    public typealias Neighbor = (index: Int, distance: Double)
+
     private let dataSet: [[Double]]
     
     private let rows: Int
@@ -65,6 +64,7 @@ private func findDistance(testPoints: [[Double]], point: [Double]) -> Double {
 }
 
 private func findDistance(testPoint: [Double], point: [Double]) -> Double {
+    assert(testPoint.count == point.count)
     return length(testPoint + neg(point))
 }
 

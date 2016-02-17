@@ -94,6 +94,36 @@ extension FloorPlanImage: DictionaryConvertible {
     }
 }
 
+extension Location: DictionaryConvertible {
+    init?(dictionary: AnyDictionary) {
+        guard let pointDict = dictionary["point"] as? AnyDictionary else { return nil }
+        guard let point = Point(dictionary: pointDict), floor = dictionary["floor"] as? Int else { return nil }
+        self.init(point: point, floor: floor)
+    }
+    
+    func asDictionary() -> AnyDictionary {
+        return [
+            "point": point.asDictionary(),
+            "floor": floor
+        ]
+    }
+}
+
+extension RFTrainingSample: DictionaryConvertible {
+    init?(dictionary: AnyDictionary) {
+        guard let locationDict = dictionary["location"] as? AnyDictionary else { return nil }
+        guard let location = Location(dictionary: locationDict), sample = dictionary["sample"] as? RFSample else { return nil }
+        self = RFTrainingSample(location: location, sample: sample)
+    }
+    
+    func asDictionary() -> AnyDictionary {
+        return [
+            "location": location.asDictionary(),
+            "sample": sample
+        ]
+    }
+}
+
 extension Dictionary where Value: DictionaryConvertible {
     func asDictionary() -> AnyDictionary {
         return mapPairs { ("\($0)", $1.asDictionary()) }
