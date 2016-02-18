@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Llo-E2-YRW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Llo-E2-YRW">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -21,14 +21,27 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="p7s-pB-HkS" customClass="FloorPlanScrollView" customModule="Capstone_Location" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </scrollView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4H8-cn-Oe4">
+                                <rect key="frame" x="186" y="72" width="227" height="29"/>
+                                <segments>
+                                    <segment title="Basement"/>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <connections>
+                                    <action selector="floorChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="p1Q-Pn-QNp"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="p7s-pB-HkS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Cst-eQ-NAd"/>
                             <constraint firstItem="p7s-pB-HkS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="KeJ-AG-TAS"/>
+                            <constraint firstItem="4H8-cn-Oe4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Krv-jE-Kcb"/>
                             <constraint firstItem="p7s-pB-HkS" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottomMargin" id="UJg-fI-zms"/>
                             <constraint firstAttribute="trailing" secondItem="p7s-pB-HkS" secondAttribute="trailing" id="xvf-77-Tit"/>
+                            <constraint firstItem="4H8-cn-Oe4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zLq-tm-6Ro"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="n0f-JC-el6" appends="YES" id="qyT-cE-SeO"/>
@@ -44,6 +57,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="floorPlanScrollView" destination="p7s-pB-HkS" id="yRa-1e-Niz"/>
+                        <outlet property="floorPlanSelector" destination="4H8-cn-Oe4" id="ylS-1F-6W5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

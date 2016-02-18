@@ -9,7 +9,10 @@
 import UIKit
 import MapKit
 
-class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate { //, CLLocationManagerDelegate {
+class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
+    
+    @IBOutlet weak var floorPlanSelector: UISegmentedControl!
+    
     @IBOutlet weak var floorPlanScrollView: FloorPlanScrollView!
     
     var locationManager: IntegratedLocationManager!
@@ -25,9 +28,13 @@ class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
         //locationManager.delegate = self
         locationManager.startUpdatingLocation()
         
-        let image = floorPlanConfig.image
-        floorPlanScrollView.floorPlanImage = image
-        floorPlanScrollView.location = Location(point: image.center)
+        floorPlanScrollView.configureWithFloorPlan(floorPlanConfig)
+        floorPlanScrollView.location = Location(point: floorPlanScrollView.selectedImage!.center)
+        floorPlanSelector.selectedSegmentIndex = floorPlanConfig.initialFloor
+    }
+    
+    @IBAction func floorChanged(sender: UISegmentedControl) {
+        floorPlanScrollView.selectedFloor = sender.selectedSegmentIndex
     }
   
     @IBAction func tap(sender: UITapGestureRecognizer) {

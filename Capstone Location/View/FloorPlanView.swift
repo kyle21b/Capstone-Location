@@ -11,26 +11,27 @@ import SVPulsingAnnotationView
 
 class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
     
-    var floorPlanImage: FloorPlanImage? {
+    func configureWithFloorPlan(floorPlanConfig: FloorPlanConfiguration) {
+        floorPlanImages = floorPlanConfig.images
+        selectedFloor = floorPlanConfig.initialFloor
+        zoomToRect(floorPlanView.bounds, animated: false)
+    }
+    
+    var floorPlanImages = [FloorPlanImage]()
+
+    var selectedFloor = 0 {
         didSet {
-            floorPlanView.floorPlanImage = floorPlanImage
-            zoomToRect(floorPlanView.bounds, animated: false)
+            selectedImage = floorPlanImages[selectedFloor]
+        }
+    }
+    
+    var selectedImage: FloorPlanImage? {
+        didSet {
+            floorPlanView.image = selectedImage?.image
         }
     }
     
     let userLocationView: UIView = {
-        /*
-        let size: CGFloat = 300
-        let view = UIView()
-        view.bounds = CGRectMake(0, 0, size, size)
-        view.layer.cornerRadius = size/2;
-        view.backgroundColor = UIColor.blueColor();
-        view.layer.masksToBounds = true
-        view.translatesAutoresizingMaskIntoConstraints = true
-        view.alpha = 0.7
-        return view
-        */
-        
         let view = SVPulsingAnnotationView(annotation: nil, reuseIdentifier: nil)
         view.transform = Transform.scale(5.0)
         return view
@@ -60,7 +61,7 @@ class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
     }
     
     override func layoutSubviews() {
-        if let imageSize = floorPlanImage?.size {
+        if let imageSize = selectedImage?.size {
             let size = bounds.size
             let visibleSize = CGSize(width: size.width - contentInset.left - contentInset.right, height: size.height - contentInset.top - contentInset.bottom)
             let (xScale, yScale) = (visibleSize.width / imageSize.width, visibleSize.height / imageSize.height)

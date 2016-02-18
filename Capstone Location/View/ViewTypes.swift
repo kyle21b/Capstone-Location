@@ -35,6 +35,13 @@ extension FloorPlanImage {
         let size = self.size
         return FloorPoint(x: Double(size.width)/2, y: Double(size.height)/2)
     }
+    
+    var image: UIImage! {
+        switch underlyingImage {
+        case .Image(let image): return image
+        default: return nil
+        }
+    }
 }
 
 typealias PDFPage = CGPDFPageRef

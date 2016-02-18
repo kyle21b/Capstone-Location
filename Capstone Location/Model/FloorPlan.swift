@@ -20,28 +20,30 @@ struct AnchorPoint {
 
 let floorPlanConfig: AnchoredFloorPlanConfiguation = {
     let a1 = AnchorPoint(
-        floor: FloorPoint(x: 284, y: 192),
+        floor: FloorPoint(x: 381, y: 456),
         world: WorldPoint(latitude: 40.521807, longitude: -74.461135)
     )
 
     let a2 = AnchorPoint(
-        floor: FloorPoint(x: 1773, y: 3395),
+        floor: FloorPoint(x: 974, y: 1736),
         world: WorldPoint(latitude: 40.521776, longitude: -74.460533)
     )
     
-    let image = FloorPlanImage(named: "img-Y13162350-0001")!
+    let images = [FloorPlanImage(named: "floor0")!, FloorPlanImage(named: "floor1")!, FloorPlanImage(named: "floor2")!]
 
-    return AnchoredFloorPlanConfiguation(image: image, beaconLocations: [:], a1: a1, a2: a2)
+    return AnchoredFloorPlanConfiguation(images: images, initialFloor: 1, beacons: [], a1: a1, a2: a2)
 }()
 
 class FloorPlanConfiguration: DictionaryConvertible {
-    let image: FloorPlanImage
+    let images: [FloorPlanImage]
+    let initialFloor: Int
     
-    let beaconLocations: [RFIdentifier: FloorPoint]
+    let beacons: [RFIdentifier]
     
-    init(image: FloorPlanImage, beaconLocations: [RFIdentifier: FloorPoint]) {
-        self.image = image
-        self.beaconLocations = beaconLocations
+    init(images: [FloorPlanImage], initialFloor: Int = 0, beacons: [RFIdentifier]) {
+        self.images = images
+        self.initialFloor = initialFloor
+        self.beacons = beacons
     }
     
     required init?(dictionary: AnyDictionary) {
@@ -50,8 +52,8 @@ class FloorPlanConfiguration: DictionaryConvertible {
     
     func asDictionary() -> AnyDictionary {
         return [
-            "image": image.asDictionary(),
-            "beaconLocations": beaconLocations.asDictionary(),
+            "image": images.map { $0.asDictionary() },
+            "beacons": beacons,
         ]
     }
 }
@@ -62,7 +64,7 @@ class AnchoredFloorPlanConfiguation: FloorPlanConfiguration {
     let transformation: Transform
     let imagePointsPerMeter: Double
     
-    init(image: FloorPlanImage, beaconLocations: [RFIdentifier: FloorPoint], a1: AnchorPoint, a2: AnchorPoint) {
+    init(images: [FloorPlanImage], initialFloor: Int = 0, beacons: [RFIdentifier], a1: AnchorPoint, a2: AnchorPoint) {
         self.a1 = a1
         self.a2 = a2
         
@@ -74,7 +76,7 @@ class AnchoredFloorPlanConfiguation: FloorPlanConfiguration {
         self.transformation = scale.concat(rotation)
         self.imagePointsPerMeter = imagePointsPerMeter
         
-        super.init(image: image, beaconLocations: beaconLocations)
+        super.init(images: images, initialFloor: initialFloor, beacons: beacons)
     }
     
     required init?(dictionary: AnyDictionary) {
