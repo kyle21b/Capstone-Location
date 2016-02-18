@@ -40,5 +40,5 @@ class IntegratedLocationManager: RFLocationManagerDelegate {
     func locationManager(manager: RFLocationManager, didUpdateLocation location: Location) {
         delegate?.locationManager(self, didUpdateLocation: location)
     }
-    
+
 }
