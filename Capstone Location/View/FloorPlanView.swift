@@ -33,7 +33,7 @@ class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
     
     let userLocationView: UIView = {
         let view = SVPulsingAnnotationView(annotation: nil, reuseIdentifier: nil)
-        view.transform = Transform.scale(5.0)
+        view.transform = Transform.scale(3.0)
         return view
     }()
 
