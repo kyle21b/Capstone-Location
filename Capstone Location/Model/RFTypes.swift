@@ -26,6 +26,14 @@ typealias RFSample = [RFIdentifier: RSSI]
 struct RFTrainingSample {
     let location: Location
     let sample: RFSample
+    let nameStamp: String
+    let timeStamp: NSDate
+}
+
+extension RFTrainingSample: CustomStringConvertible {
+    var description: String {
+        return timeStamp.description
+    }
 }
 
 struct RFDevice {
@@ -73,11 +81,19 @@ protocol RFSensorManager {
     func sample() -> RFSample
 }
 
-protocol RFSampleDatabase {
+let RFSampleDatabaseDidUpdateKey = "RFSampleDatabaseDidUpdate"
+protocol RFSampleDatabase: AnyObject {
     init(baseStations: [RFIdentifier])
     var baseStations: [RFIdentifier] { get }
     
     var samples: [RFTrainingSample] { get }
     func addSample(trainingSample: RFTrainingSample)
+    func removeSample(trainingSample: RFTrainingSample)
+}
+
+extension RFSampleDatabase {
+    func notifyDidUpdate() {
+        NSNotificationCenter.defaultCenter().postNotificationName(RFSampleDatabaseDidUpdateKey, object: self)
+    }
 }
 

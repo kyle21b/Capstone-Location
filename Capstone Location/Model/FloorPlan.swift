@@ -18,22 +18,6 @@ struct AnchorPoint {
     let world: WorldPoint
 }
 
-let floorPlanConfig: AnchoredFloorPlanConfiguation = {
-    let a1 = AnchorPoint(
-        floor: FloorPoint(x: 381, y: 456),
-        world: WorldPoint(latitude: 40.521807, longitude: -74.461135)
-    )
-
-    let a2 = AnchorPoint(
-        floor: FloorPoint(x: 974, y: 1736),
-        world: WorldPoint(latitude: 40.521776, longitude: -74.460533)
-    )
-    
-    let images = [FloorPlanImage(named: "floor0")!, FloorPlanImage(named: "floor1")!, FloorPlanImage(named: "floor2")!]
-
-    return AnchoredFloorPlanConfiguation(images: images, initialFloor: 1, beacons: [], a1: a1, a2: a2)
-}()
-
 class FloorPlanConfiguration: DictionaryConvertible {
     let images: [FloorPlanImage]
     let initialFloor: Int

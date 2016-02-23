@@ -11,7 +11,7 @@ import CoreLocation
 import Parse
 
 class ParseSampleDatabase: RFSampleDatabase {
-    let samples: [RFTrainingSample]
+    var samples: [RFTrainingSample]
     let baseStations: [RFIdentifier]
     
     required init(baseStations: [RFIdentifier]) {
@@ -28,6 +28,12 @@ class ParseSampleDatabase: RFSampleDatabase {
     
     func addSample(trainingSample: RFTrainingSample) {
         trainingSample.save()
+        samples.append(trainingSample)
+        notifyDidUpdate()
+    }
+    
+    func removeSample(trainingSample: RFTrainingSample) {
+        fatalError()
     }
 }
 
@@ -55,16 +61,19 @@ private extension RFTrainingSample {
         guard parseObject.parseClassName == "RFTrainingSample",
             let parseLocation = parseObject["location"] as? PFObject,
             location = Location(parseObject: parseLocation),
-            sample = parseObject["sample"] as? RFSample else { return nil }
+            sample = parseObject["sample"] as? RFSample,
+            nameStamp = parseObject["nameStamp"] as? String else { return nil }
         
-        self.init(location: location, sample: sample)
+        self.init(location: location, sample: sample, nameStamp: nameStamp, timeStamp: parseObject.createdAt!)
     }
+    
     func save() {
         let location = self.location.asPFObject()
         location.saveInBackgroundWithBlock { (saved, error) -> Void in
             let trainingSample = PFObject(className: "RFTrainingSample")
             trainingSample["location"] = location
             trainingSample["sample"] = self.sample
+            trainingSample["nameStamp"] = self.nameStamp
             trainingSample.saveInBackgroundWithBlock { (saved, error) -> Void in
                 if let error = error {
                     print(error)

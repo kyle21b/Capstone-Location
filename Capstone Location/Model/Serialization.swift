@@ -111,15 +111,20 @@ extension Location: DictionaryConvertible {
 
 extension RFTrainingSample: DictionaryConvertible {
     init?(dictionary: AnyDictionary) {
-        guard let locationDict = dictionary["location"] as? AnyDictionary else { return nil }
-        guard let location = Location(dictionary: locationDict), sample = dictionary["sample"] as? RFSample else { return nil }
-        self = RFTrainingSample(location: location, sample: sample)
+        guard let locationDict = dictionary["location"] as? AnyDictionary,
+            location = Location(dictionary: locationDict),
+            sample = dictionary["sample"] as? RFSample,
+            time = dictionary["timeStamp"] as? Double,
+            nameStamp = dictionary["nameStamp"] as? String else { return nil }
+        self = RFTrainingSample(location: location, sample: sample, nameStamp: nameStamp, timeStamp: NSDate(timeIntervalSince1970: time))
     }
     
     func asDictionary() -> AnyDictionary {
         return [
             "location": location.asDictionary(),
-            "sample": sample
+            "sample": sample,
+            "timeStamp": timeStamp.timeIntervalSince1970,
+            "nameStamp": nameStamp
         ]
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CloudKit
 
 class iCloudSampleDatabase: RFSampleDatabase {
     required init(baseStations: [RFIdentifier]) {
@@ -15,9 +16,15 @@ class iCloudSampleDatabase: RFSampleDatabase {
     }
     
     let baseStations: [RFIdentifier]
-    let samples: [RFTrainingSample]
+    var samples: [RFTrainingSample]
     
     func addSample(trainingSample: RFTrainingSample) {
-        
+        samples.append(trainingSample)
+        notifyDidUpdate()
+        fatalError()
+    }
+    
+    func removeSample(trainingSample: RFTrainingSample) {
+        fatalError()
     }
 }

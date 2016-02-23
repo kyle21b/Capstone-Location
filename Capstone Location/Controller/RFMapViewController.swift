@@ -26,7 +26,7 @@ class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
         
         locationManager = IntegratedLocationManager()
         //locationManager.delegate = self
-        locationManager.startUpdatingLocation()
+        //locationManager.startUpdatingLocation()
         
         floorPlanScrollView.configureWithFloorPlan(floorPlanConfig)
         floorPlanScrollView.location = Location(point: floorPlanScrollView.selectedImage!.center)
@@ -60,7 +60,7 @@ class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
             if let nav = segue.destinationViewController as? UINavigationController, vc = nav.viewControllers.first as? RFTrainingSampleViewController {
                 let sample = locationManager.locationManager.sensorManager.sample()
                 if let location = floorPlanScrollView.location {
-                    vc.trainingSample = RFTrainingSample(location: location, sample: sample)
+                    vc.trainingSample = RFTrainingSample(location: location, sample: sample, nameStamp: guessUserName(), timeStamp: NSDate())
                 }
             }
         }

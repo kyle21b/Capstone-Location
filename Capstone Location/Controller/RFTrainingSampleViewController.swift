@@ -17,7 +17,7 @@ class RFTrainingSampleViewController: UITableViewController {
     }
     
     @IBAction func done(sender: UIBarButtonItem) {
-        ParseSampleDatabase(baseStations: []).addSample(trainingSample)
+        sampleDatabase.addSample(trainingSample)
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -27,7 +27,7 @@ class RFTrainingSampleViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0: return 2
+        case 0: return 4
         case 1: return trainingSample.sample.count
         default: return 0
         }
@@ -44,6 +44,12 @@ class RFTrainingSampleViewController: UITableViewController {
             case 1:
                 cell.textLabel?.text = trainingSample.location.floor.description
                 cell.detailTextLabel?.text = "Floor"
+            case 2:
+                cell.textLabel?.text = trainingSample.nameStamp
+                cell.detailTextLabel?.text = "Name"
+            case 3:
+                cell.textLabel?.text = trainingSample.timeStamp.description
+                cell.detailTextLabel?.text = "Time Stamp"
             default: break
             }
             return cell

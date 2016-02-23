@@ -29,6 +29,7 @@
 		A70C9A7F1C6559C3005DB7A5 /* ViewTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A7D1C6559C3005DB7A5 /* ViewTypes.swift */; };
 		A70C9A811C655A69005DB7A5 /* FloorPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A801C655A69005DB7A5 /* FloorPlan.swift */; };
 		A70C9A831C655D58005DB7A5 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A821C655D58005DB7A5 /* Geometry.swift */; };
+		A722A06E1C7C2B0E0098D116 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A722A06D1C7C2B0E0098D116 /* Helpers.swift */; };
 		A7BED34E1C65655100DAFEDC /* FloorPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A801C655A69005DB7A5 /* FloorPlan.swift */; };
 		A7BED34F1C65655500DAFEDC /* Arithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A601C655938005DB7A5 /* Arithmetic.swift */; };
 		A7BED3501C65655500DAFEDC /* Auxiliary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A611C655938005DB7A5 /* Auxiliary.swift */; };
@@ -42,6 +43,7 @@
 		A7BED35B1C6594C900DAFEDC /* RFTrainingSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BED35A1C6594C900DAFEDC /* RFTrainingSampleViewController.swift */; };
 		A7E745C01C30FDFE00CC3736 /* Capstone_LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E745BF1C30FDFE00CC3736 /* Capstone_LocationTests.swift */; };
 		A7FA31C21C7561B600ECE4CC /* iCloudSampleDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FA31C11C7561B600ECE4CC /* iCloudSampleDatabase.swift */; };
+		A7FFF1CB1C7BCC1D00D331F5 /* RFTrainingSampleBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FFF1CA1C7BCC1D00D331F5 /* RFTrainingSampleBrowserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,11 +83,13 @@
 		A70C9A7D1C6559C3005DB7A5 /* ViewTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewTypes.swift; path = View/ViewTypes.swift; sourceTree = "<group>"; };
 		A70C9A801C655A69005DB7A5 /* FloorPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloorPlan.swift; path = Model/FloorPlan.swift; sourceTree = "<group>"; };
 		A70C9A821C655D58005DB7A5 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = Model/Geometry.swift; sourceTree = "<group>"; };
+		A722A06D1C7C2B0E0098D116 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Model/Helpers.swift; sourceTree = "<group>"; };
 		A7BED35A1C6594C900DAFEDC /* RFTrainingSampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RFTrainingSampleViewController.swift; path = Controller/RFTrainingSampleViewController.swift; sourceTree = "<group>"; };
 		A7E745BD1C30FDFD00CC3736 /* Capstone LocationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Capstone LocationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7E745BF1C30FDFE00CC3736 /* Capstone_LocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capstone_LocationTests.swift; sourceTree = "<group>"; };
 		A7E745C11C30FDFE00CC3736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7FA31C11C7561B600ECE4CC /* iCloudSampleDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iCloudSampleDatabase.swift; sourceTree = "<group>"; };
+		A7FFF1CA1C7BCC1D00D331F5 /* RFTrainingSampleBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFTrainingSampleBrowserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +173,7 @@
 				A70C9A731C6559B8005DB7A5 /* RFTypes.swift */,
 				A70C9A721C6559B8005DB7A5 /* BluetoothSensorManager.swift */,
 				A70C9A741C6559B8005DB7A5 /* Serialization.swift */,
+				A722A06D1C7C2B0E0098D116 /* Helpers.swift */,
 				A717EA4C1C66FCA300262579 /* Parse */,
 			);
 			name = Model;
@@ -189,6 +194,7 @@
 				A70C9A6A1C655981005DB7A5 /* RFMapViewController.swift */,
 				A7BED35A1C6594C900DAFEDC /* RFTrainingSampleViewController.swift */,
 				A70C9A681C655981005DB7A5 /* RFBrowserViewController.swift */,
+				A7FFF1CA1C7BCC1D00D331F5 /* RFTrainingSampleBrowserViewController.swift */,
 				A70C9A691C655981005DB7A5 /* RFDeviceViewController.swift */,
 			);
 			name = Controller;
@@ -390,6 +396,7 @@
 				A70C9A751C6559B8005DB7A5 /* Flann.swift in Sources */,
 				A70C9A651C655938005DB7A5 /* Auxiliary.swift in Sources */,
 				A70C9A7A1C6559B8005DB7A5 /* RFTypes.swift in Sources */,
+				A7FFF1CB1C7BCC1D00D331F5 /* RFTrainingSampleBrowserViewController.swift in Sources */,
 				A70C9A7E1C6559C3005DB7A5 /* FloorPlanView.swift in Sources */,
 				A7FA31C21C7561B600ECE4CC /* iCloudSampleDatabase.swift in Sources */,
 				A70C9A771C6559B8005DB7A5 /* RFLocationManager.swift in Sources */,
@@ -399,6 +406,7 @@
 				A70C9A671C655938005DB7A5 /* Power.swift in Sources */,
 				A708A0FA1BF6C16900EE4E2F /* AppDelegate.swift in Sources */,
 				A70C9A7F1C6559C3005DB7A5 /* ViewTypes.swift in Sources */,
+				A722A06E1C7C2B0E0098D116 /* Helpers.swift in Sources */,
 				A70C9A811C655A69005DB7A5 /* FloorPlan.swift in Sources */,
 				A7BED35B1C6594C900DAFEDC /* RFTrainingSampleViewController.swift in Sources */,
 				A70C9A6D1C655981005DB7A5 /* RFMapViewController.swift in Sources */,
