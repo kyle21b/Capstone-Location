@@ -251,6 +251,7 @@
 				A708A0F41BF6C16900EE4E2F /* Resources */,
 				977E1DEA79E3D25CAA7C9492 /* Embed Pods Frameworks */,
 				DCB5CD9566D34B8EC286AC9B /* Copy Pods Resources */,
+				A752A4781C81481900F0E9FB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -369,6 +370,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Capstone Location/Pods-Capstone Location-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A752A4781C81481900F0E9FB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 589f09faf271bc4ae8e86ff30e57d13cf8896dad 90acc786eb94f92aa0bd5699ce5a6bd73bf41199246bb2ef80330b32ba269e3f";
+		};
 		DCB5CD9566D34B8EC286AC9B /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -481,7 +495,8 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -525,6 +540,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;

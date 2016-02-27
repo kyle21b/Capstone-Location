@@ -49,6 +49,11 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="DPc-n6-0fZ">
+                        <barButtonItem key="leftBarButtonItem" title="Train" id="gCW-R6-ICA">
+                            <connections>
+                                <action selector="trainModeChanged:" destination="BYZ-38-t0r" id="qal-gL-Ydw"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Take Sample" id="c1n-hP-lzm">
                             <connections>
                                 <segue destination="Wnq-R4-cWq" kind="presentation" identifier="sampleSegue" id="hYj-5O-LGh"/>
@@ -58,6 +63,8 @@
                     <connections>
                         <outlet property="floorPlanScrollView" destination="p7s-pB-HkS" id="yRa-1e-Niz"/>
                         <outlet property="floorPlanSelector" destination="4H8-cn-Oe4" id="ylS-1F-6W5"/>
+                        <outlet property="sampleButton" destination="c1n-hP-lzm" id="nUI-hR-Px3"/>
+                        <outlet property="trainButton" destination="gCW-R6-ICA" id="kPI-5G-eyS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

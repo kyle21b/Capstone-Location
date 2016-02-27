@@ -4,6 +4,8 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'Capstone Location' do
+pod 'Fabric'
+pod 'Crashlytics'
 pod 'Parse'
 pod 'SVProgressHUD'
 pod 'SVPulsingAnnotationView', :head
