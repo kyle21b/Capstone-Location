@@ -128,7 +128,7 @@ class BluetoothSensorManager: NSObject, CBCentralManagerDelegate, RFSensorManage
     func sample() -> RFSample {
         var sample = RFSample()
         for device in devicesByIdentifier.values {
-            sample[device.displayName] = device.rssi
+            sample[device.identifier] = device.averageRSSI
         }
         return sample
     }

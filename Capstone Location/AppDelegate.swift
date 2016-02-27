@@ -9,6 +9,9 @@
 import UIKit
 import Parse
 
+import Fabric
+import Crashlytics
+
 let floorPlanConfig: AnchoredFloorPlanConfiguation = {
     let a1 = AnchorPoint(
         floor: FloorPoint(x: 381, y: 456),
@@ -25,7 +28,14 @@ let floorPlanConfig: AnchoredFloorPlanConfiguation = {
     return AnchoredFloorPlanConfiguation(images: images, initialFloor: 1, beacons: [], a1: a1, a2: a2)
 }()
 
-let sampleDatabase = ParseSampleDatabase(baseStations: [])
+let baseStations = [
+"8C2C082F-26F5-84BE-5099-127ABF541F1E",
+"75E391DF-2A81-55A1-9DE3-24EDF8886E00",
+"E970E05E-A7B0-F5D5-DCF6-CDB47E74AA3D"
+]
+
+let sampleDatabase = ParseSampleDatabase(baseStations: baseStations)
+let sensorManager = BluetoothSensorManager()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,6 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        Fabric.with([Crashlytics.self])
+        
         return true
     }
 

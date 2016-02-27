@@ -177,14 +177,14 @@ extension AnchoredFloorPlanConfiguation {
 }
 
 extension FloorPlanScrollView {
-    var imagePerPixelScale: CGFloat {
+    var pixelPerImageScale: CGFloat {
         let imageSize = floorPlanView.image!.size
         let viewSize = bounds.size
         return min(viewSize.width / imageSize.width, viewSize.height / imageSize.height)
     }
     
     var screenTransform: Transform {
-        return Transform.scale(CGFloat(imagePerPixelScale))
+        return Transform.scale(CGFloat(1/pixelPerImageScale))
         /*
         let imageSize = floorPlanView.image!.size
         let viewSize = bounds.size;
@@ -200,11 +200,12 @@ extension FloorPlanScrollView {
         return scale.concat(translate)*/
     }
     
+    /*
     func convertFromScreen(point: ScreenPoint) -> FloorPoint {
         return point.applyTransform(screenTransform.invert()).toPoint()
     }
     
     func convertToScreen(point: FloorPoint) -> ScreenPoint {
         return point.toCGPoint().applyTransform(screenTransform)
-    }
+    }*/
 }

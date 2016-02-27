@@ -55,13 +55,27 @@ struct RFDevice {
         return measurements.last?.RSSI
     }
     
+    var averageRSSI: RSSI? {
+        let rssiValues = measurements.filter { $0.timestamp.timeIntervalSinceNow >= -4 } . map { $0.RSSI }
+        return sma(rssiValues, count: rssiValues.count)
+    }
+    
+    func sma(array: [Double], count: Int) -> Double {
+        let suffix = array.suffix(count)
+        let total = suffix.reduce(0) { $0 + $1 }
+        return total / Double(suffix.count)
+    }
+    
     mutating func recordRssi(rssi: RSSI) {
         let measurement = (rssi, NSDate())
         measurements.append(measurement)
     }
     
     var displayName: String {
-        return name ?? identifier
+        if let name = name {
+            return "\(name) \(identifier)"
+        }
+        return identifier
     }
 }
 

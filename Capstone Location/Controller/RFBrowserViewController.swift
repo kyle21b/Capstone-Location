@@ -10,7 +10,6 @@ import UIKit
 
 class RFBrowserViewController: UITableViewController, RFSensorManagerDelegate {
     
-    var manager: RFSensorManager! = nil
     var devices = [RFDevice]() {
         didSet {
             tableView.reloadData()
@@ -19,9 +18,9 @@ class RFBrowserViewController: UITableViewController, RFSensorManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        manager = BluetoothSensorManager()
-        manager.delegate = self
-        manager.startScanning()
+        
+        sensorManager.delegate = self
+        sensorManager.startScanning()
     }
     
     func manager(manager: RFSensorManager, didUpdateDevice device: RFDevice) {
@@ -39,7 +38,7 @@ class RFBrowserViewController: UITableViewController, RFSensorManagerDelegate {
         
         cell.textLabel?.text = device.displayName
         
-        if let rssi = device.rssi {
+        if let rssi = device.averageRSSI {
             cell.detailTextLabel?.text = "RSSI: \(rssi)"
         } else {
             cell.detailTextLabel?.text = "No RSSI"

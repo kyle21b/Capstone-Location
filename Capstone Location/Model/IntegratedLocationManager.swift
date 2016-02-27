@@ -13,9 +13,7 @@ protocol IntegratedLocationManagerDelegate {
     func locationManager(manager: IntegratedLocationManager, didUpdateLocation location: Location)
 }
 
-let sampleDB = ParseSampleDatabase(baseStations: [])
-
-class IntegratedLocationManager: RFLocationManagerDelegate {
+class IntegratedLocationManager: NSObject, RFLocationManagerDelegate {
    
     let locationManager: RFLocationManager
     let motionManager: CMMotionManager
@@ -23,9 +21,12 @@ class IntegratedLocationManager: RFLocationManagerDelegate {
     var location: Location? { return locationManager.location }
     var delegate: IntegratedLocationManagerDelegate?
     
-    init() {
-        self.locationManager = RFLocationManager(model: BluetoothSensorManager(), dataBase: sampleDB)
+    override init() {
+        self.locationManager = RFLocationManager(model: BluetoothSensorManager(), database: sampleDatabase)
         self.motionManager = CMMotionManager()
+        
+        super.init()
+        
         self.locationManager.delegate = self
     }
     

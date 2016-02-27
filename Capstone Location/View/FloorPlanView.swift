@@ -31,12 +31,8 @@ class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
         }
     }
     
-    let userLocationView: UIView = {
-        let view = SVPulsingAnnotationView(annotation: nil, reuseIdentifier: nil)
-        view.transform = Transform.scale(3.0)
-        return view
-    }()
-
+    let userLocationView = SVPulsingAnnotationView(annotation: nil, reuseIdentifier: nil)
+    
     let floorPlanView: FloorPlanView
     
     required init?(coder aDecoder: NSCoder) {
@@ -67,22 +63,23 @@ class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
             let (xScale, yScale) = (visibleSize.width / imageSize.width, visibleSize.height / imageSize.height)
             minimumZoomScale = min(xScale, yScale)
         }
+        userLocationView.transform = Transform.scale(1.0/zoomScale)
         super.layoutSubviews()
     }
     
     var location: Location? {
         didSet {
             guard let location = location else { return }
+            print(location.point)
             
             //Change image for proper floor
             switch (location.floor) {
             default: break
             }
             
-            let screenCoord = convertToScreen(location.point)
-            let scrollViewTransform = Transform.scale(1/zoomScale)
-            userLocationView.center = screenCoord.applyTransform(scrollViewTransform)
+            userLocationView.center = location.point.toCGPoint()
         }
+        
     }
     
     func setLocation(location: Location?, animated: Bool = false) {

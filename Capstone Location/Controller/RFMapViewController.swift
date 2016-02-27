@@ -11,6 +11,29 @@ import MapKit
 
 class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
     
+    enum Mode {
+        case Train
+        case Predict
+    }
+    
+    var mode: Mode = .Train {
+        didSet {
+            switch mode {
+            case .Train:
+                locationManager.stopUpdatingLocation()
+                trainButton.title = "Stop Training"
+                navigationItem.rightBarButtonItem = sampleButton
+            case .Predict:
+                locationManager.startUpdatingLocation()
+                trainButton.title = "Train"
+                navigationItem.rightBarButtonItem = nil
+            }
+        }
+    }
+    
+    @IBOutlet var trainButton: UIBarButtonItem!
+    @IBOutlet var sampleButton: UIBarButtonItem!
+    
     @IBOutlet weak var floorPlanSelector: UISegmentedControl!
     
     @IBOutlet weak var floorPlanScrollView: FloorPlanScrollView!
@@ -25,12 +48,20 @@ class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
         super.viewDidLoad()
         
         locationManager = IntegratedLocationManager()
-        //locationManager.delegate = self
-        //locationManager.startUpdatingLocation()
+        locationManager.delegate = self
+        
+        mode = .Train
         
         floorPlanScrollView.configureWithFloorPlan(floorPlanConfig)
         floorPlanScrollView.location = Location(point: floorPlanScrollView.selectedImage!.center)
         floorPlanSelector.selectedSegmentIndex = floorPlanConfig.initialFloor
+    }
+    
+    @IBAction func trainModeChanged(sender: UIBarButtonItem) {
+        switch mode {
+        case .Train: mode = .Predict
+        case .Predict: mode = .Train
+        }
     }
     
     @IBAction func floorChanged(sender: UISegmentedControl) {
@@ -38,10 +69,12 @@ class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
     }
   
     @IBAction func tap(sender: UITapGestureRecognizer) {
+        guard mode == .Train else { return }
         moveToPoint(sender.locationInView(floorPlanScrollView), animated: true)
     }
     
     @IBAction func pan(sender: UIPanGestureRecognizer) {
+        guard mode == .Train else { return }
         moveToPoint(sender.locationInView(floorPlanScrollView))
     }
     
@@ -50,15 +83,14 @@ class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
     }
     
     func moveToPoint(point: CGPoint, animated: Bool = false) {
-        let floorPoint = floorPlanScrollView.convertFromScreen(point)
-        let location = Location(point: floorPoint)
+        let location = Location(point: point.applyTransform(Transform.scale(1/floorPlanScrollView.zoomScale)).toPoint())
         floorPlanScrollView.setLocation(location, animated: animated)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "sampleSegue" {
             if let nav = segue.destinationViewController as? UINavigationController, vc = nav.viewControllers.first as? RFTrainingSampleViewController {
-                let sample = locationManager.locationManager.sensorManager.sample()
+                let sample = sensorManager.sample()
                 if let location = floorPlanScrollView.location {
                     vc.trainingSample = RFTrainingSample(location: location, sample: sample, nameStamp: guessUserName(), timeStamp: NSDate())
                 }

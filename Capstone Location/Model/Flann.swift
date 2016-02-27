@@ -38,6 +38,8 @@ public class Flann {
     }*/
     
     public func findNearestNeighbors(testPoint: [Double], nNeighbors: Int) -> [Neighbor] {
+        if rows == 0 { return [] }
+        
         assert(testPoint.count == columns)
 
         var neighbors = dataSet.enumerate().map { ($0, findDistance(testPoint, point: $1)) }

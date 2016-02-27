@@ -38,6 +38,17 @@ class RFTrainingSampleBrowserViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if case .Delete = editingStyle {
+            let sample = sampleDatabase.samples[indexPath.row]
+            sampleDatabase.removeSample(sample)
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "sampleSegue" {
             if let vc = segue.destinationViewController as? RFTrainingSampleViewController {

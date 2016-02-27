@@ -33,6 +33,15 @@ class ParseSampleDatabase: RFSampleDatabase {
     }
     
     func removeSample(trainingSample: RFTrainingSample) {
+        let predicate = NSPredicate { (object: AnyObject, bindings: [String : AnyObject]?) -> Bool in
+            let mirror = Mirror(reflecting: object)
+            print(mirror.subjectType)
+            return true
+        }
+        
+        let objects = try! PFQuery(className: "RFTrainingSample", predicate: predicate).findObjects()
+        
+        
         fatalError()
     }
 }
