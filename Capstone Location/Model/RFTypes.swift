@@ -56,7 +56,8 @@ struct RFDevice {
     }
     
     var averageRSSI: RSSI? {
-        let rssiValues = measurements.filter { $0.timestamp.timeIntervalSinceNow >= -4 } . map { $0.RSSI }
+        let rssiValues = measurements.filter { $0.timestamp.timeIntervalSinceNow >= -4 }.map { $0.RSSI }
+        if rssiValues.count == 0 { return nil }
         return sma(rssiValues, count: rssiValues.count)
     }
     

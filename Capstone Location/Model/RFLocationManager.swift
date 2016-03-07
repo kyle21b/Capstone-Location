@@ -16,7 +16,7 @@ class RFLocationManager: NSObject, RFSensorManagerDelegate {
     internal let database: RFSampleDatabase
     internal let sensorManager: RFSensorManager
    
-    private var flannMatcher: Flann!
+    private var flannMatcher: Flann?
     
     var delegate: RFLocationManagerDelegate? = nil
     
@@ -43,10 +43,14 @@ class RFLocationManager: NSObject, RFSensorManagerDelegate {
             }
         }
         
+        guard intensities.count > 0 else { return }
+        
         flannMatcher = Flann(dataSet: intensities)
     }
 
     func manager(manager: RFSensorManager, didUpdateDevice device: RFDevice) {
+        guard flannMatcher != nil else { return }
+        
         let location = predictLocationForIntensity(manager.sample())
         self.location = location
         delegate?.locationManager(self, didUpdateLocation: location)
@@ -66,10 +70,10 @@ class RFLocationManager: NSObject, RFSensorManagerDelegate {
         return neighbors.first?.0.location
     }*/
     
-    func predictLocationForIntensity(intensity: RFSample, nNeighbors: Int = 3) -> Location {
+    func predictLocationForIntensity(intensity: RFSample, nNeighbors: Int = 1) -> Location {
         let intensityVector = database.baseStations.map { intensity[$0] ?? missingRSSIValue }
         
-        let flannMatches = flannMatcher.findNearestNeighbors(intensityVector, nNeighbors: nNeighbors)
+        let flannMatches = flannMatcher?.findNearestNeighbors(intensityVector, nNeighbors: nNeighbors) ?? []
         let neighbors = flannMatches.map { (database.samples[$0], $1) }
         
         /*

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C1CAE72A28D200A2FFDD8AF9'
+               BlueprintIdentifier = 'A1A1B014BCBD47826CCFB176'
                BlueprintName = 'SVPulsingAnnotationView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'SVPulsingAnnotationView.framework'>

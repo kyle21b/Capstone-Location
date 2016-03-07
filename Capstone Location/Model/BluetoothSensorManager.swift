@@ -157,7 +157,6 @@ class BluetoothSensorManager: NSObject, CBCentralManagerDelegate, RFSensorManage
             if shouldBeScanning {
                 startScanning()
             }
-        case .Resetting: print("resetting")
         default: print(central.state.description)
         }
     }
