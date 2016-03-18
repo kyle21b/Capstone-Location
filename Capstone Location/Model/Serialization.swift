@@ -109,6 +109,7 @@ extension Location: DictionaryConvertible {
     }
 }
 
+/*
 extension RFTrainingSample: DictionaryConvertible {
     init?(dictionary: AnyDictionary) {
         guard let locationDict = dictionary["location"] as? AnyDictionary,
@@ -127,7 +128,7 @@ extension RFTrainingSample: DictionaryConvertible {
             "nameStamp": nameStamp
         ]
     }
-}
+}*/
 
 extension Dictionary where Value: DictionaryConvertible {
     func asDictionary() -> AnyDictionary {

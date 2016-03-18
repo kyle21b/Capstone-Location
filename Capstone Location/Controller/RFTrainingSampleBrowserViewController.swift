@@ -12,7 +12,7 @@ import UIKit
 class RFTrainingSampleBrowserViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload", name: RFSampleDatabaseDidUpdateKey, object: sampleDatabase)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RFTrainingSampleBrowserViewController.reload), name: RFSampleDatabaseDidUpdateKey, object: sampleDatabase)
     }
     
     deinit {

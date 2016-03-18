@@ -79,7 +79,6 @@ class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
             
             userLocationView.center = location.point.toCGPoint()
         }
-        
     }
     
     func setLocation(location: Location?, animated: Bool = false) {

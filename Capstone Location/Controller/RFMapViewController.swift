@@ -21,8 +21,9 @@ class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
             switch mode {
             case .Train:
                 locationManager.stopUpdatingLocation()
-                trainButton.title = "Stop Training"
+                trainButton.title = "Stop"
                 navigationItem.rightBarButtonItem = sampleButton
+                promptUserForSquare()
             case .Predict:
                 locationManager.startUpdatingLocation()
                 trainButton.title = "Train"
@@ -30,6 +31,18 @@ class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
             }
         }
     }
+    
+    func promptUserForSquare() {
+        let controller = UIAlertController(title: "Enter a Square", message: nil, preferredStyle: .Alert)
+        controller.addTextFieldWithConfigurationHandler(nil)
+        let action = UIAlertAction(title: "Ok", style: .Default) { _ in
+            self.squareID = controller.textFields?.first?.text?.capitalizedString
+        }
+        controller.addAction(action)
+        presentViewController(controller, animated: true, completion: nil)
+    }
+    
+    var squareID: String?
     
     @IBOutlet var trainButton: UIBarButtonItem!
     @IBOutlet var sampleButton: UIBarButtonItem!
@@ -50,7 +63,7 @@ class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
         locationManager = IntegratedLocationManager()
         locationManager.delegate = self
         
-        mode = .Train
+        mode = .Predict
         
         floorPlanScrollView.configureWithFloorPlan(floorPlanConfig)
         floorPlanScrollView.location = Location(point: floorPlanScrollView.selectedImage!.center)
@@ -69,13 +82,13 @@ class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
     }
   
     @IBAction func tap(sender: UITapGestureRecognizer) {
-        guard mode == .Train else { return }
-        moveToPoint(sender.locationInView(floorPlanScrollView), animated: true)
+        //guard mode == .Train else { return }
+        //moveToPoint(sender.locationInView(floorPlanScrollView), animated: true)
     }
     
     @IBAction func pan(sender: UIPanGestureRecognizer) {
-        guard mode == .Train else { return }
-        moveToPoint(sender.locationInView(floorPlanScrollView))
+        //guard mode == .Train else { return }
+        //moveToPoint(sender.locationInView(floorPlanScrollView))
     }
     
     func locationManager(manager: IntegratedLocationManager, didUpdateLocation location: Location) {
@@ -91,9 +104,8 @@ class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
         if segue.identifier == "sampleSegue" {
             if let nav = segue.destinationViewController as? UINavigationController, vc = nav.viewControllers.first as? RFTrainingSampleViewController {
                 let sample = sensorManager.sample()
-                if let location = floorPlanScrollView.location {
-                    vc.trainingSample = RFTrainingSample(location: location, sample: sample, nameStamp: guessUserName(), timeStamp: NSDate())
-                }
+                let location = FloorSquare(label: squareID!, floor: 1)
+                vc.trainingSample = RFTrainingSample(location: location, sample: sample, nameStamp: guessUserName(), timeStamp: NSDate())
             }
         }
     }

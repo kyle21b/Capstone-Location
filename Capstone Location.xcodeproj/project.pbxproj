@@ -41,7 +41,6 @@
 		A7BED3561C6565C200DAFEDC /* RFTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A731C6559B8005DB7A5 /* RFTypes.swift */; };
 		A7BED3571C65660A00DAFEDC /* FloorPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70C9A7C1C6559C3005DB7A5 /* FloorPlanView.swift */; };
 		A7BED35B1C6594C900DAFEDC /* RFTrainingSampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BED35A1C6594C900DAFEDC /* RFTrainingSampleViewController.swift */; };
-		A7DAA8381C7D047700936B38 /* iCloudSampleDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DAA8371C7D047700936B38 /* iCloudSampleDatabase.swift */; };
 		A7DAA83A1C7D048D00936B38 /* RFTrainingSampleBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DAA8391C7D048D00936B38 /* RFTrainingSampleBrowserViewController.swift */; };
 		A7E745C01C30FDFE00CC3736 /* Capstone_LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E745BF1C30FDFE00CC3736 /* Capstone_LocationTests.swift */; };
 /* End PBXBuildFile section */
@@ -416,7 +415,6 @@
 				A70C9A761C6559B8005DB7A5 /* IntegratedLocationManager.swift in Sources */,
 				A70C9A6B1C655981005DB7A5 /* RFBrowserViewController.swift in Sources */,
 				A70C9A671C655938005DB7A5 /* Power.swift in Sources */,
-				A7DAA8381C7D047700936B38 /* iCloudSampleDatabase.swift in Sources */,
 				A708A0FA1BF6C16900EE4E2F /* AppDelegate.swift in Sources */,
 				A70C9A7F1C6559C3005DB7A5 /* ViewTypes.swift in Sources */,
 				A722A06E1C7C2B0E0098D116 /* Helpers.swift in Sources */,

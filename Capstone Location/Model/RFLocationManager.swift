@@ -28,7 +28,7 @@ class RFLocationManager: NSObject, RFSensorManagerDelegate {
         
         super.init()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateFlannMatcher", name: RFSampleDatabaseDidUpdateKey, object: database)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RFLocationManager.updateFlannMatcher), name: RFSampleDatabaseDidUpdateKey, object: database)
         
         sensorManager.delegate = self
         updateFlannMatcher()
@@ -86,7 +86,8 @@ class RFLocationManager: NSObject, RFSensorManagerDelegate {
         let totalWeight = neighbors.reduce(0) { $0 + weightForSignalStrengthDistance($1.1) }
         
         let centroid = neighbors.reduce(Point(x: 0, y: 0)) {
-            $0 + $1.0.location.point * (weightForSignalStrengthDistance($1.1) / totalWeight)
+            let point = $1.0.location.locationOnFloorPlan(floorPlanConfig).point
+            return $0 + point * (weightForSignalStrengthDistance($1.1) / totalWeight)
         }
         
         return Location(point: centroid, floor: 1)
@@ -101,9 +102,15 @@ class RFLocationManager: NSObject, RFSensorManagerDelegate {
     }
 }
 
+extension FloorSquare {
+    func locationOnFloorPlan(floorPlan: FloorPlanConfiguration) -> Location {
+        return Location(x: 0, y: 0)
+    }
+}
+
 extension RFLocationManager {
     func computeReprojectionError(trainingSample: RFTrainingSample) -> Double {
         let estimatedLocation = predictLocationForIntensity(trainingSample.sample)
-        return trainingSample.location.distanceToLocation(estimatedLocation)
+        return trainingSample.location.locationOnFloorPlan(floorPlanConfig).distanceToLocation(estimatedLocation)
     }
 }

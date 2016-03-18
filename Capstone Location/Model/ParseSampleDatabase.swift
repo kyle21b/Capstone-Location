@@ -65,22 +65,38 @@ private extension Location {
     }
 }
 
+private extension FloorSquare {
+    init?(parseObject: PFObject) {
+        try! parseObject.fetchIfNeeded()
+        guard parseObject.parseClassName == "FloorSquare",
+            let label = parseObject["label"] as? String,
+            floor = parseObject["floor"] as? Int else { return nil }
+        self.init(label: label, floor: floor)
+    }
+    func asPFObject() -> PFObject {
+        let object = PFObject(className: "FloorSquare")
+        object["label"] = label
+        object["floor"] = floor
+        return object
+    }
+}
+
 private extension RFTrainingSample {
     init?(parseObject: PFObject) {
         guard parseObject.parseClassName == "RFTrainingSample",
-            let parseLocation = parseObject["location"] as? PFObject,
-            location = Location(parseObject: parseLocation),
+            let parseFloorSquare = parseObject["floorSquare"] as? PFObject,
+            floorSquare = FloorSquare(parseObject: parseFloorSquare),
             sample = parseObject["sample"] as? RFSample,
             nameStamp = parseObject["nameStamp"] as? String else { return nil }
         
-        self.init(location: location, sample: sample, nameStamp: nameStamp, timeStamp: parseObject.createdAt!)
+        self.init(location: floorSquare, sample: sample, nameStamp: nameStamp, timeStamp: parseObject.createdAt!)
     }
     
     func save() {
         let location = self.location.asPFObject()
         location.saveInBackgroundWithBlock { (saved, error) -> Void in
             let trainingSample = PFObject(className: "RFTrainingSample")
-            trainingSample["location"] = location
+            trainingSample["floorSquare"] = location
             trainingSample["sample"] = self.sample
             trainingSample["nameStamp"] = self.nameStamp
             trainingSample.saveInBackgroundWithBlock { (saved, error) -> Void in

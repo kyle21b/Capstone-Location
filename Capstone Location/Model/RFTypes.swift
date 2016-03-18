@@ -23,8 +23,19 @@ typealias RSSI = Double
 
 typealias RFSample = [RFIdentifier: RSSI]
 
+struct FloorSquare {
+    let label: String
+    let floor: Int
+}
+
+extension FloorSquare {
+    var description: String {
+        return label
+    }
+}
+
 struct RFTrainingSample {
-    let location: Location
+    let location: FloorSquare
     let sample: RFSample
     let nameStamp: String
     let timeStamp: NSDate

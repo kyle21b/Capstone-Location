@@ -39,7 +39,7 @@ class RFTrainingSampleViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("detailCell", forIndexPath: indexPath)
             switch indexPath.row {
             case 0:
-                cell.textLabel?.text = trainingSample.location.point.description
+                cell.textLabel?.text = trainingSample.location.description
                 cell.detailTextLabel?.text = "Location"
             case 1:
                 cell.textLabel?.text = trainingSample.location.floor.description
