@@ -36,7 +36,7 @@ let floorPlanConfig: FloorPlanConfiguration = {
         "B0076C7D-F74D-EF93-1397-2F147A61BE4C"
     ]
     
-    let frame = CGRect(x: 614, y: 667, width: 119, height: 860)
+    let frame = CGRect(x: 967, y: 673, width: 108, height: 860)
     
     let gridConfigurations = [GridConfiguration(frame: frame, rows: 21, columns: 3, floor: 0)]
     
@@ -50,7 +50,7 @@ let floorPlanConfig: FloorPlanConfiguration = {
 
 
 let sampleDatabase: RFSampleDatabase = ParseSampleDatabase(baseStations: floorPlanConfig.baseStations)
-let sensorManager: RFSensorManager = BluetoothSensorManager()
+//let sensorManager: RFSensorManager = BluetoothSensorManager()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

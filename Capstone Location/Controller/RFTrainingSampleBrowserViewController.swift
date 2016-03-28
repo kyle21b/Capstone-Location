@@ -10,15 +10,17 @@ import Foundation
 import UIKit
 
 class RFTrainingSampleBrowserViewController: UITableViewController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RFTrainingSampleBrowserViewController.reload), name: RFSampleDatabaseDidUpdateKey, object: sampleDatabase)
-        reload()
     }
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    @IBAction func refreshButtonPressed(sender: UIBarButtonItem) {
+        sampleDatabase.reloadSamples()
     }
     
     func reload() {

@@ -74,7 +74,11 @@ class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
         addGestureRecognizer(tapGestureRecognizer)
         tapGestureRecognizer.addTarget(self, action: #selector(FloorPlanScrollView.tap(_:)))
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(FloorPlanScrollView.refreshGridViewColors), name: RFSampleDatabaseDidUpdateKey, object: sampleDatabase)
+
+        
         refreshGridView()
+        refreshGridViewColors()
     }
     
     override func layoutSubviews() {
@@ -95,6 +99,10 @@ class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
         let floorGridView = FloorGridView(gridConfiguration: floorPlanConfig.gridConfigurations[selectedFloor])
         self.floorGridView = floorGridView
         floorPlanView.addSubview(floorGridView)
+    }
+    
+    func refreshGridViewColors() {
+        floorGridView?.updateWithDatabase(sampleDatabase)
     }
     
     var location: Location? {
@@ -149,7 +157,6 @@ class FloorPlanView: UIImageView {
     }
 }
 
-let disabledColor = UIColor.blackColor().colorWithAlphaComponent(0.1)
 let enabledColor = UIColor.greenColor()
 
 class FloorGridView: UIView {
@@ -160,11 +167,22 @@ class FloorGridView: UIView {
             }
         }
         
+        override func tintColorDidChange() {
+            layer.backgroundColor = tintColor.CGColor
+        }
+        
+        var unselectedColor = UIColor.blackColor() {
+            didSet {
+                if !selected {
+                    tintColor = unselectedColor
+                }
+            }
+        }
+        
         var selected = false {
             didSet {
                 guard selected != oldValue else { return }
-                let color = selected ? enabledColor : disabledColor
-                layer.backgroundColor = color.CGColor
+                tintColor = selected ? enabledColor : unselectedColor
             }
         }
         
@@ -173,7 +191,7 @@ class FloorGridView: UIView {
         override init(frame: CGRect) {
             super.init(frame: frame)
             layer.borderWidth = 1.0
-            layer.backgroundColor = disabledColor.CGColor
+            tintColor = unselectedColor
             
             addSubview(label)
             label.textAlignment = .Center
@@ -207,4 +225,23 @@ class FloorGridView: UIView {
             view.selected = view.square == square
         }
     }
+    
+    func updateWithDatabase(sampleDatabase: RFSampleDatabase) {
+        for case let view as SquareView in subviews {
+            let deviceModels = sampleDatabase.samplesForSquare(view.square).map { $0.deviceModel }
+            let count = Set(deviceModels).count
+            view.unselectedColor = colorForNumberOfModels(count)
+        }
+    }
+}
+
+func colorForNumberOfModels(numberOfModels: Int) -> UIColor {
+    let color: UIColor
+    switch numberOfModels {
+    case 0: color = UIColor.blackColor()
+    case 1: color = UIColor.yellowColor()
+    case 2: color = UIColor.orangeColor()
+    default: color = UIColor.redColor()
+    }
+    return color.colorWithAlphaComponent(0.2)
 }

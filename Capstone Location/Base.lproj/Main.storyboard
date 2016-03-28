@@ -207,7 +207,7 @@
             </objects>
             <point key="canvasLocation" x="301" y="1216"/>
         </scene>
-        <!--Training Sample Browser-->
+        <!--Sample Browser-->
         <scene sceneID="lYX-ND-jf8">
             <objects>
                 <tableViewController id="uBr-MN-Qbg" customClass="RFTrainingSampleBrowserViewController" customModule="Capstone_Location" customModuleProvider="target" sceneMemberID="viewController">
@@ -249,7 +249,13 @@
                             <outlet property="delegate" destination="uBr-MN-Qbg" id="LSU-qt-vpR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Training Sample Browser" id="6Yq-Io-TOS"/>
+                    <navigationItem key="navigationItem" title="Sample Browser" id="6Yq-Io-TOS">
+                        <barButtonItem key="leftBarButtonItem" title="Refresh" id="kco-KJ-6KG">
+                            <connections>
+                                <action selector="refreshButtonPressed:" destination="uBr-MN-Qbg" id="c8P-Zl-vrg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w8v-B8-Nuc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -47,6 +47,8 @@ class ParseSampleDatabase: RFSampleDatabase {
     }
     
     func reloadSamples() {
+        print("reloaded samples")
+       
         PFQuery(className: "RFTrainingSample").findObjectsInBackgroundWithBlock { (objects, error) in
             let samples = objects?.flatMap { RFTrainingSample(parseObject: $0) }
             

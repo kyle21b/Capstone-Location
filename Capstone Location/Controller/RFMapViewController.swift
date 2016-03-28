@@ -111,7 +111,7 @@ class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate, 
                 selectedSquare = selectedSquare,
                 heading = locationManager.heading {
                 
-                let sample = sensorManager.sample()
+                let sample = locationManager.locationManager.sensorManager.sample()
                 
                 vc.trainingSample = RFTrainingSample(square: selectedSquare, heading: heading, sample: sample, nameStamp: guessUserName(), timeStamp: NSDate(), deviceModel: deviceName)
             }

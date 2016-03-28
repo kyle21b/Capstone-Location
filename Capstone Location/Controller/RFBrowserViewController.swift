@@ -10,6 +10,8 @@ import UIKit
 
 class RFBrowserViewController: UITableViewController, RFSensorManagerDelegate {
     
+    let sensorManager = BluetoothSensorManager()
+    
     var devices = [RFDevice]() {
         didSet {
             tableView.reloadData()
@@ -20,7 +22,16 @@ class RFBrowserViewController: UITableViewController, RFSensorManagerDelegate {
         super.viewDidLoad()
         
         sensorManager.delegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         sensorManager.startScanning()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        sensorManager.stopScanning()
     }
     
     func manager(manager: RFSensorManager, didUpdateDevice device: RFDevice) {
