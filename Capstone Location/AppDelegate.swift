@@ -38,7 +38,7 @@ let floorPlanConfig: FloorPlanConfiguration = {
     
     let frame = CGRect(x: 967, y: 673, width: 108, height: 860)
     
-    let gridConfigurations = [GridConfiguration(frame: frame, rows: 21, columns: 3, floor: 0)]
+    let gridConfigurations = [GridConfiguration(frame: frame, rows: 25, columns: 3, floor: 0)]
     
     return AnchoredFloorPlanConfiguration(images: images,
                                          initialFloor: 0,

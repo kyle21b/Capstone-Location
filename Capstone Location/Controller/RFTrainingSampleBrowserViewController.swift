@@ -50,7 +50,7 @@ class RFTrainingSampleBrowserViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
-        let sample = sampleDatabase.samples[indexPath.row]
+        let sample = itemForIndexPath(indexPath)
      
         cell.textLabel?.text = sample.description
         cell.detailTextLabel?.text = sample.nameStamp
@@ -73,7 +73,7 @@ class RFTrainingSampleBrowserViewController: UITableViewController {
         if segue.identifier == "sampleSegue" {
             if let vc = segue.destinationViewController as? RFTrainingSampleViewController {
                 if let cell = sender as? UITableViewCell, indexPath = tableView.indexPathForCell(cell) {
-                    vc.trainingSample = sampleDatabase.samples[indexPath.row]
+                    vc.trainingSample = itemForIndexPath(indexPath)
                 }
             }
         }

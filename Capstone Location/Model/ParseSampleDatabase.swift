@@ -48,8 +48,10 @@ class ParseSampleDatabase: RFSampleDatabase {
     
     func reloadSamples() {
         print("reloaded samples")
-       
-        PFQuery(className: "RFTrainingSample").findObjectsInBackgroundWithBlock { (objects, error) in
+        
+        let query = PFQuery(className: "RFTrainingSample")
+        query.limit = 1000
+        query.findObjectsInBackgroundWithBlock { (objects, error) in
             let samples = objects?.flatMap { RFTrainingSample(parseObject: $0) }
             
             if let samples = samples {
@@ -83,8 +85,6 @@ class ParseSampleDatabase: RFSampleDatabase {
     
     func removeSample(trainingSample: RFTrainingSample) {
         //let objects = try! PFQuery(className: "RFTrainingSample", predicate: predicate).findObjects()
-        
-        
         fatalError()
     }
     

@@ -61,7 +61,7 @@ class RFLocationManager: NSObject, RFSensorManagerDelegate {
         return 100 / (1 + pow(distance, 1))
     }
     
-    func predictLocationForIntensity(intensity: RFSample, nNeighbors: Int = 1) -> Location? {
+    func predictLocationForIntensity(intensity: RFSample, nNeighbors: Int = 5) -> Location? {
         guard let flannMatcher = flannMatcher else { return nil }
 
         let intensityVector = floorPlanConfiguration.baseStations.map { intensity[$0] ?? missingRSSIValue }
@@ -76,7 +76,7 @@ class RFLocationManager: NSObject, RFSensorManagerDelegate {
             return $0 + point * (weightForSignalStrengthDistance($1.1) / totalWeight)
         }
         
-        return Location(point: centroid, floor: 1)
+        return Location(point: centroid, floor: 0)
     }
     
     func startUpdatingLocation() {
