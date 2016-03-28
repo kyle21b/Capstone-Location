@@ -15,17 +15,19 @@ protocol RFLocationManagerDelegate {
 class RFLocationManager: NSObject, RFSensorManagerDelegate {
     internal let database: RFSampleDatabase
     internal let sensorManager: RFSensorManager
+    internal let floorPlanConfiguration: FloorPlanConfiguration
    
     private var flannMatcher: Flann?
+    private var samples = [RFTrainingSample]()
     
     var delegate: RFLocationManagerDelegate? = nil
     
     var location: Location?
     
-    init(model: RFSensorManager, database: RFSampleDatabase) {
+    init(sensorManager: RFSensorManager, database: RFSampleDatabase, floorPlanConfiguration: FloorPlanConfiguration) {
         self.database = database
-        self.sensorManager = model
-        
+        self.sensorManager = sensorManager
+        self.floorPlanConfiguration = floorPlanConfiguration
         super.init()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RFLocationManager.updateFlannMatcher), name: RFSampleDatabaseDidUpdateKey, object: database)
@@ -38,7 +40,7 @@ class RFLocationManager: NSObject, RFSensorManagerDelegate {
     
     func updateFlannMatcher() {
         let intensities = database.samples.map { sample in
-            database.baseStations.map { stationID in
+            floorPlanConfig.baseStations.map { stationID in
                 return sample.sample[stationID] ?? missingRSSIValue
             }
         }
@@ -49,44 +51,28 @@ class RFLocationManager: NSObject, RFSensorManagerDelegate {
     }
 
     func manager(manager: RFSensorManager, didUpdateDevice device: RFDevice) {
-        guard flannMatcher != nil else { return }
-        
-        let location = predictLocationForIntensity(manager.sample())
-        self.location = location
-        delegate?.locationManager(self, didUpdateLocation: location)
+        if let location = predictLocationForIntensity(manager.sample()) {
+            self.location = location
+            delegate?.locationManager(self, didUpdateLocation: location)
+        }
     }
     
     private func weightForSignalStrengthDistance(distance: Double) -> Double {
         return 100 / (1 + pow(distance, 1))
     }
     
-    /*
-    func predictLocationForIntensity(intensity: RFSample) -> Location? {
-        let intensityVector = database.baseStations.map { intensity[$0] ?? missingRSSIValue }
+    func predictLocationForIntensity(intensity: RFSample, nNeighbors: Int = 1) -> Location? {
+        guard let flannMatcher = flannMatcher else { return nil }
+
+        let intensityVector = floorPlanConfiguration.baseStations.map { intensity[$0] ?? missingRSSIValue }
         
-        let flannMatches = flannMatcher.findNearestNeighbors(intensityVector, nNeighbors: 1)
+        let flannMatches = flannMatcher.findNearestNeighbors(intensityVector, nNeighbors: nNeighbors)
         let neighbors = flannMatches.map { (database.samples[$0], $1) }
-        
-        return neighbors.first?.0.location
-    }*/
-    
-    func predictLocationForIntensity(intensity: RFSample, nNeighbors: Int = 1) -> Location {
-        let intensityVector = database.baseStations.map { intensity[$0] ?? missingRSSIValue }
-        
-        let flannMatches = flannMatcher?.findNearestNeighbors(intensityVector, nNeighbors: nNeighbors) ?? []
-        let neighbors = flannMatches.map { (database.samples[$0], $1) }
-        
-        /*
-        let floor = 1
-        let matchingNeighbors = neighbors
-        for (sample, _) in matchingNeighbors {
-            assert(sample.location.floor == floor)
-        }*/
         
         let totalWeight = neighbors.reduce(0) { $0 + weightForSignalStrengthDistance($1.1) }
         
         let centroid = neighbors.reduce(Point(x: 0, y: 0)) {
-            let point = $1.0.location.locationOnFloorPlan(floorPlanConfig).point
+            let point = floorPlanConfiguration.locationOfSquare($1.0.square).point
             return $0 + point * (weightForSignalStrengthDistance($1.1) / totalWeight)
         }
         
@@ -102,7 +88,7 @@ class RFLocationManager: NSObject, RFSensorManagerDelegate {
     }
 }
 
-extension FloorSquare {
+extension GridSquare {
     func locationOnFloorPlan(floorPlan: FloorPlanConfiguration) -> Location {
         return Location(x: 0, y: 0)
     }
@@ -110,7 +96,7 @@ extension FloorSquare {
 
 extension RFLocationManager {
     func computeReprojectionError(trainingSample: RFTrainingSample) -> Double {
-        let estimatedLocation = predictLocationForIntensity(trainingSample.sample)
-        return trainingSample.location.locationOnFloorPlan(floorPlanConfig).distanceToLocation(estimatedLocation)
+        let estimatedLocation = predictLocationForIntensity(trainingSample.sample)!
+        return floorPlanConfiguration.locationOfSquare(trainingSample.square).distanceToLocation(estimatedLocation)
     }
 }

@@ -109,26 +109,114 @@ extension Location: DictionaryConvertible {
     }
 }
 
-/*
-extension RFTrainingSample: DictionaryConvertible {
+extension GridSquare: DictionaryConvertible {
     init?(dictionary: AnyDictionary) {
-        guard let locationDict = dictionary["location"] as? AnyDictionary,
-            location = Location(dictionary: locationDict),
-            sample = dictionary["sample"] as? RFSample,
-            time = dictionary["timeStamp"] as? Double,
-            nameStamp = dictionary["nameStamp"] as? String else { return nil }
-        self = RFTrainingSample(location: location, sample: sample, nameStamp: nameStamp, timeStamp: NSDate(timeIntervalSince1970: time))
+        guard let row = dictionary["row"] as? Int,
+            column = dictionary["column"] as? String,
+            floor = dictionary["floor"] as? Int else { return nil }
+        
+        self.init(row: row, column: column, floor: floor)
     }
     
     func asDictionary() -> AnyDictionary {
         return [
-            "location": location.asDictionary(),
-            "sample": sample,
-            "timeStamp": timeStamp.timeIntervalSince1970,
-            "nameStamp": nameStamp
+            "row": row,
+            "column": column,
+            "floor": floor
         ]
     }
-}*/
+}
+
+extension RFTrainingSample: DictionaryConvertible {
+    init?(dictionary: AnyDictionary) {
+        guard let squareDict = dictionary["square"] as? AnyDictionary,
+            square = GridSquare(dictionary: squareDict),
+            heading = dictionary["heading"] as? Double,
+            sample = dictionary["sample"] as? RFSample,
+            nameStamp = dictionary["nameStamp"] as? String,
+            timeStamp = dictionary["timeStamp"] as? NSDate,
+            deviceModel = dictionary["deviceModel"] as? String else { return nil }
+       
+        self.init(square: square, heading: heading, sample: sample, nameStamp: nameStamp, timeStamp: timeStamp, deviceModel: deviceModel)
+    }
+    
+    func asDictionary() -> AnyDictionary {
+        return [
+        "square": square.asDictionary(),
+        "heading": heading,
+        "sample": sample,
+        "nameStamp": nameStamp,
+        "timeStamp": timeStamp,
+        "deviceModel": deviceModel
+        ]
+    }
+}
+
+/*
+private extension Location {
+    init?(parseObject: PFObject) {
+        try! parseObject.fetchIfNeeded()
+        guard parseObject.parseClassName == "Location",
+            let x = parseObject["x"] as? Double,
+            y = parseObject["y"] as? Double,
+            floor = parseObject["floor"] as? Int else { return nil }
+        
+        self.init(x: x, y: y, floor: floor)
+    }
+    func asPFObject() -> PFObject {
+        let object = PFObject(className: "Location")
+        object["x"] = point.x
+        object["y"] = point.y
+        object["floor"] = floor
+        return object
+    }
+}
+
+private extension GridSquare {
+    init?(parseObject: PFObject) {
+        try! parseObject.fetchIfNeeded()
+        guard parseObject.parseClassName == "GridSquare",
+            let label = parseObject["label"] as? String,
+            floor = parseObject["floor"] as? Int else { return nil }
+        self.init(label: label, floor: floor)
+    }
+    
+    func asPFObject() -> PFObject {
+        let object = PFObject(className: "GridSquare")
+        object["row"] = label
+        object["column"] = label
+        object["floor"] = label
+        return object
+    }
+}
+
+private extension RFTrainingSample {
+    init?(parseObject: PFObject) {
+        guard parseObject.parseClassName == "RFTrainingSample",
+            let parseGridSquare = parseObject["floorSquare"] as? PFObject,
+            floorSquare = GridSquare(parseObject: parseGridSquare),
+            sample = parseObject["sample"] as? RFSample,
+            nameStamp = parseObject["nameStamp"] as? String else { return nil }
+        
+        self.init(location: floorSquare, sample: sample, nameStamp: nameStamp, timeStamp: parseObject.createdAt!)
+    }
+    
+    func save() {
+        let location = self.location.asPFObject()
+        location.saveInBackgroundWithBlock { (saved, error) -> Void in
+            let trainingSample = PFObject(className: "RFTrainingSample")
+            trainingSample["floorSquare"] = location
+            trainingSample["sample"] = self.sample
+            trainingSample["nameStamp"] = self.nameStamp
+            trainingSample.saveInBackgroundWithBlock { (saved, error) -> Void in
+                if let error = error {
+                    print(error)
+                }
+            }
+        }
+    }
+}
+*/
 
 extension Dictionary where Value: DictionaryConvertible {
     func asDictionary() -> AnyDictionary {

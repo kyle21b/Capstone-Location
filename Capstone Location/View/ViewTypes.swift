@@ -50,3 +50,4 @@ extension PDFPage {
         return CGPDFPageGetBoxRect(self, .MediaBox).size
     }
 }
+

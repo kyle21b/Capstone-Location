@@ -11,7 +11,7 @@ import UIKit
 
 func guessUserName() -> String {
     let name = UIDevice.currentDevice().name
-    if let range = name.rangeOfString("’") {
+    if let range = name.rangeOfCharacterFromSet(NSCharacterSet(charactersInString: "’’'")) {
         return name.substringToIndex(range.startIndex)
     }
     return name

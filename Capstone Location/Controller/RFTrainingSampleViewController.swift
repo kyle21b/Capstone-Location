@@ -27,7 +27,7 @@ class RFTrainingSampleViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0: return 4
+        case 0: return 5
         case 1: return trainingSample.sample.count
         default: return 0
         }
@@ -39,17 +39,20 @@ class RFTrainingSampleViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("detailCell", forIndexPath: indexPath)
             switch indexPath.row {
             case 0:
-                cell.textLabel?.text = trainingSample.location.description
-                cell.detailTextLabel?.text = "Location"
+                cell.textLabel?.text = trainingSample.square.description
+                cell.detailTextLabel?.text = "Square"
             case 1:
-                cell.textLabel?.text = trainingSample.location.floor.description
-                cell.detailTextLabel?.text = "Floor"
+                cell.textLabel?.text = trainingSample.heading.description
+                cell.detailTextLabel?.text = "Heading"
             case 2:
                 cell.textLabel?.text = trainingSample.nameStamp
                 cell.detailTextLabel?.text = "Name"
             case 3:
                 cell.textLabel?.text = trainingSample.timeStamp.description
                 cell.detailTextLabel?.text = "Time Stamp"
+            case 4:
+                cell.textLabel?.text = trainingSample.deviceModel
+                cell.detailTextLabel?.text = "Device Model"
             default: break
             }
             return cell

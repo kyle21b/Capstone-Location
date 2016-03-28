@@ -23,22 +23,15 @@ typealias RSSI = Double
 
 typealias RFSample = [RFIdentifier: RSSI]
 
-struct FloorSquare {
-    let label: String
-    let floor: Int
-}
-
-extension FloorSquare {
-    var description: String {
-        return label
-    }
-}
-
 struct RFTrainingSample {
-    let location: FloorSquare
+    let square: GridSquare
+    let heading: Double
+    
     let sample: RFSample
+    
     let nameStamp: String
     let timeStamp: NSDate
+    let deviceModel: String
 }
 
 extension RFTrainingSample: CustomStringConvertible {
@@ -95,7 +88,7 @@ protocol RFSensorManagerDelegate {
     func manager(manager: RFSensorManager, didUpdateDevice device: RFDevice)
 }
 
-protocol RFSensorManager {
+protocol RFSensorManager: AnyObject {
     var delegate: RFSensorManagerDelegate? { get set }
     
     var state: State { get }
@@ -109,12 +102,15 @@ protocol RFSensorManager {
 
 let RFSampleDatabaseDidUpdateKey = "RFSampleDatabaseDidUpdate"
 protocol RFSampleDatabase: AnyObject {
-    init(baseStations: [RFIdentifier])
-    var baseStations: [RFIdentifier] { get }
+    //init(baseStations: [RFIdentifier])
+    //var baseStations: [RFIdentifier] { get }
     
     var samples: [RFTrainingSample] { get }
     func addSample(trainingSample: RFTrainingSample)
     func removeSample(trainingSample: RFTrainingSample)
+    func reloadSamples()
+    
+    func samplesForSquare(square: GridSquare) -> [RFTrainingSample]
 }
 
 extension RFSampleDatabase {
@@ -122,4 +118,3 @@ extension RFSampleDatabase {
         NSNotificationCenter.defaultCenter().postNotificationName(RFSampleDatabaseDidUpdateKey, object: self)
     }
 }
-

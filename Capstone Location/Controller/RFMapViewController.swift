@@ -9,7 +9,17 @@
 import UIKit
 import MapKit
 
-class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
+let deviceName: String = {
+    var systemInfo = utsname()
+    uname(&systemInfo)
+    let machineMirror = Mirror(reflecting: systemInfo.machine)
+    return machineMirror.children.reduce("") { identifier, element in
+        guard let value = element.value as? Int8 where value != 0 else { return identifier }
+        return identifier + String(UnicodeScalar(UInt8(value)))
+    }
+}()
+
+class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate, FloorPlanScrollViewDelegate {
     
     enum Mode {
         case Train
@@ -20,29 +30,16 @@ class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
         didSet {
             switch mode {
             case .Train:
-                locationManager.stopUpdatingLocation()
                 trainButton.title = "Stop"
                 navigationItem.rightBarButtonItem = sampleButton
-                promptUserForSquare()
             case .Predict:
-                locationManager.startUpdatingLocation()
                 trainButton.title = "Train"
                 navigationItem.rightBarButtonItem = nil
             }
         }
     }
     
-    func promptUserForSquare() {
-        let controller = UIAlertController(title: "Enter a Square", message: nil, preferredStyle: .Alert)
-        controller.addTextFieldWithConfigurationHandler(nil)
-        let action = UIAlertAction(title: "Ok", style: .Default) { _ in
-            self.squareID = controller.textFields?.first?.text?.capitalizedString
-        }
-        controller.addAction(action)
-        presentViewController(controller, animated: true, completion: nil)
-    }
-    
-    var squareID: String?
+    var selectedSquare: GridSquare?
     
     @IBOutlet var trainButton: UIBarButtonItem!
     @IBOutlet var sampleButton: UIBarButtonItem!
@@ -66,8 +63,10 @@ class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
         mode = .Predict
         
         floorPlanScrollView.configureWithFloorPlan(floorPlanConfig)
-        floorPlanScrollView.location = Location(point: floorPlanScrollView.selectedImage!.center)
+        floorPlanScrollView.floorPlanDelegate = self
         floorPlanSelector.selectedSegmentIndex = floorPlanConfig.initialFloor
+        
+        locationManager.startUpdatingLocation()
     }
     
     @IBAction func trainModeChanged(sender: UIBarButtonItem) {
@@ -75,6 +74,10 @@ class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
         case .Train: mode = .Predict
         case .Predict: mode = .Train
         }
+    }
+    
+    func floorPlanScrollViewDidSelectSquare(square: GridSquare) {
+        selectedSquare = square
     }
     
     @IBAction func floorChanged(sender: UISegmentedControl) {
@@ -92,6 +95,7 @@ class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
     }
     
     func locationManager(manager: IntegratedLocationManager, didUpdateLocation location: Location) {
+        guard mode != .Train else { return }
         floorPlanScrollView.setLocation(location, animated: true)
     }
     
@@ -102,10 +106,14 @@ class RFMapViewController: UIViewController, IntegratedLocationManagerDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "sampleSegue" {
-            if let nav = segue.destinationViewController as? UINavigationController, vc = nav.viewControllers.first as? RFTrainingSampleViewController {
+            if let nav = segue.destinationViewController as? UINavigationController,
+                vc = nav.viewControllers.first as? RFTrainingSampleViewController,
+                selectedSquare = selectedSquare,
+                heading = locationManager.heading {
+                
                 let sample = sensorManager.sample()
-                let location = FloorSquare(label: squareID!, floor: 1)
-                vc.trainingSample = RFTrainingSample(location: location, sample: sample, nameStamp: guessUserName(), timeStamp: NSDate())
+                
+                vc.trainingSample = RFTrainingSample(square: selectedSquare, heading: heading, sample: sample, nameStamp: guessUserName(), timeStamp: NSDate(), deviceModel: deviceName)
             }
         }
     }

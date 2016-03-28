@@ -9,7 +9,12 @@
 import UIKit
 import SVPulsingAnnotationView
 
+protocol FloorPlanScrollViewDelegate: AnyObject {
+    func floorPlanScrollViewDidSelectSquare(square: GridSquare)
+}
+
 class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
+    var floorPlanDelegate: FloorPlanScrollViewDelegate?
     
     func configureWithFloorPlan(floorPlanConfig: FloorPlanConfiguration) {
         floorPlanImages = floorPlanConfig.images
@@ -22,10 +27,20 @@ class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
     var selectedFloor = 0 {
         didSet {
             selectedImage = floorPlanImages[selectedFloor]
+            refreshGridView()
         }
     }
     
-    var selectedImage: FloorPlanImage? {
+    var selectedSquare: GridSquare? {
+        didSet {
+            if let selectedSquare = selectedSquare {
+                floorPlanDelegate?.floorPlanScrollViewDidSelectSquare(selectedSquare)
+                floorGridView?.selectSquare(selectedSquare)
+            }
+        }
+    }
+    
+    private var selectedImage: FloorPlanImage? {
         didSet {
             floorPlanView.image = selectedImage?.image
         }
@@ -34,6 +49,8 @@ class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
     let userLocationView = SVPulsingAnnotationView(annotation: nil, reuseIdentifier: nil)
     
     let floorPlanView: FloorPlanView
+    
+    let tapGestureRecognizer = UITapGestureRecognizer()
     
     required init?(coder aDecoder: NSCoder) {
         floorPlanView = FloorPlanView(coder: aDecoder)!
@@ -54,6 +71,10 @@ class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
         addConstraints(constraints)
         
         delegate = self
+        addGestureRecognizer(tapGestureRecognizer)
+        tapGestureRecognizer.addTarget(self, action: #selector(FloorPlanScrollView.tap(_:)))
+        
+        refreshGridView()
     }
     
     override func layoutSubviews() {
@@ -65,6 +86,15 @@ class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
         }
         userLocationView.transform = Transform.scale(1.0/zoomScale)
         super.layoutSubviews()
+    }
+    
+    var floorGridView: FloorGridView?
+    
+    func refreshGridView() {
+        self.floorGridView?.removeFromSuperview()
+        let floorGridView = FloorGridView(gridConfiguration: floorPlanConfig.gridConfigurations[selectedFloor])
+        self.floorGridView = floorGridView
+        floorPlanView.addSubview(floorGridView)
     }
     
     var location: Location? {
@@ -94,6 +124,14 @@ class FloorPlanScrollView: UIScrollView, UIScrollViewDelegate {
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return floorPlanView
     }
+    
+    func tap(gesture: UITapGestureRecognizer) {
+        let location = gesture.locationInView(self)
+        let hitView = hitTest(location, withEvent: nil)
+        if let squareView = hitView as? FloorGridView.SquareView {
+            selectedSquare = squareView.square
+        }
+    }
 }
 
 class FloorPlanView: UIImageView {
@@ -107,6 +145,66 @@ class FloorPlanView: UIImageView {
             }
             
             sizeToFit()
+        }
+    }
+}
+
+let disabledColor = UIColor.blackColor().colorWithAlphaComponent(0.1)
+let enabledColor = UIColor.greenColor()
+
+class FloorGridView: UIView {
+    class SquareView: UIView {
+        var square: GridSquare! {
+            didSet {
+                label.text = square.identifier
+            }
+        }
+        
+        var selected = false {
+            didSet {
+                guard selected != oldValue else { return }
+                let color = selected ? enabledColor : disabledColor
+                layer.backgroundColor = color.CGColor
+            }
+        }
+        
+        var label = UILabel()
+        
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            layer.borderWidth = 1.0
+            layer.backgroundColor = disabledColor.CGColor
+            
+            addSubview(label)
+            label.textAlignment = .Center
+            label.frame = bounds
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+    }
+    
+    required init(gridConfiguration: GridConfiguration) {
+        super.init(frame: gridConfiguration.frame)
+        let size = gridConfiguration.squareSize
+        for square in gridConfiguration.allSquares {
+            let (row, column) = (square.row, GridConfiguration.indexOfColumn(square.column))
+            let origin = CGPoint(x: size.width * CGFloat(column), y: size.height * CGFloat(row))
+            let frame = CGRect(origin: origin, size: size)
+            let squareView = SquareView(frame: frame)
+            squareView.square = square
+            addSubview(squareView)
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func selectSquare(square: GridSquare) {
+        for case let view as SquareView in subviews {
+            view.selected = view.square == square
         }
     }
 }

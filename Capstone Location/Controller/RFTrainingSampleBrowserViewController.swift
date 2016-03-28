@@ -10,9 +10,11 @@ import Foundation
 import UIKit
 
 class RFTrainingSampleBrowserViewController: UITableViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RFTrainingSampleBrowserViewController.reload), name: RFSampleDatabaseDidUpdateKey, object: sampleDatabase)
+        reload()
     }
     
     deinit {
@@ -23,8 +25,24 @@ class RFTrainingSampleBrowserViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    func squareForSection(section: Int) -> GridSquare {
+        return floorPlanConfig.allSquares[section]
+    }
+    
+    func itemForIndexPath(indexPath: NSIndexPath) -> RFTrainingSample {
+        return sampleDatabase.samplesForSquare(squareForSection(indexPath.section))[indexPath.row]
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return floorPlanConfig.allSquares.count
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return squareForSection(section).description
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sampleDatabase.samples.count
+        return sampleDatabase.samplesForSquare(squareForSection(section)).count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

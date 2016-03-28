@@ -27,16 +27,6 @@ public class Flann {
         }
     }
 
-    /*
-    public func findNearestNeighbors(testPoints: [[Double]], nNeighbors: Int) -> [Neighbor] {
-        for point in testPoints {
-            assert(point.count == columns)
-        }
-        var neighbors = dataSet.enumerate().map { ($0, findDistance(testPoints, point: $1)) }
-        neighbors.sortInPlace { $0.1 < $1.1 }
-        return Array(neighbors.prefix(nNeighbors))
-    }*/
-    
     public func findNearestNeighbors(testPoint: [Double], nNeighbors: Int) -> [Neighbor] {
         if rows == 0 { return [] }
         

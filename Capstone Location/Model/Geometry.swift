@@ -125,7 +125,7 @@ extension CLLocationCoordinate2D {
     }
 }
 
-extension AnchoredFloorPlanConfiguation {
+extension AnchoredFloorPlanConfiguration {
     class func directionBetweenPoints<T: PointType>(sourcePoint: T, _ destinationPoint: T) -> Double {
         let x = destinationPoint.x - sourcePoint.x
         let y = destinationPoint.y - sourcePoint.y

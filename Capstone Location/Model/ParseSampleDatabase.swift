@@ -10,101 +10,83 @@ import Foundation
 import CoreLocation
 import Parse
 
+extension DictionaryConvertible {
+    var parseClassName: String {
+        return String(self.dynamicType)
+    }
+
+    init?(parseObject: PFObject) {
+        var dict = AnyDictionary()
+        for key in parseObject.allKeys {
+            dict[key] = parseObject.valueForKey(key)
+        }
+        self.init(dictionary: dict)
+    }
+    
+    func asParseObject() -> PFObject {
+        return PFObject(className: self.parseClassName, dictionary: self.asDictionary())
+    }
+}
+
 class ParseSampleDatabase: RFSampleDatabase {
-    var samples: [RFTrainingSample]
     let baseStations: [RFIdentifier]
     
+    var samplesBySquare = [GridSquare: [RFTrainingSample]]()
+    var samples: [RFTrainingSample] {
+        return Array(samplesBySquare.values.flatten())
+    }
+    
+    static var onceToken: dispatch_once_t = 0
+
     required init(baseStations: [RFIdentifier]) {
-        self.baseStations = baseStations
-        self.samples = ParseSampleDatabase.getSamplesFromDB()
-    }
-    
-    class func getSamplesFromDB() -> [RFTrainingSample] {
-        Parse.setApplicationId("yoUZSuVpCFUZ7JPwv8wOAiRIrDQbY27FwAd037if",
-            clientKey: "y1tAim2rlMYOQqS6Mrlplb10dV2sclh2AObxa8ZK")
-        let objects = try! PFQuery(className: "RFTrainingSample").findObjects()
-        return objects.flatMap { RFTrainingSample(parseObject: $0) }
-    }
-    
-    func addSample(trainingSample: RFTrainingSample) {
-        trainingSample.save()
-        samples.append(trainingSample)
-        notifyDidUpdate()
-    }
-    
-    func removeSample(trainingSample: RFTrainingSample) {
-        let predicate = NSPredicate { (object: AnyObject, bindings: [String : AnyObject]?) -> Bool in
-            let mirror = Mirror(reflecting: object)
-            print(mirror.subjectType)
-            return true
+        dispatch_once(&ParseSampleDatabase.onceToken) {
+            Parse.setApplicationId("yoUZSuVpCFUZ7JPwv8wOAiRIrDQbY27FwAd037if", clientKey: "y1tAim2rlMYOQqS6Mrlplb10dV2sclh2AObxa8ZK")
         }
-        
-        let objects = try! PFQuery(className: "RFTrainingSample", predicate: predicate).findObjects()
-        
-        
-        fatalError()
-    }
-}
-
-private extension Location {
-    init?(parseObject: PFObject) {
-        try! parseObject.fetchIfNeeded()
-        guard parseObject.parseClassName == "Location",
-            let x = parseObject["x"] as? Double,
-            y = parseObject["y"] as? Double,
-            floor = parseObject["floor"] as? Int else { return nil }
-        
-        self.init(x: x, y: y, floor: floor)
-    }
-    func asPFObject() -> PFObject {
-        let object = PFObject(className: "Location")
-        object["x"] = point.x
-        object["y"] = point.y
-        object["floor"] = floor
-        return object
-    }
-}
-
-private extension FloorSquare {
-    init?(parseObject: PFObject) {
-        try! parseObject.fetchIfNeeded()
-        guard parseObject.parseClassName == "FloorSquare",
-            let label = parseObject["label"] as? String,
-            floor = parseObject["floor"] as? Int else { return nil }
-        self.init(label: label, floor: floor)
-    }
-    func asPFObject() -> PFObject {
-        let object = PFObject(className: "FloorSquare")
-        object["label"] = label
-        object["floor"] = floor
-        return object
-    }
-}
-
-private extension RFTrainingSample {
-    init?(parseObject: PFObject) {
-        guard parseObject.parseClassName == "RFTrainingSample",
-            let parseFloorSquare = parseObject["floorSquare"] as? PFObject,
-            floorSquare = FloorSquare(parseObject: parseFloorSquare),
-            sample = parseObject["sample"] as? RFSample,
-            nameStamp = parseObject["nameStamp"] as? String else { return nil }
-        
-        self.init(location: floorSquare, sample: sample, nameStamp: nameStamp, timeStamp: parseObject.createdAt!)
+        self.baseStations = baseStations
+        reloadSamples()
     }
     
-    func save() {
-        let location = self.location.asPFObject()
-        location.saveInBackgroundWithBlock { (saved, error) -> Void in
-            let trainingSample = PFObject(className: "RFTrainingSample")
-            trainingSample["floorSquare"] = location
-            trainingSample["sample"] = self.sample
-            trainingSample["nameStamp"] = self.nameStamp
-            trainingSample.saveInBackgroundWithBlock { (saved, error) -> Void in
-                if let error = error {
-                    print(error)
+    func reloadSamples() {
+        PFQuery(className: "RFTrainingSample").findObjectsInBackgroundWithBlock { (objects, error) in
+            let samples = objects?.flatMap { RFTrainingSample(parseObject: $0) }
+            
+            if let samples = samples {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.updateWithSamples(samples)
                 }
             }
         }
     }
+    
+    func updateWithSamples(samples: [RFTrainingSample]) {
+        var samplesBySquare = [GridSquare: [RFTrainingSample]]()
+        for sample in samples {
+            var samplesForSquare = samplesBySquare[sample.square] ?? []
+            samplesForSquare.append(sample)
+            samplesBySquare[sample.square] = samplesForSquare
+        }
+        self.samplesBySquare = samplesBySquare
+        notifyDidUpdate()
+    }
+    
+    func addSample(trainingSample: RFTrainingSample) {
+        trainingSample.asParseObject().saveInBackground()
+        
+        var samples = samplesBySquare[trainingSample.square] ?? []
+        samples.append(trainingSample)
+        samplesBySquare[trainingSample.square] = samples
+        
+        notifyDidUpdate()
+    }
+    
+    func removeSample(trainingSample: RFTrainingSample) {
+        //let objects = try! PFQuery(className: "RFTrainingSample", predicate: predicate).findObjects()
+        
+        
+        fatalError()
+    }
+    
+    func samplesForSquare(square: GridSquare) -> [RFTrainingSample] {
+        return samplesBySquare[square] ?? []
+    }
 }
-

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10115" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Llo-E2-YRW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Llo-E2-YRW">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10084"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Map-->
+        <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="RFMapViewController" customModule="Capstone_Location" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,40 +20,39 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="p7s-pB-HkS" customClass="FloorPlanScrollView" customModule="Capstone_Location" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </scrollView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4H8-cn-Oe4">
-                                <rect key="frame" x="186" y="72" width="227" height="29"/>
-                                <segments>
-                                    <segment title="Basement"/>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                </segments>
-                                <connections>
-                                    <action selector="floorChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="p1Q-Pn-QNp"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="p7s-pB-HkS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Cst-eQ-NAd"/>
                             <constraint firstItem="p7s-pB-HkS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="KeJ-AG-TAS"/>
-                            <constraint firstItem="4H8-cn-Oe4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Krv-jE-Kcb"/>
                             <constraint firstItem="p7s-pB-HkS" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottomMargin" id="UJg-fI-zms"/>
                             <constraint firstAttribute="trailing" secondItem="p7s-pB-HkS" secondAttribute="trailing" id="xvf-77-Tit"/>
-                            <constraint firstItem="4H8-cn-Oe4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zLq-tm-6Ro"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="n0f-JC-el6" appends="YES" id="qyT-cE-SeO"/>
                             <outletCollection property="gestureRecognizers" destination="Idu-Z5-jFN" appends="YES" id="aC7-WY-yHs"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Map" id="DPc-n6-0fZ">
+                    <navigationItem key="navigationItem" id="DPc-n6-0fZ">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Train" id="gCW-R6-ICA">
                             <connections>
                                 <action selector="trainModeChanged:" destination="BYZ-38-t0r" id="qal-gL-Ydw"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Take Sample" id="c1n-hP-lzm">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="4H8-cn-Oe4">
+                            <rect key="frame" x="240" y="8" width="121" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="First"/>
+                                <segment title="Second"/>
+                            </segments>
+                            <connections>
+                                <action selector="floorChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="p1Q-Pn-QNp"/>
+                            </connections>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" title="Sample" id="c1n-hP-lzm">
                             <connections>
                                 <segue destination="Wnq-R4-cWq" kind="presentation" identifier="sampleSegue" id="hYj-5O-LGh"/>
                             </connections>
