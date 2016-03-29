@@ -49,16 +49,41 @@ class ParseSampleDatabase: RFSampleDatabase {
     func reloadSamples() {
         print("reloaded samples")
         
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            self._reloadSamples()
+        }
+    }
+    
+    private func _reloadSamples() {
+        
+        let limit = 1000
+        var finished = false
+        
         let query = PFQuery(className: "RFTrainingSample")
-        query.limit = 1000
-        query.findObjectsInBackgroundWithBlock { (objects, error) in
-            let samples = objects?.flatMap { RFTrainingSample(parseObject: $0) }
-            
-            if let samples = samples {
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.updateWithSamples(samples)
-                }
+        query.limit = limit
+        
+        var allSamples = [RFTrainingSample]()
+        
+        while !finished {
+            if let objects = try? query.findObjects() {
+                allSamples += objects.flatMap { RFTrainingSample(parseObject: $0) }
+                query.skip += limit
+                if objects.count != limit { finished = true }
             }
+        }
+        
+        /*
+        let arrayOfDictionaries = allSamples.map { $0.asDictionary() }
+        
+        let xml = try! NSPropertyListSerialization.dataWithPropertyList(arrayOfDictionaries, format: .XMLFormat_v1_0, options: 0)
+
+        let docPath = NSHomeDirectory().stringByAppendingString("/Documents/data.xml")
+        xml.writeToFile(docPath, atomically: true)
+        print(docPath)
+        */
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            self.updateWithSamples(allSamples)
         }
     }
     

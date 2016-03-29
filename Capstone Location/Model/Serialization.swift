@@ -218,12 +218,6 @@ private extension RFTrainingSample {
 }
 */
 
-extension Dictionary where Value: DictionaryConvertible {
-    func asDictionary() -> AnyDictionary {
-        return mapPairs { ("\($0)", $1.asDictionary()) }
-    }
-}
-
 extension Dictionary {
     init(_ pairs: [Element]) {
         self.init()

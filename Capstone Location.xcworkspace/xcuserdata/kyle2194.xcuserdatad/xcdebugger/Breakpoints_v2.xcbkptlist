@@ -950,11 +950,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/ParseSampleDatabase.swift"
-            timestampString = "480832899.409062"
+            timestampString = "480979714.551223"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "removeSample(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1460,59 +1460,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/ParseSampleDatabase.swift"
-            timestampString = "480832939.899245"
+            timestampString = "480979714.551223"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "reloadSamples()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Capstone_Location.ParseSampleDatabase.(reloadSamples () -&gt; ()).(closure #1)"
-                  moduleName = "Capstone Location"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kyle2194/Desktop/Xcode/Capstone%20Location/Capstone%20Location/Model/ParseSampleDatabase.swift"
-                  timestampString = "480832949.31243"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
-                  offsetFromSymbolStart = "368">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Capstone_Location.ParseSampleDatabase.(reloadSamples () -&gt; ()).(closure #1)"
-                  moduleName = "Capstone Location"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kyle2194/Desktop/Xcode/Capstone%20Location/Capstone%20Location/Model/ParseSampleDatabase.swift"
-                  timestampString = "480832949.312894"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
-                  offsetFromSymbolStart = "408">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Capstone Location/Model/ParseSampleDatabase.swift"
-            timestampString = "480832959.057631"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "updateWithSamples(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1524,11 +1476,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/ParseSampleDatabase.swift"
-            timestampString = "480833058.23315"
+            timestampString = "480979714.551223"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "updateWithSamples(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1541,11 +1493,11 @@
             condition = "square.column == &quot;C&quot;"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/ParseSampleDatabase.swift"
-            timestampString = "480833328.059978"
+            timestampString = "480979714.551223"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "samplesForSquare(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1580,6 +1532,102 @@
             endingLineNumber = "47"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capstone Location/Model/ParseSampleDatabase.swift"
+            timestampString = "480979514.327991"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "_reloadSamples()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Capstone_Location.ParseSampleDatabase.(_reloadSamples in _CE75FE82C9F3D79D106B404743A7E8D6) () -&gt; ()"
+                  moduleName = "Capstone Location"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kyle2194/Desktop/Xcode/Capstone%20Location/Capstone%20Location/Model/ParseSampleDatabase.swift"
+                  timestampString = "480979541.969273"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "1252">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Capstone_Location.ParseSampleDatabase.((_reloadSamples in _CE75FE82C9F3D79D106B404743A7E8D6) () -&gt; ()).(closure #2)"
+                  moduleName = "Capstone Location"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kyle2194/Desktop/Xcode/Capstone%20Location/Capstone%20Location/Model/ParseSampleDatabase.swift"
+                  timestampString = "480979541.972899"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "246">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capstone Location/Model/ParseSampleDatabase.swift"
+            timestampString = "480979714.551223"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "_reloadSamples()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Capstone_Location.ParseSampleDatabase.(_reloadSamples in _CE75FE82C9F3D79D106B404743A7E8D6) () -&gt; ()"
+                  moduleName = "Capstone Location"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kyle2194/Desktop/Xcode/Capstone%20Location/Capstone%20Location/Model/ParseSampleDatabase.swift"
+                  timestampString = "480979541.974503"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "2133">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[1] = Value Promoted from Box&gt; of Capstone_Location.ParseSampleDatabase.((_reloadSamples in _CE75FE82C9F3D79D106B404743A7E8D6) () -&gt; ()).(closure #3)"
+                  moduleName = "Capstone Location"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kyle2194/Desktop/Xcode/Capstone%20Location/Capstone%20Location/Model/ParseSampleDatabase.swift"
+                  timestampString = "480979541.974971"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
