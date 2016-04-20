@@ -32,10 +32,8 @@ class ParseSampleDatabase: RFSampleDatabase {
     let baseStations: [RFIdentifier]
     
     var samplesBySquare = [GridSquare: [RFTrainingSample]]()
-    var samples: [RFTrainingSample] {
-        return Array(samplesBySquare.values.flatten())
-    }
-    
+    var samples = [RFTrainingSample]()
+
     static var onceToken: dispatch_once_t = 0
 
     required init(baseStations: [RFIdentifier]) {
@@ -72,15 +70,15 @@ class ParseSampleDatabase: RFSampleDatabase {
             }
         }
         
-        /*
-        let arrayOfDictionaries = allSamples.map { $0.asDictionary() }
+        //let arrayOfDictionaries = allSamples.map { $0.asDictionary() }
+        //let docPath = NSHomeDirectory().stringByAppendingString("/Documents/data.json")
         
-        let xml = try! NSPropertyListSerialization.dataWithPropertyList(arrayOfDictionaries, format: .XMLFormat_v1_0, options: 0)
-
-        let docPath = NSHomeDirectory().stringByAppendingString("/Documents/data.xml")
-        xml.writeToFile(docPath, atomically: true)
-        print(docPath)
-        */
+        //let data = try! NSPropertyListSerialization.dataWithPropertyList(arrayOfDictionaries, format: .XMLFormat_v1_0, options: 0)
+        
+        //let json = try! NSJSONSerialization.dataWithJSONObject(arrayOfDictionaries, options: [])
+        
+        //data.writeToFile(docPath, atomically: true)
+        //print(docPath)
         
         dispatch_async(dispatch_get_main_queue()) {
             self.updateWithSamples(allSamples)
@@ -95,6 +93,8 @@ class ParseSampleDatabase: RFSampleDatabase {
             samplesBySquare[sample.square] = samplesForSquare
         }
         self.samplesBySquare = samplesBySquare
+        self.samples = samples
+        
         notifyDidUpdate()
     }
     
@@ -104,6 +104,8 @@ class ParseSampleDatabase: RFSampleDatabase {
         var samples = samplesBySquare[trainingSample.square] ?? []
         samples.append(trainingSample)
         samplesBySquare[trainingSample.square] = samples
+        
+        self.samples.append(trainingSample)
         
         notifyDidUpdate()
     }

@@ -50,16 +50,18 @@ public class Flann {
     }
 }
 
+/*
 private func findDistance(testPoints: [[Double]], point: [Double]) -> Double {
     let distances = testPoints.map { findDistance($0, point: point) }
     return distances.minElement()!
-}
+}*/
 
 private func findDistance(testPoint: [Double], point: [Double]) -> Double {
     assert(testPoint.count == point.count)
-    return length(testPoint + neg(point))
-}
-
-public func length(vector: [Double]) -> Double {
-    return sqrt(sum(vector * vector))
+    var total: Double = 0
+    for i in 0..<testPoint.count {
+        let difference = testPoint[i] - point[i]
+        total = hypot(total, difference)
+    }
+    return total
 }

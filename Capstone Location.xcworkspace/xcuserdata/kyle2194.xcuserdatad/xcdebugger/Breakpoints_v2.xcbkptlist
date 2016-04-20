@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/RFLocationManager.swift"
-            timestampString = "480807934.104016"
+            timestampString = "481917909.313288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "RFLocationManager"
             landmarkType = "3">
          </BreakpointContent>
@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/BluetoothSensorManager.swift"
-            timestampString = "478243470.514529"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "centralManager(_:didDiscoverPeripheral:advertisementData:RSSI:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -346,27 +346,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/BluetoothSensorManager.swift"
-            timestampString = "478243470.514529"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
-            landmarkName = "centralManager(_:didDiscoverPeripheral:advertisementData:RSSI:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Capstone Location/Model/BluetoothSensorManager.swift"
-            timestampString = "476589272.65197"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "centralManagerDidUpdateState(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -378,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/BluetoothSensorManager.swift"
-            timestampString = "476589273.298039"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "centralManagerDidUpdateState(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -394,11 +378,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/BluetoothSensorManager.swift"
-            timestampString = "476589277.582071"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "startScanning()"
             landmarkType = "5">
          </BreakpointContent>
@@ -410,11 +394,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/BluetoothSensorManager.swift"
-            timestampString = "476589296.724629"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "centralManagerDidUpdateState(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -426,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/BluetoothSensorManager.swift"
-            timestampString = "476589302.552436"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "startScanning()"
             landmarkType = "5">
          </BreakpointContent>
@@ -442,11 +426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/BluetoothSensorManager.swift"
-            timestampString = "476589305.651391"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "startScanning()"
             landmarkType = "5">
          </BreakpointContent>
@@ -458,11 +442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/BluetoothSensorManager.swift"
-            timestampString = "476589333.775019"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "stopScanning()"
             landmarkType = "5">
          </BreakpointContent>
@@ -474,11 +458,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/BluetoothSensorManager.swift"
-            timestampString = "478243470.514529"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "centralManager(_:didDiscoverPeripheral:advertisementData:RSSI:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -490,11 +474,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/BluetoothSensorManager.swift"
-            timestampString = "478243470.514529"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "BluetoothSensorManager"
             landmarkType = "3">
          </BreakpointContent>
@@ -602,11 +586,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/BluetoothSensorManager.swift"
-            timestampString = "478226229.465895"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "BluetoothSensorManager"
             landmarkType = "3">
             <Locations>
@@ -680,11 +664,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/BluetoothSensorManager.swift"
-            timestampString = "478226230.991814"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -696,11 +680,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/BluetoothSensorManager.swift"
-            timestampString = "478226407.742138"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "BluetoothSensorManager"
             landmarkType = "3">
          </BreakpointContent>
@@ -712,11 +696,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/RFLocationManager.swift"
-            timestampString = "480807934.104016"
+            timestampString = "481917909.313288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "startUpdatingLocation()"
             landmarkType = "5">
          </BreakpointContent>
@@ -728,11 +712,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/RFLocationManager.swift"
-            timestampString = "480807934.104016"
+            timestampString = "481917909.313288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "predictLocationForIntensity(_:nNeighbors:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -824,11 +808,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/BluetoothSensorManager.swift"
-            timestampString = "478453806.165514"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "didUpdateDevice(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -840,11 +824,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/BluetoothSensorManager.swift"
-            timestampString = "478453809.925141"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "didUpdateDevice(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -856,11 +840,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/BluetoothSensorManager.swift"
-            timestampString = "479959016.457324"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "startScanning()"
             landmarkType = "5">
          </BreakpointContent>
@@ -918,11 +902,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/ParseSampleDatabase.swift"
-            timestampString = "480817254.397979"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "ParseSampleDatabase"
             landmarkType = "3">
          </BreakpointContent>
@@ -934,11 +918,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/ParseSampleDatabase.swift"
-            timestampString = "480827676.21645"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "reloadSamples()"
             landmarkType = "5">
          </BreakpointContent>
@@ -950,13 +934,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/ParseSampleDatabase.swift"
-            timestampString = "480979714.551223"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "removeSample(_:)"
-            landmarkType = "5">
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "ParseSampleDatabase"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -966,7 +950,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/ParseSampleDatabase.swift"
-            timestampString = "480807934.104016"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
@@ -1254,11 +1238,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/ParseSampleDatabase.swift"
-            timestampString = "480827654.87883"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "reloadSamples()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1270,11 +1254,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/BluetoothSensorManager.swift"
-            timestampString = "480830021.86213"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1286,11 +1270,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/RFLocationManager.swift"
-            timestampString = "480830104.044278"
+            timestampString = "481917909.313288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "init(sensorManager:database:floorPlanConfiguration:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1316,11 +1300,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/RFLocationManager.swift"
-            timestampString = "480832281.723974"
+            timestampString = "481917909.313288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "manager(_:didUpdateDevice:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1332,11 +1316,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/RFLocationManager.swift"
-            timestampString = "480832284.713961"
+            timestampString = "481917909.313288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "predictLocationForIntensity(_:nNeighbors:)"
             landmarkType = "5">
             <Locations>
@@ -1380,11 +1364,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/RFLocationManager.swift"
-            timestampString = "480832393.085899"
+            timestampString = "481917909.313288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "predictLocationForIntensity(_:nNeighbors:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1396,11 +1380,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/RFLocationManager.swift"
-            timestampString = "480832529.773274"
+            timestampString = "481917909.313288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "predictLocationForIntensity(_:nNeighbors:)"
             landmarkType = "5">
             <Locations>
@@ -1440,7 +1424,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/Flann.swift"
@@ -1460,11 +1444,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/ParseSampleDatabase.swift"
-            timestampString = "480979714.551223"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "updateWithSamples(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1476,13 +1460,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/ParseSampleDatabase.swift"
-            timestampString = "480979714.551223"
+            timestampString = "480985941.390741"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "updateWithSamples(_:)"
-            landmarkType = "5">
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "ParseSampleDatabase"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1493,13 +1477,11 @@
             condition = "square.column == &quot;C&quot;"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/ParseSampleDatabase.swift"
-            timestampString = "480979714.551223"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "samplesForSquare(_:)"
-            landmarkType = "5">
+            startingLineNumber = "122"
+            endingLineNumber = "122">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1541,11 +1523,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capstone Location/Model/ParseSampleDatabase.swift"
-            timestampString = "480979514.327991"
+            timestampString = "481916707.804258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "_reloadSamples()"
             landmarkType = "5">
             <Locations>
@@ -1588,46 +1570,236 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Capstone Location/Model/ParseSampleDatabase.swift"
-            timestampString = "480979714.551223"
+            filePath = "Capstone Location/Model/Flann.swift"
+            timestampString = "481916826.674113"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "_reloadSamples()"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "findNearestNeighbors(_:nNeighbors:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capstone Location/Model/Flann.swift"
+            timestampString = "481916840.284115"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "findNearestNeighbors(_:nNeighbors:)"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Capstone_Location.ParseSampleDatabase.(_reloadSamples in _CE75FE82C9F3D79D106B404743A7E8D6) () -&gt; ()"
+                  symbolName = "Capstone_Location.Flann.findNearestNeighbors (Swift.Array&lt;Swift.Double&gt;, nNeighbors : Swift.Int) -&gt; Swift.Array&lt;(index : Swift.Int, distance : Swift.Double)&gt;"
                   moduleName = "Capstone Location"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kyle2194/Desktop/Xcode/Capstone%20Location/Capstone%20Location/Model/ParseSampleDatabase.swift"
-                  timestampString = "480979541.974503"
+                  urlString = "file:///Users/kyle2194/Desktop/Xcode/Capstone%20Location/Capstone%20Location/Model/Flann.swift"
+                  timestampString = "481916846.931481"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
-                  offsetFromSymbolStart = "2133">
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "892">
                </Location>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "function signature specialization &lt;Arg[1] = Value Promoted from Box&gt; of Capstone_Location.ParseSampleDatabase.((_reloadSamples in _CE75FE82C9F3D79D106B404743A7E8D6) () -&gt; ()).(closure #3)"
+                  symbolName = "Capstone_Location.Flann.(findNearestNeighbors (Swift.Array&lt;Swift.Double&gt;, nNeighbors : Swift.Int) -&gt; Swift.Array&lt;(index : Swift.Int, distance : Swift.Double)&gt;).(closure #2)"
                   moduleName = "Capstone Location"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kyle2194/Desktop/Xcode/Capstone%20Location/Capstone%20Location/Model/ParseSampleDatabase.swift"
-                  timestampString = "480979541.974971"
+                  urlString = "file:///Users/kyle2194/Desktop/Xcode/Capstone%20Location/Capstone%20Location/Model/Flann.swift"
+                  timestampString = "481916846.932282"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "80"
-                  endingLineNumber = "80"
-                  offsetFromSymbolStart = "19">
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "28">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capstone Location/Model/Flann.swift"
+            timestampString = "481916981.390148"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "findNearestNeighbors(_:nNeighbors:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capstone Location/Model/Flann.swift"
+            timestampString = "481917006.013802"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "init(dataSet:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capstone Location/Model/RFLocationManager.swift"
+            timestampString = "481917909.313288"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "updateFlannMatcher()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capstone Location/Model/RFLocationManager.swift"
+            timestampString = "481917909.313288"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "updateFlannMatcher()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capstone Location/Model/RFLocationManager.swift"
+            timestampString = "481917909.313288"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "updateFlannMatcher()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Capstone_Location.RFLocationManager.updateFlannMatcher () -&gt; ()"
+                  moduleName = "Capstone Location"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kyle2194/Desktop/Xcode/Capstone%20Location/Capstone%20Location/Model/RFLocationManager.swift"
+                  timestampString = "481917793.683031"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "624">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Capstone_Location.RFLocationManager.(updateFlannMatcher () -&gt; ()).(closure #1)"
+                  moduleName = "Capstone Location"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kyle2194/Desktop/Xcode/Capstone%20Location/Capstone%20Location/Model/RFLocationManager.swift"
+                  timestampString = "481917793.683293"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "172">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capstone Location/Model/RFLocationManager.swift"
+            timestampString = "481917909.313288"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "updateFlannMatcher()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capstone Location/Model/Flann.swift"
+            timestampString = "481918165.780586"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capstone Location/Model/Flann.swift"
+            timestampString = "481918110.780946"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "findDistance(_:point:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Capstone Location/Model/Flann.swift"
+            timestampString = "481918111.532083"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "findDistance(_:point:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

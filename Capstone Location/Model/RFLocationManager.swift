@@ -18,7 +18,6 @@ class RFLocationManager: NSObject, RFSensorManagerDelegate {
     internal let floorPlanConfiguration: FloorPlanConfiguration
    
     private var flannMatcher: Flann?
-    private var samples = [RFTrainingSample]()
     
     var delegate: RFLocationManagerDelegate? = nil
     
@@ -39,18 +38,28 @@ class RFLocationManager: NSObject, RFSensorManagerDelegate {
     let missingRSSIValue: RSSI = -140
     
     func updateFlannMatcher() {
-        let intensities = database.samples.map { sample in
-            floorPlanConfig.baseStations.map { stationID in
+        var intensities = [[Double]]()
+
+        for sample in database.samples {
+            let intensity = floorPlanConfig.baseStations.map { stationID in
                 return sample.sample[stationID] ?? missingRSSIValue
             }
+            intensities.append(intensity)
         }
         
         guard intensities.count > 0 else { return }
         
         flannMatcher = Flann(dataSet: intensities)
     }
+    
+    var lastSampleTime: NSDate?
 
     func manager(manager: RFSensorManager, didUpdateDevice device: RFDevice) {
+        if let lastSampleTime = lastSampleTime where lastSampleTime.timeIntervalBeforeNow < 0.1 {
+            return
+        }
+        
+        lastSampleTime = NSDate()
         if let location = predictLocationForIntensity(manager.sample()) {
             self.location = location
             delegate?.locationManager(self, didUpdateLocation: location)
@@ -98,5 +107,11 @@ extension RFLocationManager {
     func computeReprojectionError(trainingSample: RFTrainingSample) -> Double {
         let estimatedLocation = predictLocationForIntensity(trainingSample.sample)!
         return floorPlanConfiguration.locationOfSquare(trainingSample.square).distanceToLocation(estimatedLocation)
+    }
+}
+
+extension NSDate {
+    var timeIntervalBeforeNow: Double {
+        return -1 * timeIntervalSinceNow
     }
 }

@@ -49,6 +49,26 @@ class iCloudSampleDatabase: RFSampleDatabase {
     }
 }
 
+extension DictionaryConvertible {
+    var recordName: String {
+        return String(self.dynamicType)
+    }
+    
+    init?(record: CKRecord) {
+        var dict = AnyDictionary()
+        for key in parseObject.allKeys {
+            dict[key] = parseObject.valueForKey(key)
+        }
+        self.init(dictionary: dict)
+    }
+    
+    func asRecord() -> CKRecord {
+        var reinterpretedDictionary = [String: AnyObject]()
+        
+        return PFObject(className: self.parseClassName, dictionary: self.asDictionary())
+    }
+}
+
 private extension Location {
     init?(recordObject: CKRecord) {
         
